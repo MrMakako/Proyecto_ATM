@@ -1,6 +1,6 @@
 ﻿namespace Proyecto_ATM
 {
-    partial class PantallaRetiroNormal
+    partial class PantallaMenuRetiro
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,17 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            label1 = new Label();
             SuspendLayout();
             // 
-            // PantallaRetiroNormal
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(495, 270);
+            label1.Name = "label1";
+            label1.Size = new Size(146, 20);
+            label1.TabIndex = 0;
+            label1.Text = "Pantalla Menu Retiro";
+            // 
+            // PantallaMenuRetiro
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Name = "PantallaRetiroNormal";
+            Controls.Add(label1);
+            Name = "PantallaMenuRetiro";
             Size = new Size(1024, 721);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label1;
     }
 }

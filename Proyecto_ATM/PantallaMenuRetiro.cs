@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Proyecto_ATM
 {
-    public partial class PantallaRetiroNormal : UserControl
+    public partial class PantallaMenuRetiro : UserControl
     {
-        public PantallaRetiroNormal()
+        public PantallaMenuRetiro()
         {
             InitializeComponent();
         }
