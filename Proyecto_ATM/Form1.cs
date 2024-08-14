@@ -26,7 +26,6 @@ namespace Proyecto_ATM
 
 
 
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -71,7 +70,7 @@ namespace Proyecto_ATM
 
         }
 
-        private void switch_to_retiro_normal_1()
+        public void switch_to_retiro_normal_1()
         {
             hide_all();
             pantallaRetiroNormalP1.Show();

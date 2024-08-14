@@ -34,19 +34,20 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(519, 182);
+            label1.Location = new Point(456, 200);
             label1.Name = "label1";
-            label1.Size = new Size(159, 20);
+            label1.Size = new Size(126, 15);
             label1.TabIndex = 0;
             label1.Text = "Pantall retiro Normal 1";
             // 
             // PantallaRetiroNormalP1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "PantallaRetiroNormalP1";
-            Size = new Size(1024, 721);
+            Size = new Size(896, 541);
             ResumeLayout(false);
             PerformLayout();
         }
