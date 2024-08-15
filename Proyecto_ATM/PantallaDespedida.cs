@@ -16,5 +16,24 @@ namespace Proyecto_ATM
         {
             InitializeComponent();
         }
+
+        private void PantallaDespedida_Load(object sender, EventArgs e)
+        {
+            label1.Parent = pictureBox1;
+            label2.Parent = pictureBox1;
+            label2.Location = new Point(86, 126);
+            label1.Location = new Point(96, 175);
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
