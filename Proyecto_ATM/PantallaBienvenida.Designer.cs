@@ -38,11 +38,11 @@
             // 
             label1.AutoSize = true;
             label1.FlatStyle = FlatStyle.Flat;
-            label1.Font = new Font("Bookman Old Style", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(111, 632);
+            label1.Location = new Point(221, 635);
             label1.Name = "label1";
-            label1.Size = new Size(801, 47);
+            label1.Size = new Size(640, 49);
             label1.TabIndex = 0;
             label1.Text = "Pulse cualquier boton para continuar.";
             label1.Click += label1_Click;

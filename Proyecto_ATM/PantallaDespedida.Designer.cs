@@ -40,11 +40,11 @@
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.FlatStyle = FlatStyle.Popup;
-            label2.Font = new Font("Bookman Old Style", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Candara", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(86, 132);
+            label2.Location = new Point(88, 130);
             label2.Name = "label2";
-            label2.Size = new Size(269, 47);
+            label2.Size = new Size(225, 49);
             label2.TabIndex = 1;
             label2.Text = "¡Gracias por";
             // 
@@ -53,25 +53,24 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.FlatStyle = FlatStyle.Popup;
-            label1.Font = new Font("Bookman Old Style", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
             label1.Location = new Point(94, 179);
             label1.Name = "label1";
-            label1.Size = new Size(261, 47);
+            label1.Size = new Size(219, 49);
             label1.TabIndex = 2;
             label1.Text = "preferirnos!";
-            label1.Click += label1_Click;
+            
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(36, 70);
+            pictureBox1.Location = new Point(42, 68);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(952, 582);
+            pictureBox1.Size = new Size(952, 603);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // PantallaDespedida
             // 
