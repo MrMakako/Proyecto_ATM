@@ -84,6 +84,7 @@
             // label1
             // 
             label1.AutoSize = true;
+
             label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Snow;
             label1.Location = new Point(200, 22);
@@ -248,6 +249,17 @@
             // PantallaRetiroNormalP1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
+
+            label1.Location = new Point(456, 200);
+            label1.Name = "label1";
+            label1.Size = new Size(126, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Pantall retiro Normal 1";
+            // 
+            // PantallaRetiroNormalP1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(238, 39, 55);
             Controls.Add(roundButton10);
@@ -259,11 +271,13 @@
             Controls.Add(roundButton4);
             Controls.Add(roundButton3);
             Controls.Add(label1);
+
             Controls.Add(roundButton2);
             Controls.Add(roundButton1);
             Margin = new Padding(4);
             Name = "PantallaRetiroNormalP1";
             Size = new Size(1280, 901);
+
             ResumeLayout(false);
             PerformLayout();
         }
