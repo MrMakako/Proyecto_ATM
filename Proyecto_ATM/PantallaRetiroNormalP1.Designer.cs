@@ -245,19 +245,7 @@
             roundButton10.Text = "Regresar";
             roundButton10.TextColor = Color.White;
             roundButton10.UseVisualStyleBackColor = false;
-            // 
-            // PantallaRetiroNormalP1
-            // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-
-            label1.Location = new Point(456, 200);
-            label1.Name = "label1";
-            label1.Size = new Size(126, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Pantall retiro Normal 1";
-            // 
-            // PantallaRetiroNormalP1
-            // 
+         
             AutoScaleDimensions = new SizeF(7F, 15F);
 
             AutoScaleMode = AutoScaleMode.Font;
