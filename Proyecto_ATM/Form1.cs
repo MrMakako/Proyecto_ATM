@@ -10,16 +10,36 @@ namespace Proyecto_ATM
         private void Form1_Load(object sender, EventArgs e)
         {
 
+            //bienvenida & despedida
             pantallaBienvenida.BringToFront();
             pantallaDespedida.Hide();
+
+            //Menus
             pantallaMenuRetiro.Hide();
+            pantallaMenuTecnico.Hide();
+            //pantallaMenuAgente.Hide();
+            //pantallaMenuConsulta.Hide();
+
+            //Retiro normal
             pantallaRetiroNormalP1.Hide();
             pantallaRetiroNormalP2.Hide();
-            pantallaMenuTecnico.Hide();
-
+            pantallaIngresoTarjeta.Hide();
+            pantallaIngresoPin.Hide();
+            
+            //Retiro sin Tarjeta
+            pantallaRetiroSinTarjetaP1.Hide();
+            pantallaRetiroSinTarjetaP2.Hide();
+        
             //Transiciones
+            //menu de Retiro
             pantallaMenuRetiro.salirMenuRetiro += new EventHandler(switch_to_bienvenida);
+            pantallaMenuRetiro.redIngresoTarjeta += new EventHandler(switch_to_ingreso_tarjeta);
+            pantallaMenuRetiro.redIngresoSinTarjeta += new EventHandler(switch_to_retiro_sin_tarjeta);
+            
+
+            //despedida 
             pantallaDespedida.despedidaTimeUp += new EventHandler(switch_to_bienvenida);
+            
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -52,7 +72,13 @@ namespace Proyecto_ATM
             pantallaRetiroNormalP2.Hide();
             pantallaMenuTecnico.Hide();
             pantallaBienvenida.Hide();
+            pantallaIngresoTarjeta.Hide();
+            pantallaIngresoPin.Hide();
         }
+
+        //Transiciones
+
+        //Bienvenida & Despedida
         public void switch_to_bienvenida(object sender, EventArgs e)
         {
             hide_all();
@@ -60,17 +86,32 @@ namespace Proyecto_ATM
             pantallaBienvenida.BringToFront();
 
         }
+        private void switch_to_despedida()
+        {
 
-        private void switch_to_menu_tecnico()
+            hide_all();
+            pantallaDespedida.Show();
+            pantallaDespedida.BringToFront();
+
+        }       
+
+        //Ingreso de Tarjeta & Pin
+        public void switch_to_ingreso_tarjeta(object sender, EventArgs e)
         {
             hide_all();
-            pantallaMenuTecnico.Show();
-            pantallaMenuTecnico.BringToFront();
-
-
+            pantallaIngresoTarjeta.Show();
+            pantallaIngresoTarjeta.BringToFront();
 
         }
+        public void switch_to_ingreso_pin(object sender, EventArgs e)
+        {
+            hide_all();
+            pantallaIngresoPin.Show();
+            pantallaIngresoPin.BringToFront();
 
+        }
+        
+        //Retiro Normal 
         public void switch_to_retiro_normal_1()
         {
             hide_all();
@@ -83,18 +124,17 @@ namespace Proyecto_ATM
             hide_all();
             pantallaRetiroNormalP2.Show();
             pantallaRetiroNormalP2.BringToFront();
-
-
         }
-        private void switch_to_despedida()
+        //Retiro Sin Tarjeta
+        private void switch_to_retiro_sin_tarjeta(object sender, EventArgs e)
         {
-
             hide_all();
-            pantallaDespedida.Show();
-            pantallaDespedida.BringToFront();
-
+            pantallaRetiroSinTarjetaP1.Show();
+            pantallaRetiroSinTarjetaP1.BringToFront();
         }
-        private void switch_to_menu_retiro()
+
+        //Menus
+        private void switch_to_menu_retiro(object sender, EventArgs e)
         {
             hide_all();
 
@@ -102,6 +142,13 @@ namespace Proyecto_ATM
             pantallaMenuRetiro.BringToFront();
         }
 
+        private void switch_to_menu_tecnico()
+        {
+            hide_all();
+            pantallaMenuTecnico.Show();
+            pantallaMenuTecnico.BringToFront();
+        }
+        //Botones 
         private void button3_Click(object sender, EventArgs e)
         {
             switch_to_despedida();
@@ -119,7 +166,7 @@ namespace Proyecto_ATM
 
         private void button5_Click(object sender, EventArgs e)
         {
-            switch_to_menu_retiro();
+            switch_to_menu_retiro(sender, e);
         }
     }
 }

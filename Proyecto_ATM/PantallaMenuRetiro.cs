@@ -18,6 +18,8 @@ namespace Proyecto_ATM
         }
 
         public event EventHandler salirMenuRetiro;
+        public event EventHandler redIngresoTarjeta;
+        public event EventHandler redIngresoSinTarjeta;
 
         private void PantallaMenuRetiro_Load(object sender, EventArgs e)
         {
@@ -26,12 +28,26 @@ namespace Proyecto_ATM
 
         private void R_Normal_B_Click(object sender, EventArgs e)
         {
-
+            if (this.redIngresoTarjeta != null)
+            {
+                this.redIngresoTarjeta(this, e);
+            }
+            else
+            {
+                Console.WriteLine("Error al cambiar panel Menu de Retiro ->ingreso de tarjeta\n");
+            }
         }
 
         private void R_SinTarjeta_B_Click(object sender, EventArgs e)
         {
-
+            if (this.redIngresoSinTarjeta != null)
+            {
+                this.redIngresoSinTarjeta(this, e);
+            }
+            else
+            {
+                Console.WriteLine("Error al cambiar panel Menu de Retiro ->retiro sin tarjeta\n");
+            }
         }
 
         private void SalirBtn_Click(object sender, EventArgs e)
@@ -43,8 +59,6 @@ namespace Proyecto_ATM
             else{
                 Console.WriteLine("Error al cambiar panel Menu de Retiro\n");
             }
-
-
         }
     }
 }
