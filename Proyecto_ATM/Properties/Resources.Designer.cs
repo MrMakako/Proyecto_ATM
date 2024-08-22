@@ -59,5 +59,25 @@ namespace Proyecto_ATM.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap retiro_Normal {
+            get {
+                object obj = ResourceManager.GetObject("retiro Normal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap retiro_sin_tarjeta {
+            get {
+                object obj = ResourceManager.GetObject("retiro sin tarjeta", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
