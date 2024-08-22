@@ -30,7 +30,7 @@
         {
             R_SinTarjeta_B = new PictureBox();
             R_Normal_B = new PictureBox();
-            roundButton1 = new RoundButton();
+            SalirBtn = new RoundButton();
             roundButton2 = new RoundButton();
             ((System.ComponentModel.ISupportInitialize)R_SinTarjeta_B).BeginInit();
             ((System.ComponentModel.ISupportInitialize)R_Normal_B).BeginInit();
@@ -60,25 +60,26 @@
             R_Normal_B.TabStop = false;
             R_Normal_B.Click += R_Normal_B_Click;
             // 
-            // roundButton1
+            // SalirBtn
             // 
-            roundButton1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            roundButton1.BackColor = Color.FromArgb(204, 24, 38);
-            roundButton1.BackgroundColor = Color.FromArgb(204, 24, 38);
-            roundButton1.BorderColor = Color.FromArgb(204, 24, 38);
-            roundButton1.BorderRadius = 10;
-            roundButton1.BorderSize = 1;
-            roundButton1.FlatAppearance.BorderSize = 0;
-            roundButton1.FlatStyle = FlatStyle.Flat;
-            roundButton1.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            roundButton1.ForeColor = Color.White;
-            roundButton1.Location = new Point(805, 664);
-            roundButton1.Name = "roundButton1";
-            roundButton1.Size = new Size(223, 68);
-            roundButton1.TabIndex = 5;
-            roundButton1.Text = "Salir";
-            roundButton1.TextColor = Color.White;
-            roundButton1.UseVisualStyleBackColor = false;
+            SalirBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            SalirBtn.BackColor = Color.FromArgb(204, 24, 38);
+            SalirBtn.BackgroundColor = Color.FromArgb(204, 24, 38);
+            SalirBtn.BorderColor = Color.FromArgb(204, 24, 38);
+            SalirBtn.BorderRadius = 10;
+            SalirBtn.BorderSize = 1;
+            SalirBtn.FlatAppearance.BorderSize = 0;
+            SalirBtn.FlatStyle = FlatStyle.Flat;
+            SalirBtn.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            SalirBtn.ForeColor = Color.White;
+            SalirBtn.Location = new Point(805, 664);
+            SalirBtn.Name = "SalirBtn";
+            SalirBtn.Size = new Size(223, 68);
+            SalirBtn.TabIndex = 5;
+            SalirBtn.Text = "Salir";
+            SalirBtn.TextColor = Color.White;
+            SalirBtn.UseVisualStyleBackColor = false;
+            SalirBtn.Click += SalirBtn_Click;
             // 
             // roundButton2
             // 
@@ -104,7 +105,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(238, 39, 55);
-            Controls.Add(roundButton1);
+            Controls.Add(SalirBtn);
             Controls.Add(roundButton2);
             Controls.Add(R_Normal_B);
             Controls.Add(R_SinTarjeta_B);
@@ -120,7 +121,7 @@
 
         private PictureBox R_SinTarjeta_B;
         private PictureBox R_Normal_B;
-        private RoundButton roundButton1;
+        private RoundButton SalirBtn;
         private RoundButton roundButton2;
     }
 }

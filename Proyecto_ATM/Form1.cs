@@ -17,7 +17,9 @@ namespace Proyecto_ATM
             pantallaRetiroNormalP2.Hide();
             pantallaMenuTecnico.Hide();
 
-            pantallaDespedida.OnTimeout = switch_to_bienvenida;
+            //Transiciones
+            pantallaMenuRetiro.salirMenuRetiro += new EventHandler(switch_to_bienvenida);
+            pantallaDespedida.despedidaTimeUp += new EventHandler(switch_to_bienvenida);
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -29,7 +31,7 @@ namespace Proyecto_ATM
 
         private void button2_Click(object sender, EventArgs e)
         {
-            switch_to_bienvenida();
+            switch_to_bienvenida(sender, e);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -51,7 +53,7 @@ namespace Proyecto_ATM
             pantallaMenuTecnico.Hide();
             pantallaBienvenida.Hide();
         }
-        public void switch_to_bienvenida()
+        public void switch_to_bienvenida(object sender, EventArgs e)
         {
             hide_all();
             pantallaBienvenida.Show();

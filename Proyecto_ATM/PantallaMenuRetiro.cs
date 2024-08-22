@@ -17,6 +17,8 @@ namespace Proyecto_ATM
             InitializeComponent();
         }
 
+        public event EventHandler salirMenuRetiro;
+
         private void PantallaMenuRetiro_Load(object sender, EventArgs e)
         {
 
@@ -32,6 +34,17 @@ namespace Proyecto_ATM
 
         }
 
-        
+        private void SalirBtn_Click(object sender, EventArgs e)
+        {
+            if(this.salirMenuRetiro != null)
+            {
+                this.salirMenuRetiro(this, e);
+            }
+            else{
+                Console.WriteLine("Error al cambiar panel Menu de Retiro\n");
+            }
+
+
+        }
     }
 }

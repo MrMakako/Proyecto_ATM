@@ -13,7 +13,7 @@ namespace Proyecto_ATM
     public partial class PantallaDespedida : UserControl
     {
         private System.Windows.Forms.Timer Relojito;
-        public Action OnTimeout { get; set; }
+        public event EventHandler despedidaTimeUp;
         public PantallaDespedida()
         {
             InitializeComponent();
@@ -48,8 +48,16 @@ namespace Proyecto_ATM
             Relojito.Stop();
             Relojito.Dispose();
             this.Hide();
-            OnTimeout?.Invoke();
-            
+            if (this.despedidaTimeUp != null)
+            {
+                this.despedidaTimeUp(this, e);
+            }
+            else
+            {
+                Console.WriteLine("Error al cambiar panel de Despedida\n");
+            }
+
+
         }
 
     }
