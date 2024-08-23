@@ -89,6 +89,7 @@
             roundButton2.BorderColor = Color.PaleVioletRed;
             roundButton2.BorderRadius = 10;
             roundButton2.BorderSize = 0;
+            roundButton2.Enabled = false;
             roundButton2.FlatAppearance.BorderSize = 0;
             roundButton2.FlatStyle = FlatStyle.Flat;
             roundButton2.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);

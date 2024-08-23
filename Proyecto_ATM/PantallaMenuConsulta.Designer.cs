@@ -67,6 +67,7 @@
             roundButton2.BorderColor = Color.PaleVioletRed;
             roundButton2.BorderRadius = 10;
             roundButton2.BorderSize = 0;
+            roundButton2.Enabled = false;
             roundButton2.FlatAppearance.BorderSize = 0;
             roundButton2.FlatStyle = FlatStyle.Flat;
             roundButton2.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -131,6 +132,7 @@
             roundButton3.BorderColor = Color.PaleVioletRed;
             roundButton3.BorderRadius = 10;
             roundButton3.BorderSize = 0;
+            roundButton3.Enabled = false;
             roundButton3.FlatAppearance.BorderSize = 0;
             roundButton3.FlatStyle = FlatStyle.Flat;
             roundButton3.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);

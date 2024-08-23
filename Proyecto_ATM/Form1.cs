@@ -40,8 +40,13 @@ namespace Proyecto_ATM
             //menu de Consulta
             pantallaMenuConsulta.salirMenuConsulta += new EventHandler(switch_to_bienvenida);
             pantallaMenuConsulta.regresarMenuConsulta += new EventHandler(switch_to_menu_retiro);
-            //pantallaMenuConsulta.redConsulta_MenuConsulta += new EventHandler();
+            //pantallaMenuConsulta.redConsulta_MenuConsulta += new EventHandler(); //La consulta aun no esta :P
             pantallaMenuConsulta.redRetiroP1_MenuConsulta += new EventHandler(switch_to_retiro_normal_1);
+
+            //menu de Tecnico
+            pantallaMenuTecnico.salirMenuTecnico += new EventHandler(switch_to_bienvenida);
+            //pantallaMenuTecnico.redMovimientos_MenuTecnico += new EventHandler();
+            //pantallaMenuTecnico.redEstadoAct_MenuTecnico += new EventHandler();
 
             //despedida 
             pantallaDespedida.despedidaTimeUp += new EventHandler(switch_to_bienvenida);
