@@ -17,29 +17,35 @@ namespace Proyecto_ATM
             //Menus
             pantallaMenuRetiro.Hide();
             pantallaMenuTecnico.Hide();
-            //pantallaMenuAgente.Hide();
-            //pantallaMenuConsulta.Hide();
+            pantallaMenuAgente.Hide();
+            pantallaMenuConsulta.Hide();
 
             //Retiro normal
             pantallaRetiroNormalP1.Hide();
             pantallaRetiroNormalP2.Hide();
             pantallaIngresoTarjeta.Hide();
             pantallaIngresoPin.Hide();
-            
+
             //Retiro sin Tarjeta
             pantallaRetiroSinTarjetaP1.Hide();
             pantallaRetiroSinTarjetaP2.Hide();
-        
+
+
             //Transiciones
             //menu de Retiro
             pantallaMenuRetiro.salirMenuRetiro += new EventHandler(switch_to_bienvenida);
-            pantallaMenuRetiro.redIngresoTarjeta += new EventHandler(switch_to_ingreso_tarjeta);
-            pantallaMenuRetiro.redIngresoSinTarjeta += new EventHandler(switch_to_retiro_sin_tarjeta);
-            
+            pantallaMenuRetiro.redIngresoTarjeta_MenuRetiro += new EventHandler(switch_to_ingreso_tarjeta);
+            pantallaMenuRetiro.redIngresoSinTarjeta_MenuRetiro += new EventHandler(switch_to_retiro_sin_tarjeta);
+
+            //menu de Consulta
+            pantallaMenuConsulta.salirMenuConsulta += new EventHandler(switch_to_bienvenida);
+            pantallaMenuConsulta.regresarMenuConsulta += new EventHandler(switch_to_menu_retiro);
+            //pantallaMenuConsulta.redConsulta_MenuConsulta += new EventHandler();
+            pantallaMenuConsulta.redRetiroP1_MenuConsulta += new EventHandler(switch_to_retiro_normal_1);
 
             //despedida 
             pantallaDespedida.despedidaTimeUp += new EventHandler(switch_to_bienvenida);
-            
+
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -56,7 +62,7 @@ namespace Proyecto_ATM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            switch_to_retiro_normal_1();
+            switch_to_retiro_normal_1(sender, e);
 
         }
 
@@ -93,7 +99,7 @@ namespace Proyecto_ATM
             pantallaDespedida.Show();
             pantallaDespedida.BringToFront();
 
-        }       
+        }
 
         //Ingreso de Tarjeta & Pin
         public void switch_to_ingreso_tarjeta(object sender, EventArgs e)
@@ -110,9 +116,9 @@ namespace Proyecto_ATM
             pantallaIngresoPin.BringToFront();
 
         }
-        
+
         //Retiro Normal 
-        public void switch_to_retiro_normal_1()
+        public void switch_to_retiro_normal_1(object sender, EventArgs e)
         {
             hide_all();
             pantallaRetiroNormalP1.Show();
@@ -148,6 +154,14 @@ namespace Proyecto_ATM
             pantallaMenuTecnico.Show();
             pantallaMenuTecnico.BringToFront();
         }
+
+        private void switch_to_menu_consulta()
+        {
+            hide_all();
+            pantallaMenuConsulta.Show();
+            pantallaMenuConsulta.BringToFront();
+        }
+
         //Botones 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -167,6 +181,11 @@ namespace Proyecto_ATM
         private void button5_Click(object sender, EventArgs e)
         {
             switch_to_menu_retiro(sender, e);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            switch_to_menu_consulta();
         }
     }
 }

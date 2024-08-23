@@ -18,8 +18,8 @@ namespace Proyecto_ATM
         }
 
         public event EventHandler salirMenuRetiro;
-        public event EventHandler redIngresoTarjeta;
-        public event EventHandler redIngresoSinTarjeta;
+        public event EventHandler redIngresoTarjeta_MenuRetiro;
+        public event EventHandler redIngresoSinTarjeta_MenuRetiro;
 
         private void PantallaMenuRetiro_Load(object sender, EventArgs e)
         {
@@ -28,9 +28,9 @@ namespace Proyecto_ATM
 
         private void R_Normal_B_Click(object sender, EventArgs e)
         {
-            if (this.redIngresoTarjeta != null)
+            if (this.redIngresoTarjeta_MenuRetiro != null)
             {
-                this.redIngresoTarjeta(this, e);
+                this.redIngresoTarjeta_MenuRetiro(this, e);
             }
             else
             {
@@ -40,9 +40,9 @@ namespace Proyecto_ATM
 
         private void R_SinTarjeta_B_Click(object sender, EventArgs e)
         {
-            if (this.redIngresoSinTarjeta != null)
+            if (this.redIngresoSinTarjeta_MenuRetiro != null)
             {
-                this.redIngresoSinTarjeta(this, e);
+                this.redIngresoSinTarjeta_MenuRetiro(this, e);
             }
             else
             {
