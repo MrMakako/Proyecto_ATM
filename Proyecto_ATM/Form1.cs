@@ -48,6 +48,9 @@ namespace Proyecto_ATM
             //pantallaMenuTecnico.redMovimientos_MenuTecnico += new EventHandler();
             //pantallaMenuTecnico.redEstadoAct_MenuTecnico += new EventHandler();
 
+            //menu de Agente
+            pantallaMenuAgente.salirMenuAgente += new EventHandler(switch_to_bienvenida);
+
             //despedida 
             pantallaDespedida.despedidaTimeUp += new EventHandler(switch_to_bienvenida);
 
@@ -167,6 +170,13 @@ namespace Proyecto_ATM
             pantallaMenuConsulta.BringToFront();
         }
 
+        private void switch_to_menu_agente()
+        {
+            hide_all();
+            pantallaMenuAgente.Show();
+            pantallaMenuAgente.BringToFront();
+        }
+
         //Botones 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -191,6 +201,11 @@ namespace Proyecto_ATM
         private void button7_Click(object sender, EventArgs e)
         {
             switch_to_menu_consulta();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            switch_to_menu_agente();
         }
     }
 }

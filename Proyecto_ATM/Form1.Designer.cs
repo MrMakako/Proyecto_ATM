@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            button7 = new Button();
             button5 = new Button();
             button6 = new Button();
             button4 = new Button();
@@ -48,13 +49,14 @@
             pantallaBienvenida = new PantallaBienvenida();
             pantallaIngresoTarjeta = new PantallaIngresoTarjeta();
             pantallaIngresoPin = new PantallaIngresoPin();
-            button7 = new Button();
+            button8 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(button8);
             panel1.Controls.Add(button7);
             panel1.Controls.Add(button5);
             panel1.Controls.Add(button6);
@@ -67,6 +69,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(100, 721);
             panel1.TabIndex = 0;
+            // 
+            // button7
+            // 
+            button7.Dock = DockStyle.Top;
+            button7.Location = new Point(0, 174);
+            button7.Name = "button7";
+            button7.Size = new Size(100, 29);
+            button7.TabIndex = 5;
+            button7.Text = "PMenuC";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // button5
             // 
@@ -200,6 +213,7 @@
             // 
             // pantallaMenuTecnico
             // 
+            pantallaMenuTecnico.BackColor = Color.FromArgb(238, 39, 55);
             pantallaMenuTecnico.Dock = DockStyle.Fill;
             pantallaMenuTecnico.Location = new Point(0, 0);
             pantallaMenuTecnico.Name = "pantallaMenuTecnico";
@@ -208,6 +222,7 @@
             // 
             // pantallaMenuConsulta
             // 
+            pantallaMenuConsulta.BackColor = Color.FromArgb(238, 39, 55);
             pantallaMenuConsulta.Dock = DockStyle.Fill;
             pantallaMenuConsulta.Location = new Point(0, 0);
             pantallaMenuConsulta.Name = "pantallaMenuConsulta";
@@ -258,16 +273,16 @@
             pantallaIngresoPin.Size = new Size(1024, 721);
             pantallaIngresoPin.TabIndex = 1;
             // 
-            // button7
+            // button8
             // 
-            button7.Dock = DockStyle.Top;
-            button7.Location = new Point(0, 174);
-            button7.Name = "button7";
-            button7.Size = new Size(100, 29);
-            button7.TabIndex = 5;
-            button7.Text = "PMenuC";
-            button7.UseVisualStyleBackColor = true;
-            button7.Click += button7_Click;
+            button8.Dock = DockStyle.Top;
+            button8.Location = new Point(0, 203);
+            button8.Name = "button8";
+            button8.Size = new Size(100, 29);
+            button8.TabIndex = 6;
+            button8.Text = "PMenuA";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
             // 
             // Form1
             // 
@@ -312,5 +327,6 @@
         private PantallaRetiroSinTarjetaP1 pantallaRetiroSinTarjetaP1;
         private PantallaRetiroSinTarjetaP2 pantallaRetiroSinTarjetaP2;
         private Button button7;
+        private Button button8;
     }
 }
