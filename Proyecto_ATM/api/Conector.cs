@@ -1,0 +1,43 @@
+﻿using Npgsql;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Proyecto_ATM.api
+{
+    internal class Conector
+    {
+        NpgsqlConnection conector = new NpgsqlConnection();
+
+
+        static string password="sonic003";
+        static string port="5432";
+        static string db="database";
+        static string username="atm";
+        static string host = "localhost";
+       
+
+    
+
+        public NpgsqlConnection conectar() {
+            try {
+
+                conector.ConnectionString = "server="+host+";"+ "port=" + port+";" + "user id=" + username + ";"+"password="+password+";"+"database="+db+";";
+                conector.Open();
+               // MessageBox.Show("conexion correcta");
+            }
+            catch(NpgsqlException e) {
+                MessageBox.Show(e.Message);
+            }
+
+            return conector;
+        
+        }
+
+       
+
+
+    }
+}
