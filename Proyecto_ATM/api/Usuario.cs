@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,8 +23,43 @@ namespace Proyecto_ATM.api
         public void set_numero_cuenta(string numero_cuenta) { this.numero_cuenta = numero_cuenta};
         public void set_pin(string pin) { this.pin = pin; }
 
+        public bool validar_usuario(Conector conector)
+        {
+
+
+            bool valido = true;
+            conector.Open();
+            using (var cmd = new NpgsqlCommand("SELECT pin_cuenta FROM cuentas WHERE no_cuenta = @numero_cuenta ", conector.conector))
+            {
+                cmd.Parameters.AddWithValue("numero_cuenta",numero_cuenta);
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+
+                    pin = (string)reader["pin_cuenta"];
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Su tarjeta no existe");
+                    valido = false;
+                }
+
+
+
+            }
+            conector.Close();
+            return valido;
+
+        }
 
 
 
     }
+
+
+
+
+}
 }
