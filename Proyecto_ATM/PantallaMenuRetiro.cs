@@ -52,13 +52,19 @@ namespace Proyecto_ATM
 
         private void SalirBtn_Click(object sender, EventArgs e)
         {
-            if(this.salirMenuRetiro != null)
+            if (this.salirMenuRetiro != null)
             {
                 this.salirMenuRetiro(this, e);
             }
-            else{
+            else
+            {
                 Console.WriteLine("Error al cambiar panel Menu de Retiro\n");
             }
+        }
+
+        private void roundButton2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

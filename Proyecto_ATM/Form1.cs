@@ -56,7 +56,7 @@ namespace Proyecto_ATM
             pantallaBienvenida.IngresarMenuRetiro += new EventHandler(switch_to_menu_retiro);
 
             //pantalla Ingreso Tarjeta e Ingreso de pin
-         //   pantallaIngresoTarjeta.IrIngresarPin+=new EventHandler(switch_to_ingreso_pin);
+            pantallaIngresoTarjeta.IrIngresoPin+=new EventHandler(switch_to_ingreso_pin);
             pantallaBienvenida.IrIngresoTarjeta += new EventHandler(switch_to_ingreso_tarjeta);
 
 

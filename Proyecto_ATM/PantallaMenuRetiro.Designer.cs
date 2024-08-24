@@ -100,6 +100,7 @@
             roundButton2.TabIndex = 6;
             roundButton2.TextColor = Color.White;
             roundButton2.UseVisualStyleBackColor = false;
+            roundButton2.Click += roundButton2_Click;
             // 
             // PantallaMenuRetiro
             // 

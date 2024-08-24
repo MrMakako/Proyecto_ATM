@@ -13,6 +13,9 @@ namespace Proyecto_ATM
 {
     public partial class PantallaIngresoTarjeta : UserControl
     {
+
+        Conector conector;
+        public EventHandler IrIngresoPin;
         public PantallaIngresoTarjeta()
         {
             InitializeComponent();
@@ -25,13 +28,27 @@ namespace Proyecto_ATM
 
         private void PantallaIngresoTarjeta_Load(object sender, EventArgs e)
         {
-
+            conector = new Conector();
+            conector.conectar();
         }
 
-        private void boton_ingresar_Click(object sender, EventArgs e)
+
+        private void ingresar_btn_Click(object sender, EventArgs e)
         {
-            Usuario usuario = new Usuario(textobox_numero_tarjeta.Text,"");
-            //crear transicon
+
+            Usuario cliente = new Usuario(textobox_numero_tarjeta.Text,"");
+            if (cliente.validar_usuario(conector)) {
+                //pasar a ingresar pin 
+                if (this.IrIngresoPin != null)
+                {
+                    this.IrIngresoPin(this, e);
+                }
+                else {
+                    Console.WriteLine("Error al cambiar asegurese de asgina funcion al evento.\n");
+
+                }
+
+            }
 
         }
     }
