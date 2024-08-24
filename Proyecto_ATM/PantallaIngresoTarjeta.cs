@@ -16,9 +16,11 @@ namespace Proyecto_ATM
 
         Conector conector;
         public EventHandler IrIngresoPin;
+        public Usuario usuario { get; set; }
         public PantallaIngresoTarjeta()
         {
             InitializeComponent();
+            conector = null;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -36,8 +38,9 @@ namespace Proyecto_ATM
         private void ingresar_btn_Click(object sender, EventArgs e)
         {
 
-            Usuario cliente = new Usuario(textobox_numero_tarjeta.Text,"");
-            if (cliente.validar_usuario(conector)) {
+
+            usuario.set_numero_cuenta(textobox_numero_tarjeta.Text);
+            if (usuario.validar_usuario(conector)) {
                 //pasar a ingresar pin 
                 if (this.IrIngresoPin != null)
                 {

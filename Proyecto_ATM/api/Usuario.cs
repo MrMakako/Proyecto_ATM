@@ -7,15 +7,19 @@ using System.Threading.Tasks;
 
 namespace Proyecto_ATM.api
 {
-    internal class Usuario
+    public class Usuario
     {
 
 
-        private string numero_cuenta;
-        private string pin;
+        public string numero_cuenta;
+        public string pin;
         public Usuario(string numero_cuenta, string pin) {
             this.pin = pin;
             this.numero_cuenta = numero_cuenta;
+        }
+        public Usuario() {
+            pin = "";
+            numero_cuenta = "";
         }
         public string get_numero_cuenta() {return numero_cuenta;}
         public string get_pin() { return pin; }

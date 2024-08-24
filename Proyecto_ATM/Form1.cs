@@ -1,3 +1,5 @@
+using Proyecto_ATM.api;
+
 namespace Proyecto_ATM
 {
     public partial class Form1 : Form
@@ -6,14 +8,14 @@ namespace Proyecto_ATM
         {
             InitializeComponent();
         }
-
+        private Usuario usuario;
         private void Form1_Load(object sender, EventArgs e)
         {
 
             //bienvenida & despedida
             pantallaBienvenida.BringToFront();
             pantallaDespedida.Hide();
-
+ 
             //Menus
             pantallaMenuRetiro.Hide();
             pantallaMenuTecnico.Hide();
@@ -60,6 +62,10 @@ namespace Proyecto_ATM
             pantallaBienvenida.IrIngresoTarjeta += new EventHandler(switch_to_ingreso_tarjeta);
 
 
+            usuario = new Usuario();
+            pantallaIngresoPin.Usuario = usuario;
+            pantallaIngresoTarjeta.usuario = usuario;
+
             
             
 
@@ -75,6 +81,7 @@ namespace Proyecto_ATM
         private void button2_Click(object sender, EventArgs e)
         {
             switch_to_bienvenida(sender, e);
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -107,6 +114,7 @@ namespace Proyecto_ATM
             hide_all();
             pantallaBienvenida.Show();
             pantallaBienvenida.BringToFront();
+            usuario = new Usuario();
 
         }
         private void switch_to_despedida()

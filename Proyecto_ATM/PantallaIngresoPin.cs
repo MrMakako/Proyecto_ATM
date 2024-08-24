@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto_ATM.api;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,17 @@ namespace Proyecto_ATM
 {
     public partial class PantallaIngresoPin : UserControl
     {
+      
+        public Usuario Usuario { get; set; }
         public PantallaIngresoPin()
         {
             InitializeComponent();
+            
         }
+       // private Usuario usuario;
+
+       
+     
 
         
     }
