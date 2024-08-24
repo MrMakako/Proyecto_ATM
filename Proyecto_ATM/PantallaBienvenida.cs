@@ -24,9 +24,9 @@ namespace Proyecto_ATM
         {
             base.OnKeyDown(e);
 
-            if (this.IngresarMenuRetiro != null)
+            if (this.IrIngresoTarjeta != null)
             {
-                this.IngresarMenuRetiro(this, e);                
+                this.IrIngresoTarjeta(this, e);                
             }
             else
             {
