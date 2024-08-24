@@ -46,7 +46,7 @@
             label1.Size = new Size(640, 49);
             label1.TabIndex = 0;
             label1.Text = "Pulse cualquier boton para continuar.";
-            label1.Click += label1_Click;
+
             // 
             // pictureBox1
             // 

@@ -51,8 +51,9 @@ namespace Proyecto_ATM
             //menu de Agente
             pantallaMenuAgente.salirMenuAgente += new EventHandler(switch_to_bienvenida);
 
-            //despedida 
+            //despedida & bienvenida
             pantallaDespedida.despedidaTimeUp += new EventHandler(switch_to_bienvenida);
+            pantallaBienvenida.IngresarMenuRetiro += new EventHandler(switch_to_menu_retiro);
 
         }
 

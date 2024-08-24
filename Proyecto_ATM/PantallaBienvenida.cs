@@ -15,11 +15,22 @@ namespace Proyecto_ATM
         public PantallaBienvenida()
         {
             InitializeComponent();
+            
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        public event EventHandler IngresarMenuRetiro;
+        protected override void OnKeyDown(KeyEventArgs e)
         {
+            base.OnKeyDown(e);
 
+            if (this.IngresarMenuRetiro != null)
+            {
+                this.IngresarMenuRetiro(this, e);                
+            }
+            else
+            {
+                Console.WriteLine("Error al cambiar panel bienvenida -> Menu de Retiro\n");
+            }
         }
     }
 }
