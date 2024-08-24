@@ -19,6 +19,7 @@ namespace Proyecto_ATM
         }
 
         public event EventHandler IngresarMenuRetiro;
+        public event EventHandler IrIngresoTarjeta;
         protected override void OnKeyDown(KeyEventArgs e)
         {
             base.OnKeyDown(e);

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            button8 = new Button();
             button7 = new Button();
             button5 = new Button();
             button6 = new Button();
@@ -49,7 +50,6 @@
             pantallaBienvenida = new PantallaBienvenida();
             pantallaIngresoTarjeta = new PantallaIngresoTarjeta();
             pantallaIngresoPin = new PantallaIngresoPin();
-            button8 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -69,6 +69,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(100, 721);
             panel1.TabIndex = 0;
+            // 
+            // button8
+            // 
+            button8.Dock = DockStyle.Top;
+            button8.Location = new Point(0, 203);
+            button8.Name = "button8";
+            button8.Size = new Size(100, 29);
+            button8.TabIndex = 6;
+            button8.Text = "PMenuA";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
             // 
             // button7
             // 
@@ -231,6 +242,7 @@
             // 
             // pantallaMenuAgente
             // 
+            pantallaMenuAgente.BackColor = Color.FromArgb(238, 39, 55);
             pantallaMenuAgente.Dock = DockStyle.Fill;
             pantallaMenuAgente.Location = new Point(0, 0);
             pantallaMenuAgente.Name = "pantallaMenuAgente";
@@ -272,17 +284,6 @@
             pantallaIngresoPin.Name = "pantallaIngresoPin";
             pantallaIngresoPin.Size = new Size(1024, 721);
             pantallaIngresoPin.TabIndex = 1;
-            // 
-            // button8
-            // 
-            button8.Dock = DockStyle.Top;
-            button8.Location = new Point(0, 203);
-            button8.Name = "button8";
-            button8.Size = new Size(100, 29);
-            button8.TabIndex = 6;
-            button8.Text = "PMenuA";
-            button8.UseVisualStyleBackColor = true;
-            button8.Click += button8_Click;
             // 
             // Form1
             // 

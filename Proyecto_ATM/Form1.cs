@@ -55,6 +55,14 @@ namespace Proyecto_ATM
             pantallaDespedida.despedidaTimeUp += new EventHandler(switch_to_bienvenida);
             pantallaBienvenida.IngresarMenuRetiro += new EventHandler(switch_to_menu_retiro);
 
+            //pantalla Ingreso Tarjeta e Ingreso de pin
+         //   pantallaIngresoTarjeta.IrIngresarPin+=new EventHandler(switch_to_ingreso_pin);
+            pantallaBienvenida.IrIngresoTarjeta += new EventHandler(switch_to_ingreso_tarjeta);
+
+
+            
+            
+
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)

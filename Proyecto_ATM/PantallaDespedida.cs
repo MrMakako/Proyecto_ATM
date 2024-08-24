@@ -34,14 +34,23 @@ namespace Proyecto_ATM
         }
         private void  Cambio(object sender, EventArgs e)
         {
-            if (this.Visible)
-            {
-                Relojito.Start(); 
+
+            try {
+
+                if (this.Visible)
+                {
+                    Relojito.Start();
+                }
+                else
+                {
+                    Relojito.Stop();
+                }
+            } catch (Exception er) { 
+            
+            
+            
             }
-            else
-            {
-                Relojito.Stop(); 
-            }
+  
         }
 
         private void TimesUp(object sender, EventArgs e)
