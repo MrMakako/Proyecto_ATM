@@ -26,5 +26,11 @@ namespace Proyecto_ATM
         {
 
         }
+
+        private void boton_ingresar_Click(object sender, EventArgs e)
+        {
+
+
+        }
     }
 }

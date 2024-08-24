@@ -33,6 +33,7 @@
             label2 = new Label();
             textBox1 = new TextBox();
             panel2 = new Panel();
+            boton_ingresar = new Button();
             SuspendLayout();
             // 
             // panel1
@@ -83,10 +84,23 @@
             panel2.Size = new Size(1024, 85);
             panel2.TabIndex = 0;
             // 
+            // boton_ingresar
+            // 
+            boton_ingresar.BackColor = Color.Transparent;
+            boton_ingresar.ForeColor = Color.Transparent;
+            boton_ingresar.Image = Properties.Resources.ingresar_boton;
+            boton_ingresar.Location = new Point(798, 554);
+            boton_ingresar.Name = "boton_ingresar";
+            boton_ingresar.Size = new Size(251, 76);
+            boton_ingresar.TabIndex = 4;
+            boton_ingresar.UseVisualStyleBackColor = false;
+            boton_ingresar.Click += boton_ingresar_Click;
+            // 
             // PantallaIngresoTarjeta
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(boton_ingresar);
             Controls.Add(panel2);
             Controls.Add(textBox1);
             Controls.Add(label2);
@@ -106,5 +120,6 @@
         private Label label2;
         private TextBox textBox1;
         private Panel panel2;
+        private Button boton_ingresar;
     }
 }

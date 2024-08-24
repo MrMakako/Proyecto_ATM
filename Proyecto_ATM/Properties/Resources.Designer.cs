@@ -59,5 +59,15 @@ namespace Proyecto_ATM.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ingresar_boton {
+            get {
+                object obj = ResourceManager.GetObject("ingresar_boton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
