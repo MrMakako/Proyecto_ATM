@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PantallaMenuRetiro));
             label1 = new Label();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
@@ -48,7 +47,7 @@
             // pictureBox1
             // 
             pictureBox1.Cursor = Cursors.Hand;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Image = Properties.Resources.Untitled_5;
             pictureBox1.Location = new Point(86, 76);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(337, 334);
@@ -60,7 +59,7 @@
             // pictureBox2
             // 
             pictureBox2.Cursor = Cursors.Hand;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Image = Properties.Resources.Untitled_7;
             pictureBox2.Location = new Point(485, 76);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(337, 334);

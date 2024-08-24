@@ -9,6 +9,9 @@ namespace Proyecto_ATM
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            pantallaMenuRetiro.cambiarPantallita += new EventHandler(transicion_a_retiro_sinTarjeta);
+            pantallaRetiroSinTarjetaP11.cambioPt2 += new EventHandler(transicion_a_retiro_sinTarjetaP2);
+            pantallaRetiroSinTarjetaP11.cambioMenuRetiro += new EventHandler(transicion_a_menuRetiro);
 
             pantallaBienvenida.BringToFront();
             pantallaDespedida.Hide();
@@ -18,6 +21,36 @@ namespace Proyecto_ATM
             pantallaMenuTecnico.Hide();
 
             pantallaDespedida.OnTimeout = switch_to_bienvenida;
+        }
+        protected void transicion_a_retiro_sinTarjetaP2(object sender, EventArgs e)
+        {
+            pantallaRetiroSinTarjetaP11.Hide();
+            pantallaRetiroSinTarjetaP21.BringToFront();
+            pantallaRetiroSinTarjetaP21.Show();
+
+            // pantallaRetiroSinTarjetaP1.BringToFront();
+            // pantallaRetiroSinTarjetaP1.Show();
+        }
+
+        protected void transicion_a_menuRetiro(object sender, EventArgs e)
+        {
+            
+            pantallaRetiroSinTarjetaP11.Hide();
+            pantallaMenuRetiro.BringToFront();
+            pantallaMenuRetiro.Show();
+
+            // pantallaRetiroSinTarjetaP1.BringToFront();
+            // pantallaRetiroSinTarjetaP1.Show();
+        }
+
+        protected void transicion_a_retiro_sinTarjeta(object sender, EventArgs e)
+        {
+            pantallaMenuRetiro.Hide();
+            pantallaRetiroSinTarjetaP11.BringToFront();
+            pantallaRetiroSinTarjetaP11.Show();
+
+            // pantallaRetiroSinTarjetaP1.BringToFront();
+            // pantallaRetiroSinTarjetaP1.Show();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)

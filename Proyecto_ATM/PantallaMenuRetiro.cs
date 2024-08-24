@@ -17,19 +17,32 @@ namespace Proyecto_ATM
             InitializeComponent();
         }
 
+        public event EventHandler cambiarPantallita;
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Hello World");
+
+
         }
 
      
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
-            
+
+            if (this.cambiarPantallita != null){
+
+                this.cambiarPantallita(this, e);
+
+            }
+            else
+            {
+                Console.WriteLine("Error we");
+            }
 
             // Hide the current form or UserControl
-            this.Hide();
+           // this.Hide();
         }
     }
 }

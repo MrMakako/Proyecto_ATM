@@ -28,7 +28,6 @@ partial class PantallaTomeSuDinero
     /// </summary>
     private void InitializeComponent()
     {
-        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PantallaTomeSuDinero));
         pictureBox1 = new PictureBox();
         pictureBox2 = new PictureBox();
         pictureBox3 = new PictureBox();
@@ -39,7 +38,7 @@ partial class PantallaTomeSuDinero
         // 
         // pictureBox1
         // 
-        pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+        pictureBox1.Image = Properties.Resources.Untitled_1;
         pictureBox1.Location = new Point(394, 423);
         pictureBox1.Name = "pictureBox1";
         pictureBox1.Size = new Size(119, 115);
@@ -49,7 +48,7 @@ partial class PantallaTomeSuDinero
         // 
         // pictureBox2
         // 
-        pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+        pictureBox2.Image = Properties.Resources.Untitled_2;
         pictureBox2.Location = new Point(147, 3);
         pictureBox2.Name = "pictureBox2";
         pictureBox2.Size = new Size(625, 370);
@@ -59,7 +58,7 @@ partial class PantallaTomeSuDinero
         // 
         // pictureBox3
         // 
-        pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+        pictureBox3.Image = Properties.Resources.Untitled_3;
         pictureBox3.Location = new Point(306, 373);
         pictureBox3.Name = "pictureBox3";
         pictureBox3.Size = new Size(343, 44);

@@ -16,5 +16,48 @@ namespace Proyecto_ATM
         {
             InitializeComponent();
         }
+
+        public event EventHandler cambioPt2;
+        public event EventHandler cambioMenuRetiro;
+
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+
+            if (this.cambioPt2 != null)
+            {
+
+                this.cambioPt2(this, e);
+
+            }
+            else
+            {
+                Console.WriteLine("Error");
+            }
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+            if (this.cambioMenuRetiro != null)
+            {
+
+                this.cambioMenuRetiro(this, e);
+
+            }
+            else
+            {
+                Console.WriteLine("Error");
+            }
+
+        }
     }
 }
