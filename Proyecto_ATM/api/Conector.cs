@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,10 +10,10 @@ namespace Proyecto_ATM.api
 {
     internal class Conector
     {
-        NpgsqlConnection conector = new NpgsqlConnection();
+        public  NpgsqlConnection conector = new NpgsqlConnection();
 
 
-        static string password="sonic003";
+        static string password="password";
         static string port="5432";
         static string db="database";
         static string username="atm";
@@ -33,6 +34,19 @@ namespace Proyecto_ATM.api
             }
 
             return conector;
+        
+        }
+
+        public void Close() {
+
+            conector.Close();
+       
+        }
+        public void Open() {
+            if (conector.State != ConnectionState.Open)
+            {
+                conector.Open();
+            }
         
         }
 
