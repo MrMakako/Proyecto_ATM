@@ -85,6 +85,7 @@
             Name = "PantallaDespedida";
             Size = new Size(1024, 768);
             Load += PantallaDespedida_Load;
+            VisibleChanged += Cambio;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

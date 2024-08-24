@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,7 +32,7 @@ namespace Proyecto_ATM
             Relojito.Tick += new EventHandler(TimesUp);
 
         }
-        protected override void OnVisibleChanged(EventArgs e)
+        private void  Cambio(object sender, EventArgs e)
         {
             if (this.Visible)
             {
