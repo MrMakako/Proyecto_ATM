@@ -41,6 +41,7 @@ namespace Proyecto_ATM
 
             usuario.set_numero_cuenta(textobox_numero_tarjeta.Text);
             if (usuario.validar_usuario(conector)) {
+                textobox_numero_tarjeta.Clear();
                 //pasar a ingresar pin 
                 if (this.IrIngresoPin != null)
                 {

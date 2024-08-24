@@ -13,18 +13,37 @@ namespace Proyecto_ATM
 {
     public partial class PantallaIngresoPin : UserControl
     {
-      
+
         public Usuario Usuario { get; set; }
+        public event EventHandler IngresarMenuRetiro;
         public PantallaIngresoPin()
         {
             InitializeComponent();
-            
+
         }
-       // private Usuario usuario;
 
-       
-     
+        private void ingresar_btn_Click(object sender, EventArgs e)
+        {
 
-        
+            //revisar que el pin coincina
+            if (textbox_pin.Text == Usuario.get_pin()) {
+                textbox_pin.Clear();
+                if (IngresarMenuRetiro != null)
+                {
+                    IngresarMenuRetiro(this, EventArgs.Empty);
+
+                }
+                else {
+                    Console.WriteLine("Error al cmabia de pantalla");
+                }
+            
+            }
+        }
+        // private Usuario usuario;
+
+
+
+
+
     }
 }

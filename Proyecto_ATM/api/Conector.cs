@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto_ATM.api
 {
-    internal class Conector
+    public  class Conector
     {
         public  NpgsqlConnection conector = new NpgsqlConnection();
 

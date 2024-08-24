@@ -33,6 +33,8 @@
             label1 = new Label();
             panel1 = new Panel();
             textbox_pin = new TextBox();
+            ingresar_btn = new RoundButton();
+            roundButton2 = new RoundButton();
             SuspendLayout();
             // 
             // panel2
@@ -82,10 +84,53 @@
             textbox_pin.Size = new Size(629, 56);
             textbox_pin.TabIndex = 7;
             // 
+            // ingresar_btn
+            // 
+            ingresar_btn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ingresar_btn.BackColor = Color.FromArgb(204, 24, 38);
+            ingresar_btn.BackgroundColor = Color.FromArgb(204, 24, 38);
+            ingresar_btn.BorderColor = Color.FromArgb(204, 24, 38);
+            ingresar_btn.BorderRadius = 10;
+            ingresar_btn.BorderSize = 1;
+            ingresar_btn.FlatAppearance.BorderSize = 0;
+            ingresar_btn.FlatStyle = FlatStyle.Flat;
+            ingresar_btn.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ingresar_btn.ForeColor = Color.White;
+            ingresar_btn.Location = new Point(822, 528);
+            ingresar_btn.Name = "ingresar_btn";
+            ingresar_btn.Size = new Size(223, 68);
+            ingresar_btn.TabIndex = 9;
+            ingresar_btn.Text = "Ingresar";
+            ingresar_btn.TextColor = Color.White;
+            ingresar_btn.UseVisualStyleBackColor = false;
+            ingresar_btn.Click += ingresar_btn_Click;
+            // 
+            // roundButton2
+            // 
+            roundButton2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            roundButton2.BackColor = Color.FromArgb(143, 14, 24);
+            roundButton2.BackgroundColor = Color.FromArgb(143, 14, 24);
+            roundButton2.BorderColor = Color.PaleVioletRed;
+            roundButton2.BorderRadius = 10;
+            roundButton2.BorderSize = 0;
+            roundButton2.Enabled = false;
+            roundButton2.FlatAppearance.BorderSize = 0;
+            roundButton2.FlatStyle = FlatStyle.Flat;
+            roundButton2.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            roundButton2.ForeColor = Color.White;
+            roundButton2.Location = new Point(822, 550);
+            roundButton2.Name = "roundButton2";
+            roundButton2.Size = new Size(223, 68);
+            roundButton2.TabIndex = 10;
+            roundButton2.TextColor = Color.White;
+            roundButton2.UseVisualStyleBackColor = false;
+            // 
             // PantallaIngresoPin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(ingresar_btn);
+            Controls.Add(roundButton2);
             Controls.Add(textbox_pin);
             Controls.Add(panel2);
             Controls.Add(label2);
@@ -105,6 +150,7 @@
         private Label label1;
         private Panel panel1;
         private TextBox textbox_pin;
-
+        private RoundButton ingresar_btn;
+        private RoundButton roundButton2;
     }
 }
