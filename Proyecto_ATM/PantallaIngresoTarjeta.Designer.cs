@@ -31,7 +31,7 @@
             panel1 = new Panel();
             label1 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
+            textobox_numero_tarjeta = new TextBox();
             panel2 = new Panel();
             boton_ingresar = new Button();
             SuspendLayout();
@@ -49,7 +49,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 49.8000031F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(225, 96);
+            label1.Location = new Point(230, 92);
             label1.Name = "label1";
             label1.Size = new Size(767, 103);
             label1.TabIndex = 1;
@@ -67,13 +67,13 @@
             label2.TabIndex = 2;
             label2.Text = "Ingrese su número de tarjeta";
             // 
-            // textBox1
+            // textobox_numero_tarjeta
             // 
-            textBox1.Font = new Font("Calibri", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(286, 340);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(629, 56);
-            textBox1.TabIndex = 3;
+            textobox_numero_tarjeta.Font = new Font("Calibri", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textobox_numero_tarjeta.Location = new Point(286, 340);
+            textobox_numero_tarjeta.Name = "textobox_numero_tarjeta";
+            textobox_numero_tarjeta.Size = new Size(629, 56);
+            textobox_numero_tarjeta.TabIndex = 3;
             // 
             // panel2
             // 
@@ -102,7 +102,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(boton_ingresar);
             Controls.Add(panel2);
-            Controls.Add(textBox1);
+            Controls.Add(textobox_numero_tarjeta);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(panel1);
@@ -118,7 +118,7 @@
         private Panel panel1;
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox textobox_numero_tarjeta;
         private Panel panel2;
         private Button boton_ingresar;
     }

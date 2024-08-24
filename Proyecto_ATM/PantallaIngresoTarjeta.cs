@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto_ATM.api;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,7 +30,8 @@ namespace Proyecto_ATM
 
         private void boton_ingresar_Click(object sender, EventArgs e)
         {
-
+            Usuario usuario = new Usuario(textobox_numero_tarjeta.Text,"");
+            //crear transicon
 
         }
     }
