@@ -16,5 +16,15 @@ namespace Proyecto_ATM
         {
             InitializeComponent();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void PantallaIngresoTarjeta_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

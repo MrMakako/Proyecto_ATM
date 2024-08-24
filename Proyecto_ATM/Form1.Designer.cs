@@ -151,14 +151,17 @@
             // 
             // pantallaRetiroNormalP1
             // 
+            pantallaRetiroNormalP1.BackColor = Color.FromArgb(238, 39, 55);
             pantallaRetiroNormalP1.Dock = DockStyle.Fill;
             pantallaRetiroNormalP1.Location = new Point(0, 0);
+            pantallaRetiroNormalP1.Margin = new Padding(5, 5, 5, 5);
             pantallaRetiroNormalP1.Name = "pantallaRetiroNormalP1";
             pantallaRetiroNormalP1.Size = new Size(1024, 721);
             pantallaRetiroNormalP1.TabIndex = 4;
             // 
             // pantallaMenuRetiro
             // 
+            pantallaMenuRetiro.BackColor = Color.FromArgb(238, 39, 55);
             pantallaMenuRetiro.Dock = DockStyle.Fill;
             pantallaMenuRetiro.Location = new Point(0, 0);
             pantallaMenuRetiro.Name = "pantallaMenuRetiro";
@@ -167,6 +170,7 @@
             // 
             // pantallaMenuTecnico
             // 
+            pantallaMenuTecnico.BackColor = Color.FromArgb(238, 39, 55);
             pantallaMenuTecnico.Dock = DockStyle.Fill;
             pantallaMenuTecnico.Location = new Point(0, 0);
             pantallaMenuTecnico.Name = "pantallaMenuTecnico";
@@ -175,14 +179,19 @@
             // 
             // pantallaDespedida
             // 
+            pantallaDespedida.BackColor = Color.FromArgb(238, 39, 55);
             pantallaDespedida.Dock = DockStyle.Fill;
+            pantallaDespedida.ForeColor = SystemColors.ControlText;
             pantallaDespedida.Location = new Point(0, 0);
+            pantallaDespedida.MinimumSize = new Size(1024, 768);
             pantallaDespedida.Name = "pantallaDespedida";
-            pantallaDespedida.Size = new Size(1024, 721);
+            pantallaDespedida.OnTimeout = null;
+            pantallaDespedida.Size = new Size(1024, 768);
             pantallaDespedida.TabIndex = 1;
             // 
             // pantallaBienvenida
             // 
+            pantallaBienvenida.BackColor = Color.FromArgb(238, 39, 55);
             pantallaBienvenida.Dock = DockStyle.Fill;
             pantallaBienvenida.Location = new Point(0, 0);
             pantallaBienvenida.Name = "pantallaBienvenida";
