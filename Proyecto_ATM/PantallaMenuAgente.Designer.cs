@@ -38,7 +38,7 @@
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.None;
-            pictureBox1.Image = Properties.Resources.maintenance;
+            pictureBox1.Image = Properties.Resources.mantainance;
             pictureBox1.Location = new Point(362, 234);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(300, 300);
