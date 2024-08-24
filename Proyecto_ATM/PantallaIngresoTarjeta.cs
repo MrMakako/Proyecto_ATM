@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto_ATM.api;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,23 @@ namespace Proyecto_ATM
         public PantallaIngresoTarjeta()
         {
             InitializeComponent();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void PantallaIngresoTarjeta_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void boton_ingresar_Click(object sender, EventArgs e)
+        {
+            Usuario usuario = new Usuario(textobox_numero_tarjeta.Text,"");
+            //crear transicon
+
         }
     }
 }

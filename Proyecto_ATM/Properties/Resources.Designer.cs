@@ -63,6 +63,7 @@ namespace Proyecto_ATM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+
         internal static System.Drawing.Bitmap consulta {
             get {
                 object obj = ResourceManager.GetObject("consulta", resourceCulture);
@@ -136,6 +137,7 @@ namespace Proyecto_ATM.Properties {
         internal static System.Drawing.Bitmap retiro_sin_tarjeta {
             get {
                 object obj = ResourceManager.GetObject("retiro sin tarjeta", resourceCulture);
+
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
