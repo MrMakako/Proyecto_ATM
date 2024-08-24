@@ -1,6 +1,6 @@
 ﻿namespace Proyecto_ATM
 {
-    partial class PantallaMenuTecnico
+    partial class PantallaMenuAgente
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,13 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
             SalirBtn = new RoundButton();
             roundButton2 = new RoundButton();
-            EstadoActBtn = new PictureBox();
-            MovimientosBtn = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)EstadoActBtn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)MovimientosBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.None;
+            pictureBox1.Image = Properties.Resources.maintenance;
+            pictureBox1.Location = new Point(362, 234);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(300, 300);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top;
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(169, 69);
+            label1.Name = "label1";
+            label1.Size = new Size(731, 73);
+            label1.TabIndex = 1;
+            label1.Text = "Bienvenido Agente Bancario";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // SalirBtn
             // 
@@ -51,7 +74,7 @@
             SalirBtn.Location = new Point(805, 664);
             SalirBtn.Name = "SalirBtn";
             SalirBtn.Size = new Size(223, 68);
-            SalirBtn.TabIndex = 13;
+            SalirBtn.TabIndex = 15;
             SalirBtn.Text = "Salir";
             SalirBtn.TextColor = Color.White;
             SalirBtn.UseVisualStyleBackColor = false;
@@ -73,55 +96,31 @@
             roundButton2.Location = new Point(805, 677);
             roundButton2.Name = "roundButton2";
             roundButton2.Size = new Size(223, 68);
-            roundButton2.TabIndex = 14;
+            roundButton2.TabIndex = 16;
             roundButton2.TextColor = Color.White;
             roundButton2.UseVisualStyleBackColor = false;
             // 
-            // EstadoActBtn
-            // 
-            EstadoActBtn.Anchor = AnchorStyles.None;
-            EstadoActBtn.Image = Properties.Resources.estado_actual;
-            EstadoActBtn.Location = new Point(553, 177);
-            EstadoActBtn.Name = "EstadoActBtn";
-            EstadoActBtn.Size = new Size(400, 400);
-            EstadoActBtn.SizeMode = PictureBoxSizeMode.StretchImage;
-            EstadoActBtn.TabIndex = 12;
-            EstadoActBtn.TabStop = false;
-            EstadoActBtn.Click += EstadoActBtn_Click;
-            // 
-            // MovimientosBtn
-            // 
-            MovimientosBtn.Anchor = AnchorStyles.None;
-            MovimientosBtn.Image = Properties.Resources.movimientos;
-            MovimientosBtn.Location = new Point(71, 177);
-            MovimientosBtn.Name = "MovimientosBtn";
-            MovimientosBtn.Size = new Size(400, 400);
-            MovimientosBtn.SizeMode = PictureBoxSizeMode.StretchImage;
-            MovimientosBtn.TabIndex = 11;
-            MovimientosBtn.TabStop = false;
-            MovimientosBtn.Click += MovimientosBtn_Click;
-            // 
-            // PantallaMenuTecnico
+            // PantallaMenuAgente
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(238, 39, 55);
             Controls.Add(SalirBtn);
             Controls.Add(roundButton2);
-            Controls.Add(EstadoActBtn);
-            Controls.Add(MovimientosBtn);
-            Name = "PantallaMenuTecnico";
+            Controls.Add(label1);
+            Controls.Add(pictureBox1);
+            Name = "PantallaMenuAgente";
             Size = new Size(1024, 768);
-            ((System.ComponentModel.ISupportInitialize)EstadoActBtn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)MovimientosBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
+        private PictureBox pictureBox1;
+        private Label label1;
         private RoundButton SalirBtn;
         private RoundButton roundButton2;
-        private PictureBox EstadoActBtn;
-        private PictureBox MovimientosBtn;
     }
 }

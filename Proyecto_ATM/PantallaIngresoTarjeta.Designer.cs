@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+
             panel1 = new Panel();
             label1 = new Label();
             label2 = new Label();
@@ -95,17 +96,20 @@
             boton_ingresar.TabIndex = 4;
             boton_ingresar.UseVisualStyleBackColor = false;
             boton_ingresar.Click += boton_ingresar_Click;
+
             // 
             // PantallaIngresoTarjeta
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+
             Controls.Add(boton_ingresar);
             Controls.Add(panel2);
             Controls.Add(textobox_numero_tarjeta);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(panel1);
+
             Name = "PantallaIngresoTarjeta";
             Size = new Size(1024, 721);
             Load += PantallaIngresoTarjeta_Load;
@@ -115,11 +119,13 @@
 
         #endregion
 
+
         private Panel panel1;
         private Label label1;
         private Label label2;
         private TextBox textobox_numero_tarjeta;
         private Panel panel2;
         private Button boton_ingresar;
+
     }
 }

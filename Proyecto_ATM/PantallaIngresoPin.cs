@@ -16,5 +16,7 @@ namespace Proyecto_ATM
         {
             InitializeComponent();
         }
+
+        
     }
 }

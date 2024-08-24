@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+
             panel2 = new Panel();
             label2 = new Label();
             label1 = new Label();
@@ -98,12 +99,14 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+
             Controls.Add(boton_ingresar);
             Controls.Add(textbox_pin);
             Controls.Add(panel2);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(panel1);
+
             Name = "PantallaIngresoPin";
             Size = new Size(1024, 721);
             ResumeLayout(false);
@@ -112,11 +115,13 @@
 
         #endregion
 
+
         private Panel panel2;
         private Label label2;
         private Label label1;
         private Panel panel1;
         private TextBox textbox_pin;
         private Button boton_ingresar;
+
     }
 }
