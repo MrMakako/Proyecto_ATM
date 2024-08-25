@@ -18,6 +18,8 @@ namespace Proyecto_ATM
         }
 
         public event EventHandler salirMenuRetiro;
+
+
         public event EventHandler redIngresoTarjeta_MenuRetiro;
         public event EventHandler redIngresoSinTarjeta_MenuRetiro;
 

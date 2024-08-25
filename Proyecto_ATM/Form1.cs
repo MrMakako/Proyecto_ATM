@@ -49,7 +49,7 @@ namespace Proyecto_ATM
 
             //menu de Tecnico
             pantallaMenuTecnico.salirMenuTecnico += new EventHandler(switch_to_bienvenida);
-            //pantallaMenuTecnico.redMovimientos_MenuTecnico += new EventHandler();
+            ///pantallaMenuTecnico.redMovimientos_MenuTecnico += new EventHandler();
             //pantallaMenuTecnico.redEstadoAct_MenuTecnico += new EventHandler();
 
             //menu de Agente
@@ -62,7 +62,7 @@ namespace Proyecto_ATM
             //pantalla Ingreso Tarjeta e Ingreso de pin
             pantallaIngresoTarjeta.IrIngresoPin+=new EventHandler(switch_to_ingreso_pin);
             pantallaBienvenida.IrIngresoTarjeta += new EventHandler(switch_to_ingreso_tarjeta);
-            pantallaIngresoPin.IngresarMenuRetiro += new EventHandler(switch_to_menu_retiro);
+           pantallaIngresoPin.IngresarMenuConsulta += new EventHandler(switch_to_menu_consulta);
 
             usuario = new Usuario();
             pantallaIngresoPin.Usuario = usuario;
@@ -184,7 +184,7 @@ namespace Proyecto_ATM
             pantallaMenuTecnico.BringToFront();
         }
 
-        private void switch_to_menu_consulta()
+        private void switch_to_menu_consulta(object sender, EventArgs e)
         {
             hide_all();
             pantallaMenuConsulta.Show();

@@ -15,7 +15,7 @@ namespace Proyecto_ATM
     {
 
         public Usuario Usuario { get; set; }
-        public event EventHandler IngresarMenuRetiro;
+        public event EventHandler IngresarMenuConsulta;
         public PantallaIngresoPin()
         {
             InitializeComponent();
@@ -28,9 +28,9 @@ namespace Proyecto_ATM
             //revisar que el pin coincina
             if (textbox_pin.Text == Usuario.get_pin()) {
                 textbox_pin.Clear();
-                if (IngresarMenuRetiro != null)
+                if (IngresarMenuConsulta != null)
                 {
-                    IngresarMenuRetiro(this, EventArgs.Empty);
+                    IngresarMenuConsulta(this, EventArgs.Empty);
 
                 }
                 else {
