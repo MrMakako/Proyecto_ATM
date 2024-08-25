@@ -70,7 +70,7 @@ namespace Proyecto_ATM
             parentX = this.Location.X;
             parentY = this.Location.Y;
 
-            panel1.Hide();
+            //panel1.Hide();
 
 
         }
