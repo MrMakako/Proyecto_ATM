@@ -50,6 +50,7 @@
             pantallaBienvenida = new PantallaBienvenida();
             pantallaIngresoTarjeta = new PantallaIngresoTarjeta();
             pantallaIngresoPin = new PantallaIngresoPin();
+            pantallaSaldo1 = new PantallaSaldo();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -281,12 +282,21 @@
             // 
             // pantallaIngresoPin
             // 
+
             pantallaIngresoPin.Dock = DockStyle.Fill;
             pantallaIngresoPin.Location = new Point(0, 0);
             pantallaIngresoPin.Name = "pantallaIngresoPin";
             pantallaIngresoPin.Size = new Size(928, 721);
             pantallaIngresoPin.TabIndex = 1;
             pantallaIngresoPin.Usuario = null;
+            // 
+            // pantallaSaldo1
+            // 
+            pantallaSaldo1.Location = new Point(3, 0);
+            pantallaSaldo1.Margin = new Padding(3, 2, 3, 2);
+            pantallaSaldo1.Name = "pantallaSaldo1";
+            pantallaSaldo1.Size = new Size(896, 541);
+            pantallaSaldo1.TabIndex = 5;
             // 
             // Form1
             // 
@@ -331,6 +341,7 @@
         //Retiro sin Tarjeta
         private PantallaRetiroSinTarjetaP1 pantallaRetiroSinTarjetaP1;
         private PantallaRetiroSinTarjetaP2 pantallaRetiroSinTarjetaP2;
+        private PantallaSaldo pantallaSaldo1;
         private Button button7;
         private Button button8;
     }
