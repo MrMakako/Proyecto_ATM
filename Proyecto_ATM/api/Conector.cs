@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace Proyecto_ATM.api
 {
-    internal class Conector
+    public  class Conector
     {
         public  NpgsqlConnection conector = new NpgsqlConnection();
 
 
         static string password="password";
         static string port="5432";
-        static string db="database";
+        static string db="ATM";
         static string username="atm";
         static string host = "localhost";
        

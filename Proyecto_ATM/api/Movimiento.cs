@@ -11,7 +11,7 @@ using System.Xml.Linq;
 
 namespace Proyecto_ATM.api
 {
-    internal class Movimiento
+    public class Movimiento
     {
         private string numero_cuenta;
         private Conector conector;
