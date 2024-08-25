@@ -46,7 +46,7 @@ namespace Proyecto_ATM.api
                 }
                 else
                 {
-                    MessageBox.Show("Su tarjeta no existe");
+                 //   MessageBox.Show("Su tarjeta no existe");
                     valido = false;
                 }
 

@@ -17,6 +17,8 @@ namespace Proyecto_ATM
         Conector conector;
         public EventHandler IrIngresoPin;
         public Usuario usuario { get; set; }
+        //Variables necesarias para hacer ufncionar el modal.
+        public static int parentX, parentY;
         public PantallaIngresoTarjeta()
         {
             InitializeComponent();
@@ -32,6 +34,9 @@ namespace Proyecto_ATM
         {
             conector = new Conector();
             conector.conectar();
+   
+
+
         }
 
 
@@ -40,17 +45,51 @@ namespace Proyecto_ATM
 
 
             usuario.set_numero_cuenta(textobox_numero_tarjeta.Text);
-            if (usuario.validar_usuario(conector)) {
+            if (usuario.validar_usuario(conector))
+            {
                 textobox_numero_tarjeta.Clear();
                 //pasar a ingresar pin 
                 if (this.IrIngresoPin != null)
                 {
                     this.IrIngresoPin(this, e);
+
                 }
-                else {
+                else
+                {
                     Console.WriteLine("Error al cambiar asegurese de asgina funcion al evento.\n");
 
                 }
+
+            }
+            else {
+                mostrar_error();
+            }
+
+        }
+
+        private void mostrar_error() {
+            //El error se muestra en formade Modal
+            Form modalBackground = new Form();
+            Form parentForm = this.FindForm();
+            using (modalForm modal = new modalForm())
+            {
+                modalBackground.StartPosition = FormStartPosition.Manual;
+                modalBackground.FormBorderStyle = FormBorderStyle.None;
+                modalBackground.Opacity = 0.5d;
+                modalBackground.BackColor = Color.Black;
+                modalBackground.Size = parentForm.Size ;
+                modalBackground.Location = parentForm.Location;
+                modalBackground.ShowInTaskbar = false;
+                modalBackground.Show();
+                modal.Owner = modalBackground;
+                parentX=this.Location.X;
+                parentY=this.Location.Y;
+
+
+
+                modal.ShowDialog();
+                modalBackground.Dispose();
+
 
             }
 

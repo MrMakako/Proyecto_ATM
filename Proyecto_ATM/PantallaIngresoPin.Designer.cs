@@ -41,9 +41,9 @@
             // 
             panel2.BackColor = Color.FromArgb(204, 24, 38);
             panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(0, 636);
+            panel2.Location = new Point(147, 636);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1024, 85);
+            panel2.Size = new Size(877, 85);
             panel2.TabIndex = 3;
             // 
             // label2
@@ -71,6 +71,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(204, 24, 38);
+            panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(147, 721);

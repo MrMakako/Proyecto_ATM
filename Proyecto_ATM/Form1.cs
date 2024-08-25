@@ -4,6 +4,8 @@ namespace Proyecto_ATM
 {
     public partial class Form1 : Form
     {
+
+        public static int parentX, parentY;
         public Form1()
         {
             InitializeComponent();
@@ -65,9 +67,11 @@ namespace Proyecto_ATM
             usuario = new Usuario();
             pantallaIngresoPin.Usuario = usuario;
             pantallaIngresoTarjeta.usuario = usuario;
+            parentX = this.Location.X;
+            parentY = this.Location.Y;
 
-            
-            
+            panel1.Hide();
+
 
         }
 

@@ -66,16 +66,18 @@
             panel1.Controls.Add(button2);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(100, 721);
+            panel1.Size = new Size(88, 541);
             panel1.TabIndex = 0;
             // 
             // button8
             // 
             button8.Dock = DockStyle.Top;
-            button8.Location = new Point(0, 203);
+            button8.Location = new Point(0, 154);
+            button8.Margin = new Padding(3, 2, 3, 2);
             button8.Name = "button8";
-            button8.Size = new Size(100, 29);
+            button8.Size = new Size(88, 22);
             button8.TabIndex = 6;
             button8.Text = "PMenuA";
             button8.UseVisualStyleBackColor = true;
@@ -84,9 +86,10 @@
             // button7
             // 
             button7.Dock = DockStyle.Top;
-            button7.Location = new Point(0, 174);
+            button7.Location = new Point(0, 132);
+            button7.Margin = new Padding(3, 2, 3, 2);
             button7.Name = "button7";
-            button7.Size = new Size(100, 29);
+            button7.Size = new Size(88, 22);
             button7.TabIndex = 5;
             button7.Text = "PMenuC";
             button7.UseVisualStyleBackColor = true;
@@ -95,9 +98,10 @@
             // button5
             // 
             button5.Dock = DockStyle.Top;
-            button5.Location = new Point(0, 145);
+            button5.Location = new Point(0, 110);
+            button5.Margin = new Padding(3, 2, 3, 2);
             button5.Name = "button5";
-            button5.Size = new Size(100, 29);
+            button5.Size = new Size(88, 22);
             button5.TabIndex = 3;
             button5.Text = "PMenuR";
             button5.UseVisualStyleBackColor = true;
@@ -106,9 +110,10 @@
             // button6
             // 
             button6.Dock = DockStyle.Top;
-            button6.Location = new Point(0, 116);
+            button6.Location = new Point(0, 88);
+            button6.Margin = new Padding(3, 2, 3, 2);
             button6.Name = "button6";
-            button6.Size = new Size(100, 29);
+            button6.Size = new Size(88, 22);
             button6.TabIndex = 4;
             button6.Text = "PMenuT";
             button6.UseVisualStyleBackColor = true;
@@ -117,9 +122,10 @@
             // button4
             // 
             button4.Dock = DockStyle.Top;
-            button4.Location = new Point(0, 87);
+            button4.Location = new Point(0, 66);
+            button4.Margin = new Padding(3, 2, 3, 2);
             button4.Name = "button4";
-            button4.Size = new Size(100, 29);
+            button4.Size = new Size(88, 22);
             button4.TabIndex = 2;
             button4.Text = "PRetiroN2";
             button4.UseVisualStyleBackColor = true;
@@ -128,9 +134,10 @@
             // button1
             // 
             button1.Dock = DockStyle.Top;
-            button1.Location = new Point(0, 58);
+            button1.Location = new Point(0, 44);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(100, 29);
+            button1.Size = new Size(88, 22);
             button1.TabIndex = 0;
             button1.Text = "PRetiroN1";
             button1.UseVisualStyleBackColor = true;
@@ -139,9 +146,10 @@
             // button3
             // 
             button3.Dock = DockStyle.Top;
-            button3.Location = new Point(0, 29);
+            button3.Location = new Point(0, 22);
+            button3.Margin = new Padding(3, 2, 3, 2);
             button3.Name = "button3";
-            button3.Size = new Size(100, 29);
+            button3.Size = new Size(88, 22);
             button3.TabIndex = 1;
             button3.Text = "PDespedida";
             button3.UseVisualStyleBackColor = true;
@@ -151,8 +159,9 @@
             // 
             button2.Dock = DockStyle.Top;
             button2.Location = new Point(0, 0);
+            button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(100, 29);
+            button2.Size = new Size(88, 22);
             button2.TabIndex = 0;
             button2.Text = "PBienvenida";
             button2.UseVisualStyleBackColor = true;
@@ -173,9 +182,10 @@
             panel2.Controls.Add(pantallaIngresoTarjeta);
             panel2.Controls.Add(pantallaIngresoPin);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(100, 0);
+            panel2.Location = new Point(88, 0);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1024, 721);
+            panel2.Size = new Size(812, 541);
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
             // 
@@ -183,8 +193,9 @@
             // 
             pantallaRetiroNormalP2.Dock = DockStyle.Fill;
             pantallaRetiroNormalP2.Location = new Point(0, 0);
+            pantallaRetiroNormalP2.Margin = new Padding(3, 2, 3, 2);
             pantallaRetiroNormalP2.Name = "pantallaRetiroNormalP2";
-            pantallaRetiroNormalP2.Size = new Size(1024, 721);
+            pantallaRetiroNormalP2.Size = new Size(812, 541);
             pantallaRetiroNormalP2.TabIndex = 5;
             // 
             // pantallaRetiroNormalP1
@@ -192,25 +203,27 @@
             pantallaRetiroNormalP1.BackColor = Color.FromArgb(238, 39, 55);
             pantallaRetiroNormalP1.Dock = DockStyle.Fill;
             pantallaRetiroNormalP1.Location = new Point(0, 0);
-            pantallaRetiroNormalP1.Margin = new Padding(5, 5, 5, 5);
+            pantallaRetiroNormalP1.Margin = new Padding(4);
             pantallaRetiroNormalP1.Name = "pantallaRetiroNormalP1";
-            pantallaRetiroNormalP1.Size = new Size(1024, 721);
+            pantallaRetiroNormalP1.Size = new Size(812, 541);
             pantallaRetiroNormalP1.TabIndex = 4;
             // 
             // pantallaRetiroSinTarjetaP2
             // 
             pantallaRetiroSinTarjetaP2.Dock = DockStyle.Fill;
             pantallaRetiroSinTarjetaP2.Location = new Point(0, 0);
+            pantallaRetiroSinTarjetaP2.Margin = new Padding(3, 2, 3, 2);
             pantallaRetiroSinTarjetaP2.Name = "pantallaRetiroSinTarjetaP2";
-            pantallaRetiroSinTarjetaP2.Size = new Size(1024, 721);
+            pantallaRetiroSinTarjetaP2.Size = new Size(812, 541);
             pantallaRetiroSinTarjetaP2.TabIndex = 5;
             // 
             // pantallaRetiroSinTarjetaP1
             // 
             pantallaRetiroSinTarjetaP1.Dock = DockStyle.Fill;
             pantallaRetiroSinTarjetaP1.Location = new Point(0, 0);
+            pantallaRetiroSinTarjetaP1.Margin = new Padding(3, 2, 3, 2);
             pantallaRetiroSinTarjetaP1.Name = "pantallaRetiroSinTarjetaP1";
-            pantallaRetiroSinTarjetaP1.Size = new Size(1024, 721);
+            pantallaRetiroSinTarjetaP1.Size = new Size(812, 541);
             pantallaRetiroSinTarjetaP1.TabIndex = 4;
             // 
             // pantallaMenuRetiro
@@ -218,8 +231,9 @@
             pantallaMenuRetiro.BackColor = Color.FromArgb(238, 39, 55);
             pantallaMenuRetiro.Dock = DockStyle.Fill;
             pantallaMenuRetiro.Location = new Point(0, 0);
+            pantallaMenuRetiro.Margin = new Padding(3, 2, 3, 2);
             pantallaMenuRetiro.Name = "pantallaMenuRetiro";
-            pantallaMenuRetiro.Size = new Size(1024, 721);
+            pantallaMenuRetiro.Size = new Size(812, 541);
             pantallaMenuRetiro.TabIndex = 3;
             // 
             // pantallaMenuTecnico
@@ -227,8 +241,9 @@
             pantallaMenuTecnico.BackColor = Color.FromArgb(238, 39, 55);
             pantallaMenuTecnico.Dock = DockStyle.Fill;
             pantallaMenuTecnico.Location = new Point(0, 0);
+            pantallaMenuTecnico.Margin = new Padding(3, 2, 3, 2);
             pantallaMenuTecnico.Name = "pantallaMenuTecnico";
-            pantallaMenuTecnico.Size = new Size(1024, 721);
+            pantallaMenuTecnico.Size = new Size(812, 541);
             pantallaMenuTecnico.TabIndex = 2;
             // 
             // pantallaMenuConsulta
@@ -236,8 +251,9 @@
             pantallaMenuConsulta.BackColor = Color.FromArgb(238, 39, 55);
             pantallaMenuConsulta.Dock = DockStyle.Fill;
             pantallaMenuConsulta.Location = new Point(0, 0);
+            pantallaMenuConsulta.Margin = new Padding(3, 2, 3, 2);
             pantallaMenuConsulta.Name = "pantallaMenuConsulta";
-            pantallaMenuConsulta.Size = new Size(1024, 721);
+            pantallaMenuConsulta.Size = new Size(812, 541);
             pantallaMenuConsulta.TabIndex = 3;
             // 
             // pantallaMenuAgente
@@ -245,8 +261,9 @@
             pantallaMenuAgente.BackColor = Color.FromArgb(238, 39, 55);
             pantallaMenuAgente.Dock = DockStyle.Fill;
             pantallaMenuAgente.Location = new Point(0, 0);
+            pantallaMenuAgente.Margin = new Padding(3, 2, 3, 2);
             pantallaMenuAgente.Name = "pantallaMenuAgente";
-            pantallaMenuAgente.Size = new Size(1024, 721);
+            pantallaMenuAgente.Size = new Size(812, 541);
             pantallaMenuAgente.TabIndex = 2;
             // 
             // pantallaDespedida
@@ -255,9 +272,10 @@
             pantallaDespedida.Dock = DockStyle.Fill;
             pantallaDespedida.ForeColor = SystemColors.ControlText;
             pantallaDespedida.Location = new Point(0, 0);
-            pantallaDespedida.MinimumSize = new Size(1024, 768);
+            pantallaDespedida.Margin = new Padding(3, 2, 3, 2);
+            pantallaDespedida.MinimumSize = new Size(896, 576);
             pantallaDespedida.Name = "pantallaDespedida";
-            pantallaDespedida.Size = new Size(1024, 768);
+            pantallaDespedida.Size = new Size(896, 576);
             pantallaDespedida.TabIndex = 1;
             // 
             // pantallaBienvenida
@@ -265,35 +283,43 @@
             pantallaBienvenida.BackColor = Color.FromArgb(238, 39, 55);
             pantallaBienvenida.Dock = DockStyle.Fill;
             pantallaBienvenida.Location = new Point(0, 0);
+            pantallaBienvenida.Margin = new Padding(3, 2, 3, 2);
             pantallaBienvenida.Name = "pantallaBienvenida";
-            pantallaBienvenida.Size = new Size(1024, 721);
+            pantallaBienvenida.Size = new Size(812, 541);
             pantallaBienvenida.TabIndex = 0;
             // 
             // pantallaIngresoTarjeta
             // 
+            pantallaIngresoTarjeta.BackColor = SystemColors.Control;
             pantallaIngresoTarjeta.Dock = DockStyle.Fill;
             pantallaIngresoTarjeta.Location = new Point(0, 0);
+            pantallaIngresoTarjeta.Margin = new Padding(3, 2, 3, 2);
             pantallaIngresoTarjeta.Name = "pantallaIngresoTarjeta";
-            pantallaIngresoTarjeta.Size = new Size(1024, 721);
+            pantallaIngresoTarjeta.Size = new Size(812, 541);
             pantallaIngresoTarjeta.TabIndex = 0;
+            pantallaIngresoTarjeta.usuario = null;
             // 
             // pantallaIngresoPin
             // 
             pantallaIngresoPin.Dock = DockStyle.Fill;
             pantallaIngresoPin.Location = new Point(0, 0);
+            pantallaIngresoPin.Margin = new Padding(3, 2, 3, 2);
             pantallaIngresoPin.Name = "pantallaIngresoPin";
-            pantallaIngresoPin.Size = new Size(1024, 721);
+            pantallaIngresoPin.Size = new Size(812, 541);
             pantallaIngresoPin.TabIndex = 1;
+            pantallaIngresoPin.Usuario = null;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1124, 721);
+            ClientSize = new Size(900, 541);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             RightToLeftLayout = true;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += Form1_Load;
             panel1.ResumeLayout(false);

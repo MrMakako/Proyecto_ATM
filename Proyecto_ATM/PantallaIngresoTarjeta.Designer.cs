@@ -40,6 +40,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(204, 24, 38);
+            panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(147, 721);
@@ -71,7 +72,7 @@
             // textobox_numero_tarjeta
             // 
             textobox_numero_tarjeta.Font = new Font("Calibri", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textobox_numero_tarjeta.Location = new Point(286, 340);
+            textobox_numero_tarjeta.Location = new Point(292, 313);
             textobox_numero_tarjeta.Name = "textobox_numero_tarjeta";
             textobox_numero_tarjeta.Size = new Size(629, 56);
             textobox_numero_tarjeta.TabIndex = 3;
@@ -80,9 +81,9 @@
             // 
             panel2.BackColor = Color.FromArgb(204, 24, 38);
             panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(0, 636);
+            panel2.Location = new Point(147, 636);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1024, 85);
+            panel2.Size = new Size(877, 85);
             panel2.TabIndex = 0;
             // 
             // ingresar_btn
@@ -130,6 +131,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Control;
             Controls.Add(ingresar_btn);
             Controls.Add(roundButton2);
             Controls.Add(panel2);
