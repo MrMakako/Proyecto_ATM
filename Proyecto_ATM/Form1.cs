@@ -12,6 +12,7 @@ namespace Proyecto_ATM
             pantallaMenuRetiro.cambiarPantallita += new EventHandler(transicion_a_retiro_sinTarjeta);
             pantallaRetiroSinTarjetaP11.cambioPt2 += new EventHandler(transicion_a_retiro_sinTarjetaP2);
             pantallaRetiroSinTarjetaP11.cambioMenuRetiro += new EventHandler(transicion_a_menuRetiro);
+            pantallaSaldo1.cambiarEspera += new EventHandler(cambiar_a_espera);
 
             pantallaBienvenida.BringToFront();
             pantallaDespedida.Hide();
@@ -22,6 +23,15 @@ namespace Proyecto_ATM
 
             pantallaDespedida.OnTimeout = switch_to_bienvenida;
         }
+
+        protected void cambiar_a_espera(object sender, EventArgs e) {
+
+            pantallaSaldo1.Hide();
+            pantallaBienvenida.BringToFront();
+            pantallaBienvenida.Show();
+
+        }
+
         protected void transicion_a_retiro_sinTarjetaP2(object sender, EventArgs e)
         {
             pantallaRetiroSinTarjetaP11.Hide();

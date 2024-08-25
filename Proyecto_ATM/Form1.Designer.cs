@@ -36,6 +36,7 @@
             button3 = new Button();
             button2 = new Button();
             panel2 = new Panel();
+            pantallaRetiroSinTarjetaP21 = new PantallaRetiroSinTarjetaP2();
             pantallaRetiroSinTarjetaP11 = new PantallaRetiroSinTarjetaP1();
             pantallaRetiroNormalP2 = new PantallaRetiroNormalP2();
             pantallaRetiroNormalP1 = new PantallaRetiroNormalP1();
@@ -43,7 +44,7 @@
             pantallaMenuTecnico = new PantallaMenuTecnico();
             pantallaDespedida = new PantallaDespedida();
             pantallaBienvenida = new PantallaBienvenida();
-            pantallaRetiroSinTarjetaP21 = new PantallaRetiroSinTarjetaP2();
+            pantallaSaldo1 = new PantallaSaldo();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -137,6 +138,7 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(pantallaSaldo1);
             panel2.Controls.Add(pantallaRetiroSinTarjetaP21);
             panel2.Controls.Add(pantallaRetiroSinTarjetaP11);
             panel2.Controls.Add(pantallaRetiroNormalP2);
@@ -152,6 +154,15 @@
             panel2.Size = new Size(896, 541);
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
+            // 
+            // pantallaRetiroSinTarjetaP21
+            // 
+            pantallaRetiroSinTarjetaP21.BackColor = Color.FromArgb(238, 39, 55);
+            pantallaRetiroSinTarjetaP21.Location = new Point(0, 0);
+            pantallaRetiroSinTarjetaP21.Margin = new Padding(3, 2, 3, 2);
+            pantallaRetiroSinTarjetaP21.Name = "pantallaRetiroSinTarjetaP21";
+            pantallaRetiroSinTarjetaP21.Size = new Size(896, 541);
+            pantallaRetiroSinTarjetaP21.TabIndex = 6;
             // 
             // pantallaRetiroSinTarjetaP11
             // 
@@ -222,14 +233,13 @@
             pantallaBienvenida.Size = new Size(896, 541);
             pantallaBienvenida.TabIndex = 0;
             // 
-            // pantallaRetiroSinTarjetaP21
+            // pantallaSaldo1
             // 
-            pantallaRetiroSinTarjetaP21.BackColor = Color.FromArgb(238, 39, 55);
-            pantallaRetiroSinTarjetaP21.Location = new Point(0, 0);
-            pantallaRetiroSinTarjetaP21.Margin = new Padding(3, 2, 3, 2);
-            pantallaRetiroSinTarjetaP21.Name = "pantallaRetiroSinTarjetaP21";
-            pantallaRetiroSinTarjetaP21.Size = new Size(896, 541);
-            pantallaRetiroSinTarjetaP21.TabIndex = 6;
+            pantallaSaldo1.Location = new Point(3, 0);
+            pantallaSaldo1.Margin = new Padding(3, 2, 3, 2);
+            pantallaSaldo1.Name = "pantallaSaldo1";
+            pantallaSaldo1.Size = new Size(896, 541);
+            pantallaSaldo1.TabIndex = 5;
             // 
             // Form1
             // 
@@ -266,5 +276,6 @@
         private PantallaRetiroNormalP2 pantallaRetiroNormalP2;
         private PantallaRetiroSinTarjetaP1 pantallaRetiroSinTarjetaP11;
         private PantallaRetiroSinTarjetaP2 pantallaRetiroSinTarjetaP21;
+        private PantallaSaldo pantallaSaldo1;
     }
 }

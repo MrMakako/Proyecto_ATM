@@ -17,6 +17,8 @@ namespace Proyecto_ATM
             InitializeComponent();
         }
 
+        public event EventHandler cambiarEspera;
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -24,6 +26,21 @@ namespace Proyecto_ATM
 
         private void label2_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+            if(this.cambiarEspera != null)
+            {
+                this.cambiarEspera(this, e);
+
+            }
+            else
+            {
+                Console.WriteLine("Error");
+            }
 
         }
     }
