@@ -277,6 +277,7 @@
             pantallaIngresoTarjeta.Name = "pantallaIngresoTarjeta";
             pantallaIngresoTarjeta.Size = new Size(928, 721);
             pantallaIngresoTarjeta.TabIndex = 0;
+            pantallaIngresoTarjeta.usuario = null;
             // 
             // pantallaIngresoPin
             // 
@@ -285,12 +286,13 @@
             pantallaIngresoPin.Name = "pantallaIngresoPin";
             pantallaIngresoPin.Size = new Size(928, 721);
             pantallaIngresoPin.TabIndex = 1;
+            pantallaIngresoPin.Usuario = null;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1029, 721);
+            ClientSize = new Size(1142, 768);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "Form1";
