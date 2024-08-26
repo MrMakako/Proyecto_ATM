@@ -50,6 +50,7 @@ namespace Proyecto_ATM
             if (this.redConsulta_MenuConsulta != null)
             {
                 this.redConsulta_MenuConsulta(this, e);
+         
             }
             else
             {

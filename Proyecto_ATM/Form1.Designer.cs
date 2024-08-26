@@ -50,7 +50,7 @@
             pantallaBienvenida = new PantallaBienvenida();
             pantallaIngresoTarjeta = new PantallaIngresoTarjeta();
             pantallaIngresoPin = new PantallaIngresoPin();
-            pantallaSaldo1 = new PantallaSaldo();
+            pantallaSaldo = new PantallaSaldo();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -68,7 +68,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(101, 721);
+            panel1.Size = new Size(101, 768);
             panel1.TabIndex = 0;
             // 
             // button8
@@ -161,6 +161,7 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(pantallaSaldo);
             panel2.Controls.Add(pantallaRetiroNormalP2);
             panel2.Controls.Add(pantallaRetiroNormalP1);
             panel2.Controls.Add(pantallaRetiroSinTarjetaP2);
@@ -176,7 +177,7 @@
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(101, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(928, 721);
+            panel2.Size = new Size(1041, 768);
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
             // 
@@ -185,7 +186,7 @@
             pantallaRetiroNormalP2.Dock = DockStyle.Fill;
             pantallaRetiroNormalP2.Location = new Point(0, 0);
             pantallaRetiroNormalP2.Name = "pantallaRetiroNormalP2";
-            pantallaRetiroNormalP2.Size = new Size(928, 721);
+            pantallaRetiroNormalP2.Size = new Size(1041, 768);
             pantallaRetiroNormalP2.TabIndex = 5;
             // 
             // pantallaRetiroNormalP1
@@ -193,9 +194,9 @@
             pantallaRetiroNormalP1.BackColor = Color.FromArgb(238, 39, 55);
             pantallaRetiroNormalP1.Dock = DockStyle.Fill;
             pantallaRetiroNormalP1.Location = new Point(0, 0);
-            pantallaRetiroNormalP1.Margin = new Padding(5, 5, 5, 5);
+            pantallaRetiroNormalP1.Margin = new Padding(5);
             pantallaRetiroNormalP1.Name = "pantallaRetiroNormalP1";
-            pantallaRetiroNormalP1.Size = new Size(928, 721);
+            pantallaRetiroNormalP1.Size = new Size(1041, 768);
             pantallaRetiroNormalP1.TabIndex = 4;
             // 
             // pantallaRetiroSinTarjetaP2
@@ -203,7 +204,7 @@
             pantallaRetiroSinTarjetaP2.Dock = DockStyle.Fill;
             pantallaRetiroSinTarjetaP2.Location = new Point(0, 0);
             pantallaRetiroSinTarjetaP2.Name = "pantallaRetiroSinTarjetaP2";
-            pantallaRetiroSinTarjetaP2.Size = new Size(928, 721);
+            pantallaRetiroSinTarjetaP2.Size = new Size(1041, 768);
             pantallaRetiroSinTarjetaP2.TabIndex = 5;
             // 
             // pantallaRetiroSinTarjetaP1
@@ -211,7 +212,7 @@
             pantallaRetiroSinTarjetaP1.Dock = DockStyle.Fill;
             pantallaRetiroSinTarjetaP1.Location = new Point(0, 0);
             pantallaRetiroSinTarjetaP1.Name = "pantallaRetiroSinTarjetaP1";
-            pantallaRetiroSinTarjetaP1.Size = new Size(928, 721);
+            pantallaRetiroSinTarjetaP1.Size = new Size(1041, 768);
             pantallaRetiroSinTarjetaP1.TabIndex = 4;
             // 
             // pantallaMenuRetiro
@@ -220,7 +221,7 @@
             pantallaMenuRetiro.Dock = DockStyle.Fill;
             pantallaMenuRetiro.Location = new Point(0, 0);
             pantallaMenuRetiro.Name = "pantallaMenuRetiro";
-            pantallaMenuRetiro.Size = new Size(928, 721);
+            pantallaMenuRetiro.Size = new Size(1041, 768);
             pantallaMenuRetiro.TabIndex = 3;
             // 
             // pantallaMenuTecnico
@@ -229,7 +230,7 @@
             pantallaMenuTecnico.Dock = DockStyle.Fill;
             pantallaMenuTecnico.Location = new Point(0, 0);
             pantallaMenuTecnico.Name = "pantallaMenuTecnico";
-            pantallaMenuTecnico.Size = new Size(928, 721);
+            pantallaMenuTecnico.Size = new Size(1041, 768);
             pantallaMenuTecnico.TabIndex = 2;
             // 
             // pantallaMenuConsulta
@@ -238,7 +239,7 @@
             pantallaMenuConsulta.Dock = DockStyle.Fill;
             pantallaMenuConsulta.Location = new Point(0, 0);
             pantallaMenuConsulta.Name = "pantallaMenuConsulta";
-            pantallaMenuConsulta.Size = new Size(928, 721);
+            pantallaMenuConsulta.Size = new Size(1041, 768);
             pantallaMenuConsulta.TabIndex = 3;
             // 
             // pantallaMenuAgente
@@ -247,7 +248,7 @@
             pantallaMenuAgente.Dock = DockStyle.Fill;
             pantallaMenuAgente.Location = new Point(0, 0);
             pantallaMenuAgente.Name = "pantallaMenuAgente";
-            pantallaMenuAgente.Size = new Size(928, 721);
+            pantallaMenuAgente.Size = new Size(1041, 768);
             pantallaMenuAgente.TabIndex = 2;
             // 
             // pantallaDespedida
@@ -258,7 +259,7 @@
             pantallaDespedida.Location = new Point(0, 0);
             pantallaDespedida.MinimumSize = new Size(1024, 768);
             pantallaDespedida.Name = "pantallaDespedida";
-            pantallaDespedida.Size = new Size(1024, 768);
+            pantallaDespedida.Size = new Size(1041, 768);
             pantallaDespedida.TabIndex = 1;
             // 
             // pantallaBienvenida
@@ -267,7 +268,7 @@
             pantallaBienvenida.Dock = DockStyle.Fill;
             pantallaBienvenida.Location = new Point(0, 0);
             pantallaBienvenida.Name = "pantallaBienvenida";
-            pantallaBienvenida.Size = new Size(928, 721);
+            pantallaBienvenida.Size = new Size(1041, 768);
             pantallaBienvenida.TabIndex = 0;
             // 
             // pantallaIngresoTarjeta
@@ -276,27 +277,26 @@
             pantallaIngresoTarjeta.Dock = DockStyle.Fill;
             pantallaIngresoTarjeta.Location = new Point(0, 0);
             pantallaIngresoTarjeta.Name = "pantallaIngresoTarjeta";
-            pantallaIngresoTarjeta.Size = new Size(928, 721);
+            pantallaIngresoTarjeta.Size = new Size(1041, 768);
             pantallaIngresoTarjeta.TabIndex = 0;
             pantallaIngresoTarjeta.usuario = null;
             // 
             // pantallaIngresoPin
             // 
-
             pantallaIngresoPin.Dock = DockStyle.Fill;
             pantallaIngresoPin.Location = new Point(0, 0);
             pantallaIngresoPin.Name = "pantallaIngresoPin";
-            pantallaIngresoPin.Size = new Size(928, 721);
+            pantallaIngresoPin.Size = new Size(1041, 768);
             pantallaIngresoPin.TabIndex = 1;
             pantallaIngresoPin.Usuario = null;
             // 
-            // pantallaSaldo1
+            // pantallaSaldo
             // 
-            pantallaSaldo1.Location = new Point(3, 0);
-            pantallaSaldo1.Margin = new Padding(3, 2, 3, 2);
-            pantallaSaldo1.Name = "pantallaSaldo1";
-            pantallaSaldo1.Size = new Size(896, 541);
-            pantallaSaldo1.TabIndex = 5;
+            pantallaSaldo.Dock = DockStyle.Fill;
+            pantallaSaldo.Location = new Point(0, 0);
+            pantallaSaldo.Name = "pantallaSaldo";
+            pantallaSaldo.Size = new Size(1041, 768);
+            pantallaSaldo.TabIndex = 6;
             // 
             // Form1
             // 
@@ -341,8 +341,9 @@
         //Retiro sin Tarjeta
         private PantallaRetiroSinTarjetaP1 pantallaRetiroSinTarjetaP1;
         private PantallaRetiroSinTarjetaP2 pantallaRetiroSinTarjetaP2;
-        private PantallaSaldo pantallaSaldo1;
+
         private Button button7;
         private Button button8;
+        private PantallaSaldo pantallaSaldo;
     }
 }

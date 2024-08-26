@@ -44,7 +44,7 @@ namespace Proyecto_ATM
             //menu de Consulta
             pantallaMenuConsulta.salirMenuConsulta += new EventHandler(switch_to_bienvenida);
             pantallaMenuConsulta.regresarMenuConsulta += new EventHandler(switch_to_menu_retiro);
-            //pantallaMenuConsulta.redConsulta_MenuConsulta += new EventHandler(); //La consulta aun no esta :P
+            pantallaMenuConsulta.redConsulta_MenuConsulta += new EventHandler(switch_to_pantall_saldo); //La consulta aun no esta :P
             pantallaMenuConsulta.redRetiroP1_MenuConsulta += new EventHandler(switch_to_retiro_normal_1);
 
             //menu de Tecnico
@@ -108,6 +108,8 @@ namespace Proyecto_ATM
             pantallaBienvenida.Hide();
             pantallaIngresoTarjeta.Hide();
             pantallaIngresoPin.Hide();
+            pantallaSaldo.Hide();
+
         }
 
         //Transiciones
@@ -176,6 +178,12 @@ namespace Proyecto_ATM
             pantallaMenuRetiro.Show();
             pantallaMenuRetiro.BringToFront();
         }
+        private void switch_to_pantall_saldo(object sender, EventArgs e)
+        {
+            hide_all();
+            pantallaSaldo.Show();
+            pantallaSaldo.BringToFront();
+        }
 
         private void switch_to_menu_tecnico()
         {
@@ -221,7 +229,7 @@ namespace Proyecto_ATM
 
         private void button7_Click(object sender, EventArgs e)
         {
-            switch_to_menu_consulta();
+            switch_to_menu_consulta(sender,e);
         }
 
         private void button8_Click(object sender, EventArgs e)
