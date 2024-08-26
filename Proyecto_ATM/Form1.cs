@@ -34,6 +34,9 @@ namespace Proyecto_ATM
             pantallaRetiroSinTarjetaP1.Hide();
             pantallaRetiroSinTarjetaP2.Hide();
 
+            //PantallSaldo
+            pantallaSaldo.cambiarEspera += new EventHandler(switch_to_menu_consulta);
+
 
             //Transiciones
             //menu de Retiro
