@@ -142,6 +142,7 @@
             Name = "PantallaIngresoTarjeta";
             Size = new Size(1024, 721);
             Load += PantallaIngresoTarjeta_Load;
+            VisibleChanged += Reset;
             ResumeLayout(false);
             PerformLayout();
         }

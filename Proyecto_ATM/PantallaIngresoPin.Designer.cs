@@ -139,6 +139,7 @@
             Controls.Add(panel1);
             Name = "PantallaIngresoPin";
             Size = new Size(1024, 721);
+            VisibleChanged += Reset;
             ResumeLayout(false);
             PerformLayout();
         }

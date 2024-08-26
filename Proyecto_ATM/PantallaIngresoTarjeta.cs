@@ -66,7 +66,7 @@ namespace Proyecto_ATM
             }
 
         }
-
+        
         private void mostrar_error() {
             //El error se muestra en formade Modal
             Form modalBackground = new Form();
@@ -93,6 +93,11 @@ namespace Proyecto_ATM
 
             }
 
+        }
+
+        private void Reset(object sender, EventArgs e) {
+
+            textobox_numero_tarjeta.ResetText();
         }
     }
 }

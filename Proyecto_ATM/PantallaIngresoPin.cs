@@ -42,7 +42,11 @@ namespace Proyecto_ATM
         // private Usuario usuario;
 
 
+        private void Reset(object sender, EventArgs e)
+        {
 
+            textbox_pin.ResetText();
+        }
 
 
     }
