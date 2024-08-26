@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 // Pantalla de Seleccion de Dinero
 namespace Proyecto_ATM
 {
@@ -18,6 +19,7 @@ namespace Proyecto_ATM
             InitializeComponent();
         }
 
+        public EventHandler EventoRegresar;
         private void roundButton1_Click(object sender, EventArgs e)
         {
 
@@ -30,6 +32,20 @@ namespace Proyecto_ATM
 
         private void label1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void roundButton11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void roundButton5_Click(object sender, EventArgs e) // BotonRegresar 
+        {
+
+            if (this.EventoRegresar != null) { 
+            this.EventoRegresar(this, e);
+            }
 
         }
     }
