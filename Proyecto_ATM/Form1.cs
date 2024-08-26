@@ -17,7 +17,7 @@ namespace Proyecto_ATM
             //bienvenida & despedida
             pantallaBienvenida.BringToFront();
             pantallaDespedida.Hide();
- 
+
             //Menus
             pantallaMenuRetiro.Hide();
             pantallaMenuTecnico.Hide();
@@ -33,6 +33,9 @@ namespace Proyecto_ATM
             //Retiro sin Tarjeta
             pantallaRetiroSinTarjetaP1.Hide();
             pantallaRetiroSinTarjetaP2.Hide();
+
+            //Tome su Dinero
+            pantallaTomeSuDinero.Hide();
 
             //PantallSaldo
             pantallaSaldo.cambiarEspera += new EventHandler(switch_to_menu_consulta);
@@ -63,9 +66,13 @@ namespace Proyecto_ATM
             pantallaBienvenida.IngresarMenuRetiro += new EventHandler(switch_to_menu_retiro);
 
             //pantalla Ingreso Tarjeta e Ingreso de pin
-            pantallaIngresoTarjeta.IrIngresoPin+=new EventHandler(switch_to_ingreso_pin);
+            pantallaIngresoTarjeta.IrIngresoPin += new EventHandler(switch_to_ingreso_pin);
             pantallaBienvenida.IrIngresoTarjeta += new EventHandler(switch_to_ingreso_tarjeta);
-           pantallaIngresoPin.IngresarMenuConsulta += new EventHandler(switch_to_menu_consulta);
+            pantallaIngresoPin.IngresarMenuConsulta += new EventHandler(switch_to_menu_consulta);
+
+            //Seleccion de Monto
+            pantallaRetiroNormalP1.EventoMonto += new EventHandler(switch_to_tome_dinero);
+            pantallaRetiroNormalP1.EventoRegresar += new EventHandler(switch_to_menu_retiro);
 
             usuario = new Usuario();
             pantallaIngresoPin.Usuario = usuario;
@@ -112,6 +119,7 @@ namespace Proyecto_ATM
             pantallaIngresoTarjeta.Hide();
             pantallaIngresoPin.Hide();
             pantallaSaldo.Hide();
+            pantallaTomeSuDinero.Hide();
 
         }
 
@@ -209,6 +217,13 @@ namespace Proyecto_ATM
             pantallaMenuAgente.BringToFront();
         }
 
+        private void switch_to_tome_dinero(object sender, EventArgs e)
+        {
+            hide_all();
+            pantallaTomeSuDinero.Show();
+            pantallaTomeSuDinero.BringToFront();
+        }
+
         //Botones 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -232,12 +247,27 @@ namespace Proyecto_ATM
 
         private void button7_Click(object sender, EventArgs e)
         {
-            switch_to_menu_consulta(sender,e);
+            switch_to_menu_consulta(sender, e);
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
             switch_to_menu_agente();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            switch_to_tome_dinero(sender, e);
+        }
+
+        private void pantallaTomeSuDinero1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pantallaSaldo_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
