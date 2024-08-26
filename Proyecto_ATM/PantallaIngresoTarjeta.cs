@@ -22,7 +22,7 @@ namespace Proyecto_ATM
         public PantallaIngresoTarjeta()
         {
             InitializeComponent();
-            conector = null;
+            conector = new Conector();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -32,13 +32,16 @@ namespace Proyecto_ATM
 
         private void PantallaIngresoTarjeta_Load(object sender, EventArgs e)
         {
-            conector = new Conector();
-            conector.conectar();
-   
-
+            try
+            {
+                conector.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir la conexión: " + ex.Message);
+            }
 
         }
-
 
         private void ingresar_btn_Click(object sender, EventArgs e)
         {
@@ -47,6 +50,7 @@ namespace Proyecto_ATM
             usuario.set_numero_cuenta(textobox_numero_tarjeta.Text);
             if (usuario.validar_usuario(conector))
             {
+                GlobalState.Usuario = usuario;
                 textobox_numero_tarjeta.Clear();
                 //pasar a ingresar pin 
                 if (this.IrIngresoPin != null)

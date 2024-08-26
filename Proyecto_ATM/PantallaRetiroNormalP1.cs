@@ -21,7 +21,7 @@ namespace Proyecto_ATM
 
         public event EventHandler EventoRegresar;
         public event EventHandler EventoMonto;
-
+        public event EventHandler EventoMontoPersonalizado;
 
 
         private void roundButton5_Click(object sender, EventArgs e) // BotonRegresar 
@@ -99,7 +99,11 @@ namespace Proyecto_ATM
 
         private void MontoPersonalizado_Click(object sender, EventArgs e)
         {
-
+            if (this.EventoMontoPersonalizado != null)
+            {
+                this.EventoMontoPersonalizado(this, e);
+            }
         }
+
     }
 }

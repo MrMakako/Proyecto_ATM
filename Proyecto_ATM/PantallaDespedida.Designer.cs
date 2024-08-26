@@ -34,6 +34,9 @@
             pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
+
+            this.Load += new System.EventHandler(this.PantallaDespedida_Load);
+
             // 
             // label2
             // 
@@ -85,7 +88,6 @@
             Name = "PantallaDespedida";
             Size = new Size(1024, 768);
             Load += PantallaDespedida_Load;
-            VisibleChanged += Cambio;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
