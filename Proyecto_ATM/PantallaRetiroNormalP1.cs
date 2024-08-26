@@ -19,33 +19,86 @@ namespace Proyecto_ATM
             InitializeComponent();
         }
 
-        public EventHandler EventoRegresar;
-        private void roundButton1_Click(object sender, EventArgs e)
-        {
+        public event EventHandler EventoRegresar;
+        public event EventHandler EventoMonto;
 
-        }
 
-        private void roundButton2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void roundButton11_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void roundButton5_Click(object sender, EventArgs e) // BotonRegresar 
         {
 
-            if (this.EventoRegresar != null) { 
-            this.EventoRegresar(this, e);
+            if (this.EventoRegresar != null)
+            {
+                this.EventoRegresar(this, e);
             }
+
+        }
+
+        private void L100_Click(object sender, EventArgs e)
+        {
+            if (this.EventoMonto != null) {
+                this.EventoMonto(this, e);
+            }
+        }
+
+        private void L200_Click(object sender, EventArgs e)
+        {
+            if (this.EventoMonto != null)
+            {
+                this.EventoMonto(this, e);
+            }
+        }
+
+        private void L500_Click(object sender, EventArgs e)
+        {
+            if (this.EventoMonto != null)
+            {
+                this.EventoMonto(this, e);
+            }
+        }
+
+        private void L1000_Click(object sender, EventArgs e)
+        {
+            if (this.EventoMonto != null)
+            {
+                this.EventoMonto(this, e);
+            }
+        }
+
+        private void L2000_Click(object sender, EventArgs e)
+        {
+            if (this.EventoMonto != null)
+            {
+                this.EventoMonto(this, e);
+            }
+        }
+
+        private void L3000_Click(object sender, EventArgs e)
+        {
+            if (this.EventoMonto != null)
+            {
+                this.EventoMonto(this, e);
+            }
+        }
+
+        private void L4000_Click(object sender, EventArgs e)
+        {
+            if (this.EventoMonto != null)
+            {
+                this.EventoMonto(this, e);
+            }
+        }
+
+        private void L5000_Click(object sender, EventArgs e)
+        {
+            if (this.EventoMonto != null)
+            {
+                this.EventoMonto(this, e);
+            }
+        }
+
+        private void MontoPersonalizado_Click(object sender, EventArgs e)
+        {
 
         }
     }
