@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.Timer;
 
 namespace Proyecto_ATM
 {
@@ -21,6 +22,7 @@ namespace Proyecto_ATM
         public PantallaDespedida()
         {
             InitializeComponent();
+            InitializeTimer();
 
             imageFolderPath = Path.Combine(projectDirectory, "Pantalla de Despedida");
         }
@@ -42,50 +44,42 @@ namespace Proyecto_ATM
             label1.Location = new Point(96, 255);
 
             //Solo agarra la primera imagen que detecta en orden alfabetico
-            pictureBox1.Image = Image.FromFile(imageFiles[0]); 
+            pictureBox1.Image = Image.FromFile(imageFiles[0]);
 
-
-            Relojito = new System.Windows.Forms.Timer();
-            Relojito.Interval = (10 * 1000);
-            Relojito.Tick += new EventHandler(TimesUp);
-
+            Relojito.Start();
         }
-        private void  Cambio(object sender, EventArgs e)
+
+        private void InitializeTimer()
         {
-
-            try {
-
-                if (this.Visible)
-                {
-                    Relojito.Start();
-                }
-                else
-                {
-                    Relojito.Stop();
-                }
-            } catch (Exception er) { 
-            
-            
-            
-            }
-  
+            Relojito = new System.Windows.Forms.Timer();
+            Relojito.Interval = 5000;
+            Relojito.Tick += Timer_Tick;
         }
 
-        private void TimesUp(object sender, EventArgs e)
+        private void Timer_Tick(object sender, EventArgs e)
         {
             Relojito.Stop();
-            Relojito.Dispose();
-            this.Hide();
-            if (this.despedidaTimeUp != null)
+            despedidaTimeUp?.Invoke(this, EventArgs.Empty);
+
+            if (despedidaTimeUp != null)
             {
-                this.despedidaTimeUp(this, e);
+                despedidaTimeUp(this, EventArgs.Empty);
+
             }
             else
             {
-                Console.WriteLine("Error al cambiar panel de Despedida\n");
+                Console.WriteLine("Error al cambiar de pantalla");
             }
+        }
 
+        public void StartTimer()
+        {
+            Relojito.Start();
+        }
 
+        public void StopTimer()
+        {
+            Relojito.Stop();
         }
 
     }

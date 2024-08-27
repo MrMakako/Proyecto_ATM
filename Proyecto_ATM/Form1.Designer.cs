@@ -1,4 +1,4 @@
-﻿namespace Proyecto_ATM
+namespace Proyecto_ATM
 {
     partial class Form1
     {
@@ -235,6 +235,7 @@
             pantallaRetiroNormalP2.Name = "pantallaRetiroNormalP2";
             pantallaRetiroNormalP2.Size = new Size(1302, 960);
             pantallaRetiroNormalP2.TabIndex = 5;
+            pantallaRetiroNormalP2.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaRetiroNormalP1
             // 
@@ -245,6 +246,7 @@
             pantallaRetiroNormalP1.Name = "pantallaRetiroNormalP1";
             pantallaRetiroNormalP1.Size = new Size(1302, 960);
             pantallaRetiroNormalP1.TabIndex = 4;
+            pantallaRetiroNormalP1.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaRetiroSinTarjetaP2
             // 
@@ -254,6 +256,7 @@
             pantallaRetiroSinTarjetaP2.Name = "pantallaRetiroSinTarjetaP2";
             pantallaRetiroSinTarjetaP2.Size = new Size(1302, 960);
             pantallaRetiroSinTarjetaP2.TabIndex = 5;
+            pantallaRetiroSinTarjetaP2.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaRetiroSinTarjetaP1
             // 
@@ -263,6 +266,7 @@
             pantallaRetiroSinTarjetaP1.Name = "pantallaRetiroSinTarjetaP1";
             pantallaRetiroSinTarjetaP1.Size = new Size(1302, 960);
             pantallaRetiroSinTarjetaP1.TabIndex = 4;
+            pantallaRetiroSinTarjetaP1.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaMenuRetiro
             // 
@@ -273,6 +277,7 @@
             pantallaMenuRetiro.Name = "pantallaMenuRetiro";
             pantallaMenuRetiro.Size = new Size(1302, 960);
             pantallaMenuRetiro.TabIndex = 3;
+            pantallaMenuRetiro.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaMenuTecnico
             // 
@@ -283,6 +288,7 @@
             pantallaMenuTecnico.Name = "pantallaMenuTecnico";
             pantallaMenuTecnico.Size = new Size(1302, 960);
             pantallaMenuTecnico.TabIndex = 2;
+            pantallaMenuTecnico.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaMenuConsulta
             // 
@@ -293,6 +299,7 @@
             pantallaMenuConsulta.Name = "pantallaMenuConsulta";
             pantallaMenuConsulta.Size = new Size(1302, 960);
             pantallaMenuConsulta.TabIndex = 3;
+            pantallaMenuConsulta.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaMenuAgente
             // 
@@ -303,6 +310,7 @@
             pantallaMenuAgente.Name = "pantallaMenuAgente";
             pantallaMenuAgente.Size = new Size(1302, 960);
             pantallaMenuAgente.TabIndex = 2;
+            pantallaMenuAgente.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaDespedida
             // 
@@ -315,6 +323,7 @@
             pantallaDespedida.Name = "pantallaDespedida";
             pantallaDespedida.Size = new Size(1302, 960);
             pantallaDespedida.TabIndex = 1;
+            pantallaDespedida.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaBienvenida
             // 
@@ -325,6 +334,7 @@
             pantallaBienvenida.Name = "pantallaBienvenida";
             pantallaBienvenida.Size = new Size(1302, 960);
             pantallaBienvenida.TabIndex = 0;
+            pantallaBienvenida.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaIngresoTarjeta
             // 
@@ -336,6 +346,7 @@
             pantallaIngresoTarjeta.Size = new Size(1302, 960);
             pantallaIngresoTarjeta.TabIndex = 0;
             pantallaIngresoTarjeta.usuario = null;
+            pantallaIngresoTarjeta.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaIngresoPin
             // 
@@ -346,6 +357,16 @@
             pantallaIngresoPin.Size = new Size(1302, 960);
             pantallaIngresoPin.TabIndex = 1;
             pantallaIngresoPin.Usuario = null;
+            pantallaIngresoPin.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            // 
+            // pantallaSaldo
+            // 
+            pantallaSaldo.Dock = DockStyle.Fill;
+            pantallaSaldo.Location = new Point(0, 0);
+            pantallaSaldo.Name = "pantallaSaldo";
+            pantallaSaldo.Size = new Size(1041, 768);
+            pantallaSaldo.TabIndex = 6;
+            pantallaSaldo.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // Form1
             // 
@@ -363,6 +384,7 @@
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ResumeLayout(false);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
         }
 
         #endregion

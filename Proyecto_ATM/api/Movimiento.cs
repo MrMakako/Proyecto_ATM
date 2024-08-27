@@ -13,88 +13,94 @@ namespace Proyecto_ATM.api
 {
     public class Movimiento
     {
-        private string numero_cuenta;
+        private string numeroCuenta;
         private Conector conector;
         private string pin;
 
-        public Movimiento(string numero_cuenta,string pin,Conector conector) {
-            this.numero_cuenta = numero_cuenta;
+        public Movimiento(string numeroCuenta, string pin, Conector conector)
+        {
+            if (conector == null)
+            {
+                throw new ArgumentNullException(nameof(conector), "Connector is null");
+            }
+            this.numeroCuenta = numeroCuenta;
             this.conector = conector;
             this.pin = pin;
-
         }
-        public bool retiro(int monto)
+
+        public bool retiro(double monto)
         {
-            //Tenemos que saber cuanot dinero tenemos      
-            double saldo = consultar_saldo(numero_cuenta);
-            conector.Open();
+            double saldo = ConsultarSaldo(numeroCuenta);
+
+            if (saldo < monto)
+            {
+                MessageBox.Show("No hay suficiente saldo en la cuenta.");
+                return false;
+            }
+
             try
             {
-
-                // Realizar query que deduzca dinero de una cuenta.
-                //no hay suficientes fondos se retorna falso.
-                if (saldo > monto)
+                conector.Open();
+                using (var cmd = new NpgsqlCommand("UPDATE cuentas SET saldo_cuenta = @saldo_restante WHERE no_cuenta = @numero_cuenta", conector.ConectorConnection))
                 {
+                    double saldoRestante = saldo - monto;
 
-                    double saldo_restante = saldo - monto;
-                    //UPDATE 
-                    using (var cmd = new NpgsqlCommand("UPDATE cuentas SET saldo= @saldo_restante WHERE numero_cuenta=@numero_cuenta", conector.conector))
-                    {
+                    cmd.Parameters.AddWithValue("saldo_restante", saldoRestante);
+                    cmd.Parameters.AddWithValue("numero_cuenta", numeroCuenta);
 
-                        cmd.Parameters.AddWithValue("saldo_restante", saldo_restante);
-                        cmd.Parameters.AddWithValue("numero_cuenta", numero_cuenta);
-                        //Ejecutamos el Query 
-                        cmd.ExecuteNonQuery();
-
-                    };
-
+                    // Execute the query
+                    cmd.ExecuteNonQuery();
                 }
-                //Asegurar de cerrar la conexion
-                conector.Close();
-                return true;
 
+                return true;
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
-
+                MessageBox.Show("Error al realizar el retiro: " + e.Message);
+                return false;
             }
-            //asegurarse de cerrar la conexion
-            conector.Close();
-            return false;
-
-        }
-
-        public  double consultar_saldo(string numero_cuenta) {
-
-            //consultar el saldo de la cuneta.
-            double? saldo=0.0;
-
-            conector.Open();
-            using (var cmd = new NpgsqlCommand("SELCT saldo FROM cuentas WHERE numero_cuenta = @numero_cuenta",conector.conector))
+            finally
             {
-                cmd.Parameters.AddWithValue("numero_cuenta",numero_cuenta );
+                conector.Close();
+            }
+        }
 
 
-                NpgsqlDataReader reader = cmd.ExecuteReader();
-                reader.Read();
-                saldo = reader["saldo"] as double ?;
+        public double ConsultarSaldo(string numeroCuenta)
+        {
+            double saldo = 0.0;
 
+            try
+            {
+
+                conector.Open();
+                using (var cmd = new NpgsqlCommand("SELECT saldo_cuenta FROM cuentas WHERE no_cuenta = @numero_cuenta", conector.ConectorConnection))
+                {
+                    cmd.Parameters.AddWithValue("numero_cuenta", numeroCuenta);
+
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            saldo = reader.IsDBNull(reader.GetOrdinal("saldo_cuenta")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("saldo_cuenta"));
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error al consultar el saldo: " + e.Message);
+            }
+            finally
+            {
+                conector.Close();
             }
 
-            conector.Close();
-            return (double)saldo;
-            
-            
+            return saldo;
         }
-        public string getNumero_cuenta() { return numero_cuenta; }
-        public Conector getConector() { return conector; }
 
 
-
-
-
-
-
+        public string GetNumeroCuenta() { return numeroCuenta; }
+        public Conector GetConector() { return conector; }
     }
 }

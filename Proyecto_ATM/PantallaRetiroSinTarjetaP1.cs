@@ -12,6 +12,7 @@ namespace Proyecto_ATM
 {
     public partial class PantallaRetiroSinTarjetaP1 : UserControl
     {
+        public event EventHandler EventoRegresar1;
         public PantallaRetiroSinTarjetaP1()
         {
             InitializeComponent();
@@ -25,6 +26,14 @@ namespace Proyecto_ATM
         {
 
 
+        }
+
+        private void RegresarBtn_Click(object sender, EventArgs e)
+        {
+            if (this.EventoRegresar1 != null)
+            {
+                this.EventoRegresar1(this, e);
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

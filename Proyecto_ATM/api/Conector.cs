@@ -1,57 +1,36 @@
 ﻿using Npgsql;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Proyecto_ATM.api
+public class Conector
 {
-    public  class Conector
+    public readonly NpgsqlConnection conector;
+    private static readonly string password = "password";
+    private static readonly string port = "5432";
+    private static readonly string db = "ATM";
+    private static readonly string username = "atm";
+    private static readonly string host = "localhost";
+
+    public Conector()
     {
-        public  NpgsqlConnection conector = new NpgsqlConnection();
+        conector = new NpgsqlConnection($"server={host};port={port};user id={username};password={password};database={db};");
+    }
 
+    public NpgsqlConnection ConectorConnection => conector;
 
-        static string password="password";
-        static string port="5432";
-        static string db="ATM";
-        static string username="atm";
-        static string host = "localhost";
-       
-
-    
-
-        public NpgsqlConnection conectar() {
-            try {
-
-                conector.ConnectionString = "server="+host+";"+ "port=" + port+";" + "user id=" + username + ";"+"password="+password+";"+"database="+db+";";
-                conector.Open();
-               // MessageBox.Show("conexion correcta");
-            }
-            catch(NpgsqlException e) {
-                MessageBox.Show(e.Message);
-            }
-
-            return conector;
-        
+    public void Open()
+    {
+        if (conector.State != ConnectionState.Open)
+        {
+            conector.Open();
         }
+    }
 
-        public void Close() {
-
+    public void Close()
+    {
+        if (conector.State != ConnectionState.Closed)
+        {
             conector.Close();
-       
         }
-        public void Open() {
-            if (conector.State != ConnectionState.Open)
-            {
-                conector.Open();
-            }
-        
-        }
-
-       
-
-
     }
 }
