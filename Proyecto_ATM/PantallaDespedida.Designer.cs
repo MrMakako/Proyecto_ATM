@@ -34,6 +34,9 @@
             pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
+
+            this.Load += new System.EventHandler(this.PantallaDespedida_Load);
+
             // 
             // label2
             // 
@@ -60,10 +63,10 @@
             label1.Size = new Size(219, 49);
             label1.TabIndex = 2;
             label1.Text = "preferirnos!";
-            
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(42, 68);
             pictureBox1.Name = "pictureBox1";
@@ -81,8 +84,9 @@
             Controls.Add(label2);
             Controls.Add(pictureBox1);
             ForeColor = SystemColors.ControlText;
+            MinimumSize = new Size(1024, 768);
             Name = "PantallaDespedida";
-            Size = new Size(1024, 721);
+            Size = new Size(1024, 768);
             Load += PantallaDespedida_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
