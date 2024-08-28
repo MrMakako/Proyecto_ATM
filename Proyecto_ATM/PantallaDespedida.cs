@@ -52,7 +52,7 @@ namespace Proyecto_ATM
         private void InitializeTimer()
         {
             Relojito = new System.Windows.Forms.Timer();
-            Relojito.Interval = 5000;
+            Relojito.Interval = 10000;
             Relojito.Tick += Timer_Tick;
         }
 

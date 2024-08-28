@@ -40,7 +40,7 @@ namespace Proyecto_ATM
         private void InitializeTimer()
         {
             timer = new System.Windows.Forms.Timer();
-            timer.Interval = 5000; 
+            timer.Interval = 10000; 
             timer.Tick += Timer_Tick;
         }
 
