@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             label1 = new Label();
+            label2 = new Label();
             textBox1 = new TextBox();
             RegresarBtn = new RoundButton();
             roundButton3 = new RoundButton();
@@ -41,11 +42,24 @@
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(180, 129);
+            label1.ImageAlign = ContentAlignment.TopCenter;
+            label1.Location = new Point(86, 76);
             label1.Name = "label1";
-            label1.Size = new Size(534, 59);
+            label1.Size = new Size(750, 118);
             label1.TabIndex = 0;
-            label1.Text = "Porfavor digite su monto:";
+            label1.Text = "Porfavor digite su monto y presione \ncontinuar:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Calibri", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.ImageAlign = ContentAlignment.TopCenter;
+            label2.Location = new Point(227, 298);
+            label2.Name = "label2";
+            label2.Size = new Size(300, 33);
+            label2.TabIndex = 0;
+            label2.Text = "Monto maximo Lps. 5000";
             // 
             // textBox1
             // 
@@ -75,8 +89,7 @@
             RegresarBtn.Text = "Regresar";
             RegresarBtn.TextColor = Color.White;
             RegresarBtn.UseVisualStyleBackColor = false;
-            RegresarBtn.Click += new EventHandler(RegresarBtn_Click);
-
+            RegresarBtn.Click += RegresarBtn_Click;
             // 
             // roundButton3
             // 
@@ -111,15 +124,15 @@
             ingresar_btn.FlatStyle = FlatStyle.Flat;
             ingresar_btn.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ingresar_btn.ForeColor = Color.White;
-            ingresar_btn.Location = new Point(701, 425); // 0 425 701
+            ingresar_btn.Location = new Point(701, 425);
             ingresar_btn.Margin = new Padding(3, 2, 3, 2);
             ingresar_btn.Name = "ingresar_btn";
             ingresar_btn.Size = new Size(223, 68);
             ingresar_btn.TabIndex = 17;
-            ingresar_btn.Text = "Ingresar";
+            ingresar_btn.Text = "Continuar";
             ingresar_btn.TextColor = Color.White;
             ingresar_btn.UseVisualStyleBackColor = false;
-            ingresar_btn.Click += new EventHandler(ingresar_btn_Click);
+            ingresar_btn.Click += ingresar_btn_Click;
             // 
             // roundButton2
             // 
@@ -134,7 +147,7 @@
             roundButton2.FlatStyle = FlatStyle.Flat;
             roundButton2.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             roundButton2.ForeColor = Color.White;
-            roundButton2.Location = new Point(701, 447); //447
+            roundButton2.Location = new Point(701, 447);
             roundButton2.Margin = new Padding(3, 2, 3, 2);
             roundButton2.Name = "roundButton2";
             roundButton2.Size = new Size(223, 68);
@@ -153,8 +166,9 @@
             Controls.Add(roundButton3);
             Controls.Add(textBox1);
             Controls.Add(label1);
+            Controls.Add(label2);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "PantallaRetiroNormal2";
+            Name = "PantallaRetiroNormalP2";
             Size = new Size(896, 541);
             VisibleChanged += Reset;
             ResumeLayout(false);
@@ -164,6 +178,7 @@
         #endregion
 
         private Label label1;
+        private Label label2;
         private TextBox textBox1;
         private RoundButton RegresarBtn;
         private RoundButton roundButton3;
