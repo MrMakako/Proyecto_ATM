@@ -14,7 +14,7 @@ namespace Proyecto_ATM
     public partial class PantallaIngresoTarjeta : UserControl
     {
 
-        Conector conector;
+        //Conector conector;
         public EventHandler IrIngresoPin;
         public Usuario usuario { get; set; }
         //Variables necesarias para hacer ufncionar el modal.
@@ -22,7 +22,7 @@ namespace Proyecto_ATM
         public PantallaIngresoTarjeta()
         {
             InitializeComponent();
-            conector = new Conector();
+            //conector = new Conector();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -34,7 +34,7 @@ namespace Proyecto_ATM
         {
             try
             {
-                conector.Open();
+                //conector.Open();
             }
             catch (Exception ex)
             {
@@ -45,32 +45,25 @@ namespace Proyecto_ATM
 
         private void ingresar_btn_Click(object sender, EventArgs e)
         {
-
-
+            Usuario usuario = new Usuario();
             usuario.set_numero_cuenta(textobox_numero_tarjeta.Text);
-            if (usuario.validar_usuario(conector))
+
+            // Set the usuario in GlobalState
+            GlobalState.Usuario = usuario;
+
+            // Allow user to proceed even with incorrect account number
+            if (this.IrIngresoPin != null)
             {
-                GlobalState.Usuario = usuario;
-                textobox_numero_tarjeta.Clear();
-                //pasar a ingresar pin 
-                if (this.IrIngresoPin != null)
-                {
-                    this.IrIngresoPin(this, e);
-
-                }
-                else
-                {
-                    Console.WriteLine("Error al cambiar asegurese de asgina funcion al evento.\n");
-
-                }
-
+                this.IrIngresoPin(this, e);
             }
-            else {
-                mostrar_error();
+            else
+            {
+                Console.WriteLine("Error al cambiar asegúrese de asignar función al evento.\n");
             }
-
         }
-        
+
+
+
         private void mostrar_error() {
             //El error se muestra en formade Modal
             Form modalBackground = new Form();

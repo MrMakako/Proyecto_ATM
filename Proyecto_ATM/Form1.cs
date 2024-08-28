@@ -88,6 +88,8 @@ namespace Proyecto_ATM
             pantallaTomeSuDinero.timerDinero += new EventHandler(switch_to_despedida);
             pantallaDespedida.despedidaTimeUp += new EventHandler(switch_to_bienvenida);
             pantallaRetiroSinTarjetaP1.EventoRegresar1 += new EventHandler(switch_to_menu_retiro);
+            pantallaRetiroNormalP1.retiroExitoso += new EventHandler(switch_to_tome_dinero);
+            pantallaIngresoPin.AcctorPinIncorrect += new EventHandler(switch_to_bienvenida);
 
             usuario = new Usuario();
             pantallaIngresoPin.Usuario = usuario;

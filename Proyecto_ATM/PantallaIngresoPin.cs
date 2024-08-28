@@ -17,61 +17,78 @@ namespace Proyecto_ATM
         public Usuario Usuario { get; set; }
         public event EventHandler IngresarMenuConsulta;
         public event EventHandler IngresarMenuAgente;
-        public event EventHandler IngresarMenuTecnico; 
+        public event EventHandler IngresarMenuTecnico;
+        public event EventHandler AcctorPinIncorrect;
+        private Conector conector;
 
         public PantallaIngresoPin()
         {
             InitializeComponent();
+            conector = new Conector();
+
+        }
+
+        private void PantallaIngresoPin_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                conector.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir la conexión: " + ex.Message);
+            }
 
         }
 
         private void ingresar_btn_Click(object sender, EventArgs e)
         {
-            
-            //revisar que el pin coincina
-            if (textbox_pin.Text == Usuario.get_pin()) {
-                Usuario usuario = GlobalState.Usuario;
+            Usuario usuario = GlobalState.Usuario;
+
+            if (usuario == null)
+            {
+                mostrar_error("Usuario no inicializado.");
+                return;
+            }
+
+            // Validate the account number and PIN
+            if (usuario.validar_usuario(conector, textbox_pin.Text))
+            {
+                // Clear PIN text box
                 textbox_pin.Clear();
 
-                if (usuario.rol == "cliente")
+                // Transition based on user role
+                switch (usuario.get_rol())
                 {
-                    if (IngresarMenuConsulta != null)
-                    {
-                        IngresarMenuConsulta(this, EventArgs.Empty);
-
-                    }
-                    else
-                    {
-                        Console.WriteLine("Error al cambiar de pantalla");
-                    }
-                } else if (usuario.rol == "agente") {
-                    if (IngresarMenuAgente != null)
-                    {
-                        IngresarMenuAgente(this, EventArgs.Empty);
-
-                    }
-                    else
-                    {
-                        Console.WriteLine("Error al cambiar de pantalla");
-                    }
-                } else if (usuario.rol == "tecnico")
-                {
-                    if (IngresarMenuTecnico != null)
-                    {
-                        IngresarMenuTecnico(this, EventArgs.Empty);
-
-                    }
-                    else
-                    {
-                        Console.WriteLine("Error al cambiar de pantalla");
-                    }
+                    case "cliente":
+                        IngresarMenuConsulta?.Invoke(this, EventArgs.Empty);
+                        break;
+                    case "agente":
+                        IngresarMenuAgente?.Invoke(this, EventArgs.Empty);
+                        break;
+                    case "tecnico":
+                        IngresarMenuTecnico?.Invoke(this, EventArgs.Empty);
+                        break;
+                    default:
+                        Console.WriteLine("Error: Unknown user role.");
+                        break;
                 }
-
-            
+            }
+            else
+            {
+                AcctorPinIncorrect?.Invoke(this, EventArgs.Empty);
+                mostrar_error("Incorrect account number or PIN.");
             }
         }
-        // private Usuario usuario;
 
+        private void mostrar_error(string mensaje)
+        {
+            // Display the error message
+            MessageBox.Show(mensaje);
+
+            // Optionally, reset the input fields
+            textbox_pin.Clear();
+        }
 
         private void Reset(object sender, EventArgs e)
         {

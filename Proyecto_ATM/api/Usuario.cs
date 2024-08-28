@@ -9,17 +9,19 @@ namespace Proyecto_ATM.api
 {
     public class Usuario
     {
-
-
+        private Conector conector;
+        public int id;
         public string numero_cuenta;
         public string pin;
         public string rol;
-        public Usuario(string numero_cuenta, string pin, string rol) {
+        public Usuario(int id, string numero_cuenta, string pin, string rol) {
+            this.id = id;
             this.pin = pin;
             this.numero_cuenta = numero_cuenta;
             this.rol = rol;
         }
         public Usuario() {
+            id = 0;
             pin = "";
             numero_cuenta = "";
             rol = "";
@@ -34,30 +36,30 @@ namespace Proyecto_ATM.api
 
         public void set_rol(string rol) { this.rol = rol; }
 
-        public bool validar_usuario(Conector conector)
+        public int get_id() { return id; }
+
+        public bool validar_usuario(Conector conector, string pinInput)
         {
-
-
-            bool valido = true;
+            bool valido = false;
 
             try
             {
                 conector.Open();
-                using (var cmd = new NpgsqlCommand("SELECT pin_cuenta, rol_cuenta FROM cuentas WHERE no_cuenta = @numero_cuenta ", conector.conector))
+                using (var cmd = new NpgsqlCommand("SELECT id_cuenta, pin_cuenta, rol_cuenta FROM cuentas WHERE no_cuenta = @numero_cuenta", conector.conector))
                 {
                     cmd.Parameters.AddWithValue("numero_cuenta", numero_cuenta);
                     NpgsqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
-
+                        id = (int)reader["id_cuenta"];
                         pin = (string)reader["pin_cuenta"];
                         rol = (string)reader["rol_cuenta"];
 
-                    }
-                    else
-                    {
-                        //   MessageBox.Show("Su tarjeta no existe");
-                        valido = false;
+                        // Check if the provided PIN matches the stored PIN
+                        if (pinInput == pin)
+                        {
+                            valido = true;
+                        }
                     }
                 }
             }
@@ -69,10 +71,11 @@ namespace Proyecto_ATM.api
             {
                 conector.Close();
             }
-            
-            return valido;
 
+            return valido;
         }
+
+
 
 
 
