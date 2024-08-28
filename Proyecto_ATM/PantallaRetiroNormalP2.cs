@@ -50,28 +50,33 @@ namespace Proyecto_ATM
         {
             if (double.TryParse(textBox1.Text, out double monto))
             {
-                Usuario usuario = GlobalState.Usuario; 
-
-                Movimiento movimiento = new Movimiento(usuario.get_numero_cuenta(), usuario.get_pin(), conector);
-
-                bool exito = movimiento.retiro(monto);
-
-                if (exito)
+                if (isValidAmount((int)monto))
                 {
-                    if (retiroExitoso != null)
-                    {
-                        retiroExitoso(this, EventArgs.Empty);
+                    Usuario usuario = GlobalState.Usuario;
 
+                    Movimiento movimiento = new Movimiento(usuario.get_numero_cuenta(), usuario.get_pin(), conector);
+
+                    bool exito = movimiento.retiro(monto);
+
+                    if (exito)
+                    {
+                        if (retiroExitoso != null)
+                        {
+                            retiroExitoso(this, EventArgs.Empty);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Error al cambiar de pantalla");
+                        }
                     }
                     else
                     {
-                        Console.WriteLine("Error al cambiar de pantalla");
+                        MessageBox.Show("No hay suficiente saldo en la cuenta.");
                     }
-                    
                 }
                 else
                 {
-                    MessageBox.Show("No hay suficiente saldo en la cuenta.");
+                    MessageBox.Show("Ingrese un monto válido. Debe ser múltiplo de 100 y no exceder 5000.");
                 }
             }
             else
@@ -79,6 +84,12 @@ namespace Proyecto_ATM
                 MessageBox.Show("Ingrese un monto válido.");
             }
         }
+
+        static bool isValidAmount(int amount)
+        {
+            return amount % 100 == 0 && amount <= 5000;
+        }
+
 
         private void Reset(object sender, EventArgs e)
         {
