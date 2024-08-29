@@ -32,6 +32,7 @@
             R_Normal_B = new PictureBox();
             SalirBtn = new RoundButton();
             roundButton2 = new RoundButton();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)R_SinTarjeta_B).BeginInit();
             ((System.ComponentModel.ISupportInitialize)R_Normal_B).BeginInit();
             SuspendLayout();
@@ -102,11 +103,25 @@
             roundButton2.UseVisualStyleBackColor = false;
             roundButton2.Click += roundButton2_Click;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top;
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(202, 45);
+            label1.Name = "label1";
+            label1.Size = new Size(668, 73);
+            label1.TabIndex = 7;
+            label1.Text = "Porfavor elija una opción.";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // PantallaMenuRetiro
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(238, 39, 55);
+            Controls.Add(label1);
             Controls.Add(SalirBtn);
             Controls.Add(roundButton2);
             Controls.Add(R_Normal_B);
@@ -117,6 +132,7 @@
             ((System.ComponentModel.ISupportInitialize)R_SinTarjeta_B).EndInit();
             ((System.ComponentModel.ISupportInitialize)R_Normal_B).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -125,5 +141,6 @@
         private PictureBox R_Normal_B;
         private RoundButton SalirBtn;
         private RoundButton roundButton2;
+        private Label label1;
     }
 }
