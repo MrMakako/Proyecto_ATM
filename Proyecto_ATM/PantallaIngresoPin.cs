@@ -57,6 +57,9 @@ namespace Proyecto_ATM
                 // Clear PIN text box
                 textbox_pin.Clear();
 
+                Movimiento movimiento = new Movimiento(usuario.get_numero_cuenta(), usuario.get_pin(), conector);
+                PantallaSaldo.label2.Text = "Lps. " + movimiento.ConsultarSaldo(usuario.get_numero_cuenta()).ToString();
+
                 // Transition based on user role
                 switch (usuario.get_rol())
                 {
