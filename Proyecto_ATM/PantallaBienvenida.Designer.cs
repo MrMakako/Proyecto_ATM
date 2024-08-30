@@ -46,7 +46,6 @@
             label1.Size = new Size(640, 49);
             label1.TabIndex = 0;
             label1.Text = "Pulse cualquier boton para continuar.";
-
             // 
             // pictureBox1
             // 
@@ -69,6 +68,8 @@
             Controls.Add(label1);
             Name = "PantallaBienvenida";
             Size = new Size(1024, 721);
+            Load += PantallaBienvenida_Load;
+            VisibleChanged += PantallaBienvenida_VisibleChanged;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

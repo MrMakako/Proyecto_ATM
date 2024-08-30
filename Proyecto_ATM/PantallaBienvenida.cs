@@ -17,6 +17,7 @@ namespace Proyecto_ATM
         public event EventHandler IrIngresoTarjeta;
         private string[] imageFiles;
         private int currentIndex = 0;
+        private PictureBox[] images;//Cree estte arreglo qe conteien las nuevas imagenes.
         private Timer slideshowTimer;
 
 
@@ -30,7 +31,7 @@ namespace Proyecto_ATM
             slideshowTimer.Tick += SlideshowTimer_Tick;
 
             imageFolderPath = Path.Combine(projectDirectory, "Pantalla de Espera");
-            LoadImagesFromHardcodedFolder();
+
 
         }
 
@@ -44,6 +45,29 @@ namespace Proyecto_ATM
                                                  file.ToLower().EndsWith("jpeg"))
                                   .OrderBy(file => file)
                                   .ToArray();
+
+            images = new PictureBox[imageFiles.Length];
+            for (int i = 0; i < imageFiles.Length; i++)
+            {
+                // Utiliza memory stream ara cargar las imagenes diretamente a la amemoria 
+                Image image;
+                using (FileStream fs = new FileStream(imageFiles[i], FileMode.Open, FileAccess.Read))
+                {
+                    image = Image.FromStream(fs);
+                }
+
+                //Se puede otpimizar le proceso y utilizar un Image en vez de picture box pero por ahora lo dejaremos
+                //De esta forma.
+                // Initialize a new PictureBox
+                images[i] = new PictureBox
+                {
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Width = 100, 
+                    Height = 100,
+                    Image = image 
+                };
+            }
+
 
             if (imageFiles.Length > 0)
             {
@@ -62,7 +86,8 @@ namespace Proyecto_ATM
         {
             if (imageFiles != null && imageFiles.Length > 0)
             {
-                pictureBox1.Image = Image.FromFile(imageFiles[currentIndex]);
+                //pictureBox1.Image = Image.FromFile(imageFiles[currentIndex]);
+                pictureBox1.Image = images[currentIndex].Image;
             }
         }
 
@@ -94,6 +119,20 @@ namespace Proyecto_ATM
             {
                 Console.WriteLine("Error al cambiar panel bienvenida -> Menu de Retiro\n");
             }
+        }
+
+        private void PantallaBienvenida_Load(object sender, EventArgs e)
+        {
+            LoadImagesFromHardcodedFolder();
+
+        }
+
+        private void PantallaBienvenida_VisibleChanged(object sender, EventArgs e)
+        {
+            //Cada vez que se olculte esta pantall revisara mas imagenes.
+            LoadImagesFromHardcodedFolder();
+
+
         }
     }
 }
