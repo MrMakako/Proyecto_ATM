@@ -29,40 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PantallaDespedida));
-            label2 = new Label();
-            label1 = new Label();
             pictureBox1 = new PictureBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-
-            this.Load += new System.EventHandler(this.PantallaDespedida_Load);
-
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.FlatStyle = FlatStyle.Popup;
-            label2.Font = new Font("Candara", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(88, 130);
-            label2.Name = "label2";
-            label2.Size = new Size(225, 49);
-            label2.TabIndex = 1;
-            label2.Text = "¡Gracias por";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.FlatStyle = FlatStyle.Popup;
-            label1.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(94, 179);
-            label1.Name = "label1";
-            label1.Size = new Size(219, 49);
-            label1.TabIndex = 2;
-            label1.Text = "preferirnos!";
             // 
             // pictureBox1
             // 
@@ -75,13 +45,25 @@
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top;
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(201, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(642, 73);
+            label1.TabIndex = 14;
+            label1.Text = "¡Gracias por preferirnos!";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // PantallaDespedida
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(238, 39, 55);
             Controls.Add(label1);
-            Controls.Add(label2);
             Controls.Add(pictureBox1);
             ForeColor = SystemColors.ControlText;
             MinimumSize = new Size(1024, 768);
@@ -94,9 +76,7 @@
         }
 
         #endregion
-
-        private Label label2;
-        private Label label1;
         private PictureBox pictureBox1;
+        private Label label1;
     }
 }

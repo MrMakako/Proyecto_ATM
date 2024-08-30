@@ -34,6 +34,7 @@
             ConsultaBtn = new PictureBox();
             RegresarBtn = new RoundButton();
             roundButton3 = new RoundButton();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)RetiroBtn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ConsultaBtn).BeginInit();
             SuspendLayout();
@@ -144,11 +145,25 @@
             roundButton3.TextColor = Color.White;
             roundButton3.UseVisualStyleBackColor = false;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top;
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(275, 45);
+            label1.Name = "label1";
+            label1.Size = new Size(536, 73);
+            label1.TabIndex = 13;
+            label1.Text = "¡Bienvenido al ATM!";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // PantallaMenuConsulta
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(238, 39, 55);
+            Controls.Add(label1);
             Controls.Add(RegresarBtn);
             Controls.Add(roundButton3);
             Controls.Add(SalirBtn);
@@ -160,6 +175,7 @@
             ((System.ComponentModel.ISupportInitialize)RetiroBtn).EndInit();
             ((System.ComponentModel.ISupportInitialize)ConsultaBtn).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -170,5 +186,6 @@
         private PictureBox ConsultaBtn;
         private RoundButton RegresarBtn;
         private RoundButton roundButton3;
+        private Label label1;
     }
 }

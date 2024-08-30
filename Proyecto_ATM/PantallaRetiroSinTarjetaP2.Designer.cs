@@ -38,21 +38,24 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(180, 129);
+            label1.Location = new Point(206, 172);
             label1.Name = "label1";
-            label1.Size = new Size(534, 59);
+            label1.Size = new Size(662, 73);
             label1.TabIndex = 0;
             label1.Text = "Porfavor digite su monto:";
             // 
             // textBox1
             // 
+            textBox1.Anchor = AnchorStyles.None;
             textBox1.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(227, 245);
+            textBox1.Location = new Point(206, 327);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(435, 50);
+            textBox1.Size = new Size(662, 61);
             textBox1.TabIndex = 5;
             // 
             // RegresarBtn
@@ -67,10 +70,9 @@
             RegresarBtn.FlatStyle = FlatStyle.Flat;
             RegresarBtn.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             RegresarBtn.ForeColor = Color.White;
-            RegresarBtn.Location = new Point(701, 425);
-            RegresarBtn.Margin = new Padding(3, 2, 3, 2);
+            RegresarBtn.Location = new Point(-3, 567);
             RegresarBtn.Name = "RegresarBtn";
-            RegresarBtn.Size = new Size(223, 68);
+            RegresarBtn.Size = new Size(255, 91);
             RegresarBtn.TabIndex = 15;
             RegresarBtn.Text = "Regresar";
             RegresarBtn.TextColor = Color.White;
@@ -89,10 +91,9 @@
             roundButton3.FlatStyle = FlatStyle.Flat;
             roundButton3.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             roundButton3.ForeColor = Color.White;
-            roundButton3.Location = new Point(701, 435);
-            roundButton3.Margin = new Padding(3, 2, 3, 2);
+            roundButton3.Location = new Point(-3, 580);
             roundButton3.Name = "roundButton3";
-            roundButton3.Size = new Size(223, 68);
+            roundButton3.Size = new Size(255, 91);
             roundButton3.TabIndex = 16;
             roundButton3.TextColor = Color.White;
             roundButton3.UseVisualStyleBackColor = false;
@@ -109,10 +110,9 @@
             ingresar_btn.FlatStyle = FlatStyle.Flat;
             ingresar_btn.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ingresar_btn.ForeColor = Color.White;
-            ingresar_btn.Location = new Point(0, 425);
-            ingresar_btn.Margin = new Padding(3, 2, 3, 2);
+            ingresar_btn.Location = new Point(776, 567);
             ingresar_btn.Name = "ingresar_btn";
-            ingresar_btn.Size = new Size(223, 68);
+            ingresar_btn.Size = new Size(255, 91);
             ingresar_btn.TabIndex = 17;
             ingresar_btn.Text = "Ingresar";
             ingresar_btn.TextColor = Color.White;
@@ -131,17 +131,16 @@
             roundButton2.FlatStyle = FlatStyle.Flat;
             roundButton2.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             roundButton2.ForeColor = Color.White;
-            roundButton2.Location = new Point(0, 447);
-            roundButton2.Margin = new Padding(3, 2, 3, 2);
+            roundButton2.Location = new Point(776, 580);
             roundButton2.Name = "roundButton2";
-            roundButton2.Size = new Size(223, 68);
+            roundButton2.Size = new Size(255, 91);
             roundButton2.TabIndex = 18;
             roundButton2.TextColor = Color.White;
             roundButton2.UseVisualStyleBackColor = false;
             // 
             // PantallaRetiroSinTarjetaP2
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(238, 39, 55);
             Controls.Add(ingresar_btn);
@@ -150,9 +149,8 @@
             Controls.Add(roundButton3);
             Controls.Add(textBox1);
             Controls.Add(label1);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "PantallaRetiroSinTarjetaP2";
-            Size = new Size(896, 541);
+            Size = new Size(1024, 721);
             ResumeLayout(false);
             PerformLayout();
         }

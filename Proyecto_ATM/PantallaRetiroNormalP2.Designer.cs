@@ -35,38 +35,43 @@
             roundButton3 = new RoundButton();
             ingresar_btn = new RoundButton();
             roundButton2 = new RoundButton();
+            label3 = new Label();
             SuspendLayout();
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
             label1.ImageAlign = ContentAlignment.TopCenter;
-            label1.Location = new Point(86, 76);
+            label1.Location = new Point(61, 73);
             label1.Name = "label1";
-            label1.Size = new Size(750, 118);
+            label1.Size = new Size(930, 146);
             label1.TabIndex = 0;
             label1.Text = "Porfavor digite su monto y presione \ncontinuar:";
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
-            label2.Font = new Font("Calibri", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Calibri", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
             label2.ImageAlign = ContentAlignment.TopCenter;
-            label2.Location = new Point(227, 298);
+            label2.Location = new Point(87, 391);
             label2.Name = "label2";
-            label2.Size = new Size(300, 33);
+            label2.Size = new Size(410, 45);
             label2.TabIndex = 0;
             label2.Text = "Monto maximo Lps. 5000";
             // 
             // textBox1
             // 
+            textBox1.Anchor = AnchorStyles.None;
             textBox1.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(227, 245);
+            textBox1.Location = new Point(87, 326);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(435, 50);
+            textBox1.Size = new Size(862, 61);
             textBox1.TabIndex = 5;
             // 
             // RegresarBtn
@@ -81,10 +86,9 @@
             RegresarBtn.FlatStyle = FlatStyle.Flat;
             RegresarBtn.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             RegresarBtn.ForeColor = Color.White;
-            RegresarBtn.Location = new Point(0, 425);
-            RegresarBtn.Margin = new Padding(3, 2, 3, 2);
+            RegresarBtn.Location = new Point(-5, 567);
             RegresarBtn.Name = "RegresarBtn";
-            RegresarBtn.Size = new Size(223, 68);
+            RegresarBtn.Size = new Size(255, 91);
             RegresarBtn.TabIndex = 15;
             RegresarBtn.Text = "Regresar";
             RegresarBtn.TextColor = Color.White;
@@ -104,10 +108,9 @@
             roundButton3.FlatStyle = FlatStyle.Flat;
             roundButton3.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             roundButton3.ForeColor = Color.White;
-            roundButton3.Location = new Point(0, 435);
-            roundButton3.Margin = new Padding(3, 2, 3, 2);
+            roundButton3.Location = new Point(-5, 581);
             roundButton3.Name = "roundButton3";
-            roundButton3.Size = new Size(223, 68);
+            roundButton3.Size = new Size(255, 91);
             roundButton3.TabIndex = 16;
             roundButton3.TextColor = Color.White;
             roundButton3.UseVisualStyleBackColor = false;
@@ -124,10 +127,9 @@
             ingresar_btn.FlatStyle = FlatStyle.Flat;
             ingresar_btn.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ingresar_btn.ForeColor = Color.White;
-            ingresar_btn.Location = new Point(701, 425);
-            ingresar_btn.Margin = new Padding(3, 2, 3, 2);
+            ingresar_btn.Location = new Point(805, 567);
             ingresar_btn.Name = "ingresar_btn";
-            ingresar_btn.Size = new Size(223, 68);
+            ingresar_btn.Size = new Size(255, 91);
             ingresar_btn.TabIndex = 17;
             ingresar_btn.Text = "Continuar";
             ingresar_btn.TextColor = Color.White;
@@ -147,19 +149,32 @@
             roundButton2.FlatStyle = FlatStyle.Flat;
             roundButton2.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             roundButton2.ForeColor = Color.White;
-            roundButton2.Location = new Point(701, 447);
-            roundButton2.Margin = new Padding(3, 2, 3, 2);
+            roundButton2.Location = new Point(805, 581);
             roundButton2.Name = "roundButton2";
-            roundButton2.Size = new Size(223, 68);
+            roundButton2.Size = new Size(255, 91);
             roundButton2.TabIndex = 18;
             roundButton2.TextColor = Color.White;
             roundButton2.UseVisualStyleBackColor = false;
             // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.None;
+            label3.AutoSize = true;
+            label3.Font = new Font("Calibri", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.White;
+            label3.ImageAlign = ContentAlignment.TopCenter;
+            label3.Location = new Point(87, 277);
+            label3.Name = "label3";
+            label3.Size = new Size(819, 45);
+            label3.TabIndex = 19;
+            label3.Text = "Este ATM solo puede dispensar en multiplos de 100.";
+            // 
             // PantallaRetiroNormalP2
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(238, 39, 55);
+            Controls.Add(label3);
             Controls.Add(ingresar_btn);
             Controls.Add(roundButton2);
             Controls.Add(RegresarBtn);
@@ -167,9 +182,8 @@
             Controls.Add(textBox1);
             Controls.Add(label1);
             Controls.Add(label2);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "PantallaRetiroNormalP2";
-            Size = new Size(896, 541);
+            Size = new Size(1024, 721);
             VisibleChanged += Reset;
             ResumeLayout(false);
             PerformLayout();
@@ -184,6 +198,6 @@
         private RoundButton roundButton3;
         private RoundButton ingresar_btn;
         private RoundButton roundButton2;
-
+        private Label label3;
     }
 }

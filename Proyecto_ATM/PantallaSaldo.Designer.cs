@@ -51,7 +51,7 @@
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(103, 721);
+            pictureBox1.Size = new Size(103, 614);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -59,10 +59,10 @@
             // 
             pictureBox2.BackColor = Color.FromArgb(204, 24, 38);
             pictureBox2.Dock = DockStyle.Bottom;
-            pictureBox2.Location = new Point(103, 614);
+            pictureBox2.Location = new Point(0, 614);
             pictureBox2.Margin = new Padding(3, 4, 3, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(921, 107);
+            pictureBox2.Size = new Size(1024, 107);
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
             // 
@@ -116,7 +116,7 @@
             regresar_btn.FlatStyle = FlatStyle.Flat;
             regresar_btn.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             regresar_btn.ForeColor = Color.White;
-            regresar_btn.Location = new Point(103, 507);
+            regresar_btn.Location = new Point(91, 507);
             regresar_btn.Name = "regresar_btn";
             regresar_btn.Size = new Size(223, 68);
             regresar_btn.TabIndex = 11;
@@ -138,7 +138,7 @@
             roundButton2.FlatStyle = FlatStyle.Flat;
             roundButton2.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             roundButton2.ForeColor = Color.White;
-            roundButton2.Location = new Point(103, 530);
+            roundButton2.Location = new Point(91, 530);
             roundButton2.Name = "roundButton2";
             roundButton2.Size = new Size(223, 68);
             roundButton2.TabIndex = 12;
@@ -157,7 +157,7 @@
             salir_btn.FlatStyle = FlatStyle.Flat;
             salir_btn.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             salir_btn.ForeColor = Color.White;
-            salir_btn.Location = new Point(798, 507);
+            salir_btn.Location = new Point(805, 507);
             salir_btn.Name = "salir_btn";
             salir_btn.Size = new Size(223, 68);
             salir_btn.TabIndex = 13;
@@ -179,7 +179,7 @@
             roundButton3.FlatStyle = FlatStyle.Flat;
             roundButton3.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             roundButton3.ForeColor = Color.White;
-            roundButton3.Location = new Point(798, 530);
+            roundButton3.Location = new Point(805, 530);
             roundButton3.Name = "roundButton3";
             roundButton3.Size = new Size(223, 68);
             roundButton3.TabIndex = 14;
@@ -190,6 +190,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(pictureBox1);
             Controls.Add(salir_btn);
             Controls.Add(roundButton3);
             Controls.Add(regresar_btn);
@@ -199,7 +200,6 @@
             Controls.Add(pictureBox3);
             Controls.Add(label1);
             Controls.Add(pictureBox2);
-            Controls.Add(pictureBox1);
             Name = "PantallaSaldo";
             Size = new Size(1024, 721);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

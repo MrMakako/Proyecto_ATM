@@ -96,5 +96,6 @@ namespace Proyecto_ATM
 
             textBox1.ResetText();
         }
+
     }
 }
