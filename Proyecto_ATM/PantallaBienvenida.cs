@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace Proyecto_ATM
         public event EventHandler IngresarMenuRetiro;
         public event EventHandler IrIngresoTarjeta;
         private string[] imageFiles;
+        private PictureBox[] images;  
         private int currentIndex = 0;
         private Timer slideshowTimer;
 
@@ -45,6 +47,28 @@ namespace Proyecto_ATM
                                   .OrderBy(file => file)
                                   .ToArray();
 
+            images = new PictureBox[imageFiles.Length];
+            for (int i = 0; i < imageFiles.Length; i++) {
+                // Load the image into memory using a MemoryStream
+                Image image;
+                using (FileStream fs = new FileStream(imageFiles[i], FileMode.Open, FileAccess.Read))
+                {
+                    image = Image.FromStream(fs);
+                }
+
+                // Alternatively, you can use Image.Clone() if you want to clone the image
+                // Image image = Image.FromFile(imageFiles[i]).Clone() as Image;
+
+                // Initialize a new PictureBox
+                images[i] = new PictureBox
+                {
+                    SizeMode = PictureBoxSizeMode.StretchImage, // Set the SizeMode as needed
+                    Width = 100, // Set the width as needed
+                    Height = 100, // Set the height as needed
+                    Image = image // Assign the image that is now in memory
+                };
+            }
+
             if (imageFiles.Length > 0)
             {
 
@@ -56,13 +80,17 @@ namespace Proyecto_ATM
             {
                 MessageBox.Show("No images found in the specified folder.");
             }
+
+           
         }
 
         private void DisplayCurrentImage()
         {
-            if (imageFiles != null && imageFiles.Length > 0)
+            if (images != null && images.Length > 0)
             {
-                pictureBox1.Image = Image.FromFile(imageFiles[currentIndex]);
+                pictureBox1.Image = images[currentIndex].Image;
+        
+
             }
         }
 
@@ -78,7 +106,7 @@ namespace Proyecto_ATM
             {
                 currentIndex = 0; // Loop back to the first image
             }
-            DisplayCurrentImage();
+ 
 
         }
 
