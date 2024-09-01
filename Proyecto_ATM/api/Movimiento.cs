@@ -125,7 +125,73 @@ namespace Proyecto_ATM.api
                 conector.Close();
             }
         }
+        public bool retiro_sin_tarjeta(string codigo_retiro, int monto_retirar)
+        {
 
+
+            try
+            {
+                conector.Open();
+                bool? estado = false;
+                int? monto_retirar_ev = 0;
+                int? id_cuenta = 0;
+                double? saldo_cuenta = 0;
+                int? id_retiro = 0;
+
+                //primer query revisar si el codigo es valido 
+                using (var cmd = new NpgsqlCommand("select id_cuenta,id, monto_retirar ,estado from codigo_cuentas_retiro  INNER JOIN retiro_sin_tarjeta on retiro_sin_tarjeta.codigo_retiro =id_codigo  WHERE codigo= @codigo_retiro; ", conector.conector))
+                {
+  
+                    cmd.Parameters.AddWithValue("codigo_retiro", codigo_retiro);
+
+                    NpgsqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+
+                        estado = (bool?)reader["estado"];
+                        monto_retirar_ev = (int?)reader["monto_retirar"];
+                        id_cuenta = (int?)reader["id_cuenta"];
+                        id_retiro = (int?)reader["id"];
+
+
+                    }
+                    reader.Close();
+
+
+                    //Si el codigo es valido
+                    if ((bool)estado && monto_retirar == monto_retirar_ev)
+                    {
+                        cmd.CommandText = "UPDATE cuentas SET saldo_cuenta=saldo_cuenta - @monto_retirar WHERE id_cuenta=(@id_cuenta);";
+                        cmd.Parameters.AddWithValue("id_cuenta", id_cuenta);
+                        cmd.Parameters.AddWithValue("monto_retirar", monto_retirar);
+                        cmd.ExecuteNonQuery();
+
+                        cmd.CommandText = "UPDATE retiro_sin_tarjeta SET estado=false WHERE id=@id_retiro ;";
+
+                        cmd.Parameters.AddWithValue("id_retiro", id_retiro);
+                        cmd.ExecuteNonQuery();
+
+                    }
+
+
+                }
+
+                conector.Close();
+                return true;
+
+            }
+
+
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+
+            }
+            conector.Close();
+            return false;
+
+
+        }
 
         private void LogWithdrawal(double monto, int idCliente)
         {
