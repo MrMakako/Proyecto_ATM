@@ -60,8 +60,8 @@ namespace Proyecto_ATM
 
             //menu de Tecnico
             pantallaMenuTecnico.salirMenuTecnico += new EventHandler(switch_to_bienvenida);
-            ///pantallaMenuTecnico.redMovimientos_MenuTecnico += new EventHandler();
-            //pantallaMenuTecnico.redEstadoAct_MenuTecnico += new EventHandler();
+           // pantallaMenuTecnico.redMovimientos_MenuTecnico += new EventHandler();
+            pantallaMenuTecnico.redEstadoAct_MenuTecnico += new EventHandler(switch_to_EstadoActual);
 
             //menu de Agente
             pantallaMenuAgente.salirMenuAgente += new EventHandler(switch_to_bienvenida);
@@ -82,6 +82,10 @@ namespace Proyecto_ATM
             pantallaRetiroNormalP1.EventoRegresar += new EventHandler(switch_to_menu_retiro);
             pantallaRetiroNormalP1.EventoMontoPersonalizado += new EventHandler(switch_to_retiro_normal_2);
 
+            //EstaodActual del ATM
+            pantallaEstadoActual.regresarMenuTecnico += new EventHandler(switch_to_menu_tecnico);
+            pantallaEstadoActual.salirPantallaBienvenida += new EventHandler(switch_to_bienvenida);
+
             pantallaRetiroNormalP2.EventoRegresar1 += new EventHandler(switch_to_menu_retiro);
             pantallaRetiroNormalP2.retiroExitoso += new EventHandler(switch_to_tome_dinero);
 
@@ -100,6 +104,11 @@ namespace Proyecto_ATM
             //panel1.Hide();
 
 
+        }
+
+        private void PantallaEstadoActual_salirPantallaBienvenida(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -137,7 +146,7 @@ namespace Proyecto_ATM
             pantallaIngresoPin.Hide();
             pantallaSaldo.Hide();
             pantallaTomeSuDinero.Hide();
-
+            pantallaEstadoActual.Hide();
         }
 
         //Transiciones
@@ -250,7 +259,12 @@ namespace Proyecto_ATM
             pantallaTomeSuDinero.StartTimer();
         }
 
-
+        private void switch_to_EstadoActual(object sender, EventArgs e) {
+            hide_all();
+            pantallaEstadoActual.Show();
+            pantallaEstadoActual.BringToFront();
+            pantallaEstadoActual.LoadInfo();
+        }
 
 
         //Botones 

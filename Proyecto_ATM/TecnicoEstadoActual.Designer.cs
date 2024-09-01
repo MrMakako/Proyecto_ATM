@@ -45,6 +45,7 @@
             Valor500 = new Label();
             labelSaldoTotal = new Label();
             ValorTotal = new Label();
+            EstadoActual = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -91,6 +92,7 @@
             regresar_btn.Text = "Regresar";
             regresar_btn.TextColor = Color.White;
             regresar_btn.UseVisualStyleBackColor = false;
+            regresar_btn.Click += regresar_btn_Click;
             // 
             // roundButton2
             // 
@@ -133,6 +135,7 @@
             salir_btn.Text = "Salir";
             salir_btn.TextColor = Color.White;
             salir_btn.UseVisualStyleBackColor = false;
+            salir_btn.Click += salir_btn_Click;
             // 
             // roundButton3
             // 
@@ -162,7 +165,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 161F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 89F));
-            tableLayoutPanel1.Location = new Point(293, 107);
+            tableLayoutPanel1.Location = new Point(293, 182);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 48F));
@@ -176,7 +179,7 @@
             label100.BorderStyle = BorderStyle.FixedSingle;
             label100.Font = new Font("Calibri", 26F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label100.ForeColor = Color.White;
-            label100.Location = new Point(431, 85);
+            label100.Location = new Point(431, 160);
             label100.Name = "label100";
             label100.Size = new Size(231, 72);
             label100.TabIndex = 0;
@@ -190,7 +193,7 @@
             label200.BorderStyle = BorderStyle.FixedSingle;
             label200.Font = new Font("Calibri", 26F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label200.ForeColor = Color.White;
-            label200.Location = new Point(658, 85);
+            label200.Location = new Point(658, 160);
             label200.Name = "label200";
             label200.Size = new Size(231, 72);
             label200.TabIndex = 18;
@@ -204,7 +207,7 @@
             label500.BorderStyle = BorderStyle.FixedSingle;
             label500.Font = new Font("Calibri", 26F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label500.ForeColor = Color.White;
-            label500.Location = new Point(874, 85);
+            label500.Location = new Point(874, 160);
             label500.Name = "label500";
             label500.Size = new Size(231, 72);
             label500.TabIndex = 19;
@@ -215,12 +218,13 @@
             // 
             label3.BackColor = Color.FromArgb(238, 39, 55);
             label3.BorderStyle = BorderStyle.FixedSingle;
-            label3.Font = new Font("Calibri", 26F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Calibri", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(214, 85);
+            label3.Location = new Point(214, 160);
             label3.Name = "label3";
             label3.Size = new Size(231, 72);
             label3.TabIndex = 20;
+            label3.Text = "Billetes de:";
             label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label4
@@ -229,11 +233,11 @@
             label4.BorderStyle = BorderStyle.FixedSingle;
             label4.Font = new Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(214, 157);
+            label4.Location = new Point(214, 232);
             label4.Name = "label4";
             label4.Size = new Size(231, 72);
             label4.TabIndex = 21;
-            label4.Text = "Unidades";
+            label4.Text = "Cantidad";
             label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Valor100
@@ -242,7 +246,7 @@
             Valor100.BorderStyle = BorderStyle.FixedSingle;
             Valor100.Font = new Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Valor100.ForeColor = Color.Black;
-            Valor100.Location = new Point(431, 157);
+            Valor100.Location = new Point(431, 232);
             Valor100.Name = "Valor100";
             Valor100.Size = new Size(231, 72);
             Valor100.TabIndex = 22;
@@ -254,7 +258,7 @@
             Valor200.BorderStyle = BorderStyle.FixedSingle;
             Valor200.Font = new Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Valor200.ForeColor = Color.Black;
-            Valor200.Location = new Point(658, 157);
+            Valor200.Location = new Point(658, 232);
             Valor200.Name = "Valor200";
             Valor200.Size = new Size(231, 72);
             Valor200.TabIndex = 23;
@@ -266,7 +270,7 @@
             Valor500.BorderStyle = BorderStyle.FixedSingle;
             Valor500.Font = new Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Valor500.ForeColor = Color.Black;
-            Valor500.Location = new Point(874, 157);
+            Valor500.Location = new Point(874, 232);
             Valor500.Name = "Valor500";
             Valor500.Size = new Size(231, 72);
             Valor500.TabIndex = 24;
@@ -298,10 +302,21 @@
             ValorTotal.TabIndex = 26;
             ValorTotal.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // EstadoActual
+            // 
+            EstadoActual.AutoSize = true;
+            EstadoActual.Font = new Font("Calibri", 28F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            EstadoActual.Location = new Point(374, 38);
+            EstadoActual.Name = "EstadoActual";
+            EstadoActual.Size = new Size(549, 68);
+            EstadoActual.TabIndex = 27;
+            EstadoActual.Text = "Estado Actual del ATM";
+            // 
             // TecnicoEstadoActual
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(EstadoActual);
             Controls.Add(ValorTotal);
             Controls.Add(labelSaldoTotal);
             Controls.Add(label100);
@@ -324,6 +339,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -345,5 +361,6 @@
         private Label Valor500;
         private Label labelSaldoTotal;
         private Label ValorTotal;
+        private Label EstadoActual;
     }
 }

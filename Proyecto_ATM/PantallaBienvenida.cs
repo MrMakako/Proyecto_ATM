@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Timer = System.Windows.Forms.Timer;
+using System.Diagnostics;
 
 namespace Proyecto_ATM
 {
@@ -31,13 +32,18 @@ namespace Proyecto_ATM
             slideshowTimer.Tick += SlideshowTimer_Tick;
 
             imageFolderPath = Path.Combine(projectDirectory, "Pantalla de Espera");
-
+           
 
         }
 
 
         private void LoadImagesFromHardcodedFolder()
         {
+            if (DesignMode)
+            {
+                return; 
+            }
+
             imageFiles = Directory.GetFiles(imageFolderPath, "*.*", SearchOption.TopDirectoryOnly)
                                   .Where(file => file.ToLower().EndsWith("jpg") ||
                                                  file.ToLower().EndsWith("png") ||

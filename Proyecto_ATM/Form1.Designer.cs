@@ -39,6 +39,7 @@ namespace Proyecto_ATM
             button3 = new Button();
             button2 = new Button();
             panel2 = new Panel();
+            pantallaEstadoActual = new TecnicoEstadoActual();
             pantallaTomeSuDinero = new PantallaTomeSuDinero();
             pantallaSaldo = new PantallaSaldo();
             pantallaRetiroNormalP2 = new PantallaRetiroNormalP2();
@@ -185,6 +186,7 @@ namespace Proyecto_ATM
             // 
             // panel2
             // 
+            panel2.Controls.Add(pantallaEstadoActual);
             panel2.Controls.Add(pantallaTomeSuDinero);
             panel2.Controls.Add(pantallaSaldo);
             panel2.Controls.Add(pantallaRetiroNormalP2);
@@ -206,6 +208,14 @@ namespace Proyecto_ATM
             panel2.Size = new Size(1302, 960);
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
+            // 
+            // pantallaEstadoActual
+            // 
+            pantallaEstadoActual.Dock = DockStyle.Fill;
+            pantallaEstadoActual.Location = new Point(0, 0);
+            pantallaEstadoActual.Name = "pantallaEstadoActual";
+            pantallaEstadoActual.Size = new Size(1302, 960);
+            pantallaEstadoActual.TabIndex = 8;
             // 
             // pantallaTomeSuDinero
             // 
@@ -229,13 +239,13 @@ namespace Proyecto_ATM
             // 
             // pantallaRetiroNormalP2
             // 
+            pantallaRetiroNormalP2.BackColor = Color.FromArgb(238, 39, 55);
             pantallaRetiroNormalP2.Dock = DockStyle.Fill;
             pantallaRetiroNormalP2.Location = new Point(0, 0);
             pantallaRetiroNormalP2.Margin = new Padding(5);
             pantallaRetiroNormalP2.Name = "pantallaRetiroNormalP2";
             pantallaRetiroNormalP2.Size = new Size(1302, 960);
             pantallaRetiroNormalP2.TabIndex = 5;
-            pantallaRetiroNormalP2.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaRetiroNormalP1
             // 
@@ -246,27 +256,26 @@ namespace Proyecto_ATM
             pantallaRetiroNormalP1.Name = "pantallaRetiroNormalP1";
             pantallaRetiroNormalP1.Size = new Size(1302, 960);
             pantallaRetiroNormalP1.TabIndex = 4;
-            pantallaRetiroNormalP1.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaRetiroSinTarjetaP2
             // 
+            pantallaRetiroSinTarjetaP2.BackColor = Color.FromArgb(238, 39, 55);
             pantallaRetiroSinTarjetaP2.Dock = DockStyle.Fill;
             pantallaRetiroSinTarjetaP2.Location = new Point(0, 0);
             pantallaRetiroSinTarjetaP2.Margin = new Padding(5);
             pantallaRetiroSinTarjetaP2.Name = "pantallaRetiroSinTarjetaP2";
             pantallaRetiroSinTarjetaP2.Size = new Size(1302, 960);
             pantallaRetiroSinTarjetaP2.TabIndex = 5;
-            pantallaRetiroSinTarjetaP2.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaRetiroSinTarjetaP1
             // 
+            pantallaRetiroSinTarjetaP1.BackColor = Color.FromArgb(238, 39, 55);
             pantallaRetiroSinTarjetaP1.Dock = DockStyle.Fill;
             pantallaRetiroSinTarjetaP1.Location = new Point(0, 0);
             pantallaRetiroSinTarjetaP1.Margin = new Padding(5);
             pantallaRetiroSinTarjetaP1.Name = "pantallaRetiroSinTarjetaP1";
             pantallaRetiroSinTarjetaP1.Size = new Size(1302, 960);
             pantallaRetiroSinTarjetaP1.TabIndex = 4;
-            pantallaRetiroSinTarjetaP1.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaMenuRetiro
             // 
@@ -277,7 +286,6 @@ namespace Proyecto_ATM
             pantallaMenuRetiro.Name = "pantallaMenuRetiro";
             pantallaMenuRetiro.Size = new Size(1302, 960);
             pantallaMenuRetiro.TabIndex = 3;
-            pantallaMenuRetiro.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaMenuTecnico
             // 
@@ -288,7 +296,6 @@ namespace Proyecto_ATM
             pantallaMenuTecnico.Name = "pantallaMenuTecnico";
             pantallaMenuTecnico.Size = new Size(1302, 960);
             pantallaMenuTecnico.TabIndex = 2;
-            pantallaMenuTecnico.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaMenuConsulta
             // 
@@ -299,7 +306,6 @@ namespace Proyecto_ATM
             pantallaMenuConsulta.Name = "pantallaMenuConsulta";
             pantallaMenuConsulta.Size = new Size(1302, 960);
             pantallaMenuConsulta.TabIndex = 3;
-            pantallaMenuConsulta.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaMenuAgente
             // 
@@ -310,7 +316,6 @@ namespace Proyecto_ATM
             pantallaMenuAgente.Name = "pantallaMenuAgente";
             pantallaMenuAgente.Size = new Size(1302, 960);
             pantallaMenuAgente.TabIndex = 2;
-            pantallaMenuAgente.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaDespedida
             // 
@@ -323,7 +328,6 @@ namespace Proyecto_ATM
             pantallaDespedida.Name = "pantallaDespedida";
             pantallaDespedida.Size = new Size(1302, 960);
             pantallaDespedida.TabIndex = 1;
-            pantallaDespedida.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaBienvenida
             // 
@@ -334,7 +338,6 @@ namespace Proyecto_ATM
             pantallaBienvenida.Name = "pantallaBienvenida";
             pantallaBienvenida.Size = new Size(1302, 960);
             pantallaBienvenida.TabIndex = 0;
-            pantallaBienvenida.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaIngresoTarjeta
             // 
@@ -346,7 +349,6 @@ namespace Proyecto_ATM
             pantallaIngresoTarjeta.Size = new Size(1302, 960);
             pantallaIngresoTarjeta.TabIndex = 0;
             pantallaIngresoTarjeta.usuario = null;
-            pantallaIngresoTarjeta.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaIngresoPin
             // 
@@ -357,21 +359,11 @@ namespace Proyecto_ATM
             pantallaIngresoPin.Size = new Size(1302, 960);
             pantallaIngresoPin.TabIndex = 1;
             pantallaIngresoPin.Usuario = null;
-            pantallaIngresoPin.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            // 
-            // pantallaSaldo
-            // 
-            pantallaSaldo.Dock = DockStyle.Fill;
-            pantallaSaldo.Location = new Point(0, 0);
-            pantallaSaldo.Name = "pantallaSaldo";
-            pantallaSaldo.Size = new Size(1041, 768);
-            pantallaSaldo.TabIndex = 6;
-            pantallaSaldo.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(1428, 960);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -384,7 +376,6 @@ namespace Proyecto_ATM
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ResumeLayout(false);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
         }
 
         #endregion
@@ -419,5 +410,6 @@ namespace Proyecto_ATM
         private Button button9;
         private PantallaSaldo pantallaSaldo;
         private PantallaTomeSuDinero pantallaTomeSuDinero;
+        private TecnicoEstadoActual pantallaEstadoActual;
     }
 }
