@@ -61,6 +61,7 @@ namespace Proyecto_ATM
                 PantallaSaldo.label2.Text = "Lps. " + movimiento.ConsultarSaldo(usuario.get_numero_cuenta()).ToString();
 
                 // Transition based on user role
+                
                 switch (usuario.get_rol())
                 {
                     case "cliente":
