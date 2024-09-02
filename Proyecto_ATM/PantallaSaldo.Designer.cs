@@ -202,6 +202,6 @@
         private RoundButton roundButton2;
         private RoundButton salir_btn;
         private RoundButton roundButton3;
-        public Label label2;
+        static public Label label2;
     }
 }
