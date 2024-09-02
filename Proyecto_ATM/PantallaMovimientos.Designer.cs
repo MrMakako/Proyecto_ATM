@@ -42,6 +42,8 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
+            refrescar_btn = new RoundButton();
+            roundButton3 = new RoundButton();
             tableLayoutPanel2.SuspendLayout();
             tabControl1.SuspendLayout();
             SuspendLayout();
@@ -232,10 +234,53 @@
             tabPage2.Text = "tabPage2";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // refrescar_btn
+            // 
+            refrescar_btn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            refrescar_btn.BackColor = Color.FromArgb(204, 24, 38);
+            refrescar_btn.BackgroundColor = Color.FromArgb(204, 24, 38);
+            refrescar_btn.BorderColor = Color.FromArgb(204, 24, 38);
+            refrescar_btn.BorderRadius = 10;
+            refrescar_btn.BorderSize = 1;
+            refrescar_btn.FlatAppearance.BorderSize = 0;
+            refrescar_btn.FlatStyle = FlatStyle.Flat;
+            refrescar_btn.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            refrescar_btn.ForeColor = Color.White;
+            refrescar_btn.Location = new Point(862, 551);
+            refrescar_btn.Name = "refrescar_btn";
+            refrescar_btn.Size = new Size(223, 68);
+            refrescar_btn.TabIndex = 14;
+            refrescar_btn.Text = "recargar";
+            refrescar_btn.TextColor = Color.White;
+            refrescar_btn.UseVisualStyleBackColor = false;
+            refrescar_btn.Click += refrescar_btn_Click;
+            // 
+            // roundButton3
+            // 
+            roundButton3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            roundButton3.BackColor = Color.FromArgb(143, 14, 24);
+            roundButton3.BackgroundColor = Color.FromArgb(143, 14, 24);
+            roundButton3.BorderColor = Color.PaleVioletRed;
+            roundButton3.BorderRadius = 10;
+            roundButton3.BorderSize = 0;
+            roundButton3.Enabled = false;
+            roundButton3.FlatAppearance.BorderSize = 0;
+            roundButton3.FlatStyle = FlatStyle.Flat;
+            roundButton3.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            roundButton3.ForeColor = Color.White;
+            roundButton3.Location = new Point(862, 566);
+            roundButton3.Name = "roundButton3";
+            roundButton3.Size = new Size(223, 68);
+            roundButton3.TabIndex = 15;
+            roundButton3.TextColor = Color.White;
+            roundButton3.UseVisualStyleBackColor = false;
+            // 
             // PantallaMovimientosTecnico
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(refrescar_btn);
+            Controls.Add(roundButton3);
             Controls.Add(tabControl1);
             Controls.Add(regresar_btn);
             Controls.Add(roundButton2);
@@ -246,6 +291,8 @@
             Name = "PantallaMovimientosTecnico";
             Size = new Size(1085, 800);
             Load += PantallaMovimientosTecnico_Load;
+            VisibleChanged += PantallaMovimientosTecnico_VisibleChanged;
+            Validating += PantallaMovimientosTecnico_Validating;
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             tabControl1.ResumeLayout(false);
@@ -268,5 +315,7 @@
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
+        private RoundButton refrescar_btn;
+        private RoundButton roundButton3;
     }
 }
