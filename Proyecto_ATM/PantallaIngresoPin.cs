@@ -64,13 +64,13 @@ namespace Proyecto_ATM
                 switch (usuario.get_rol())
                 {
                     case "cliente":
-                        IngresarMenuConsulta?.Invoke(this, EventArgs.Empty);
+                        IngresarMenuConsulta?.Invoke(this, e);
                         break;
                     case "agente":
-                        IngresarMenuAgente?.Invoke(this, EventArgs.Empty);
+                        IngresarMenuAgente?.Invoke(this, e);
                         break;
                     case "tecnico":
-                        IngresarMenuTecnico?.Invoke(this, EventArgs.Empty);
+                        IngresarMenuTecnico?.Invoke(this, e);
                         break;
                     default:
                         Console.WriteLine("Error: Unknown user role.");
