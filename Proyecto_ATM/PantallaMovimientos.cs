@@ -32,22 +32,33 @@ namespace Proyecto_ATM
         private void regresar_btn_Click(object sender, EventArgs e)
         {
 
+
+
         }
 
         private void PantallaMovimientosTecnico_Load(object sender, EventArgs e)
         {
             tecnico = new Tecnico();
 
-            
+            tecnico.obtener_movimientos();
+
+            List<MovimientoModel> movimientos = tecnico.movimientos;
+            for (int i = 0; i < movimientos.Count; i++) {
+
+                tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].fecha }, 0, tablaMovimientos.RowCount - 1);
+                tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].hora }, 1, tablaMovimientos.RowCount - 1);
+                tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].id_cliente +""}, 2, tablaMovimientos.RowCount - 1);
+                tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].tipo_retiro }, 3, tablaMovimientos.RowCount - 1);
+                tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].monto }, 4, tablaMovimientos.RowCount - 1);
+                tablaMovimientos.RowCount = tablaMovimientos.RowCount + 1;
+                tablaMovimientos.RowStyles.Add(new System.Windows.Forms.RowStyle());
+
+            }
 
             
             
             /*
-            tablaMovimientos.RowCount =tablaMovimientos.RowCount + 1;
-            tablaMovimientos.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tablaMovimientos.Controls.Add(new Label() { Text = "Street, City, State" }, 0, tablaMovimientos.RowCount - 1);
-            tablaMovimientos.Controls.Add(new Label() { Text = "888888888888" }, 1, tablaMovimientos.RowCount - 1);
-            tablaMovimientos.Controls.Add(new Label() { Text = "xxxxxxx@gmail.com" }, 2, tablaMovimientos.RowCount - 1);
+           
             */
         }
     }
