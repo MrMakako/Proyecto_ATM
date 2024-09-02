@@ -98,7 +98,12 @@ namespace Proyecto_ATM
             parentY = this.Location.Y;
 
             //panel1.Hide();
-           
+
+
+            //REMOVER ESTE CODIG
+            pantallaMovimientosTecnico1.Show();
+            pantallaMovimientosTecnico1.BringToFront();
+           //REMOVER ESTE CODIGO
 
         }
 
