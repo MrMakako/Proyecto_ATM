@@ -54,6 +54,7 @@ namespace Proyecto_ATM
             pantallaBienvenida = new PantallaBienvenida();
             pantallaIngresoTarjeta = new PantallaIngresoTarjeta();
             pantallaIngresoPin = new PantallaIngresoPin();
+            pantallaMovimientosTecnico = new PantallaMovimientosTecnico();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -71,18 +72,16 @@ namespace Proyecto_ATM
             panel1.Controls.Add(button2);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(126, 960);
+            panel1.Size = new Size(105, 800);
             panel1.TabIndex = 0;
             // 
             // button9
             // 
             button9.Dock = DockStyle.Top;
-            button9.Location = new Point(0, 288);
-            button9.Margin = new Padding(4);
+            button9.Location = new Point(0, 240);
             button9.Name = "button9";
-            button9.Size = new Size(126, 36);
+            button9.Size = new Size(105, 30);
             button9.TabIndex = 7;
             button9.Text = "TomeDinero";
             button9.UseVisualStyleBackColor = true;
@@ -91,10 +90,9 @@ namespace Proyecto_ATM
             // button8
             // 
             button8.Dock = DockStyle.Top;
-            button8.Location = new Point(0, 252);
-            button8.Margin = new Padding(4);
+            button8.Location = new Point(0, 210);
             button8.Name = "button8";
-            button8.Size = new Size(126, 36);
+            button8.Size = new Size(105, 30);
             button8.TabIndex = 6;
             button8.Text = "PMenuA";
             button8.UseVisualStyleBackColor = true;
@@ -103,10 +101,9 @@ namespace Proyecto_ATM
             // button7
             // 
             button7.Dock = DockStyle.Top;
-            button7.Location = new Point(0, 216);
-            button7.Margin = new Padding(4);
+            button7.Location = new Point(0, 180);
             button7.Name = "button7";
-            button7.Size = new Size(126, 36);
+            button7.Size = new Size(105, 30);
             button7.TabIndex = 5;
             button7.Text = "PMenuC";
             button7.UseVisualStyleBackColor = true;
@@ -115,10 +112,9 @@ namespace Proyecto_ATM
             // button5
             // 
             button5.Dock = DockStyle.Top;
-            button5.Location = new Point(0, 180);
-            button5.Margin = new Padding(4);
+            button5.Location = new Point(0, 150);
             button5.Name = "button5";
-            button5.Size = new Size(126, 36);
+            button5.Size = new Size(105, 30);
             button5.TabIndex = 3;
             button5.Text = "PMenuR";
             button5.UseVisualStyleBackColor = true;
@@ -127,10 +123,9 @@ namespace Proyecto_ATM
             // button6
             // 
             button6.Dock = DockStyle.Top;
-            button6.Location = new Point(0, 144);
-            button6.Margin = new Padding(4);
+            button6.Location = new Point(0, 120);
             button6.Name = "button6";
-            button6.Size = new Size(126, 36);
+            button6.Size = new Size(105, 30);
             button6.TabIndex = 4;
             button6.Text = "PMenuT";
             button6.UseVisualStyleBackColor = true;
@@ -139,10 +134,9 @@ namespace Proyecto_ATM
             // button4
             // 
             button4.Dock = DockStyle.Top;
-            button4.Location = new Point(0, 108);
-            button4.Margin = new Padding(4);
+            button4.Location = new Point(0, 90);
             button4.Name = "button4";
-            button4.Size = new Size(126, 36);
+            button4.Size = new Size(105, 30);
             button4.TabIndex = 2;
             button4.Text = "PRetiroN2";
             button4.UseVisualStyleBackColor = true;
@@ -151,10 +145,9 @@ namespace Proyecto_ATM
             // button1
             // 
             button1.Dock = DockStyle.Top;
-            button1.Location = new Point(0, 72);
-            button1.Margin = new Padding(4);
+            button1.Location = new Point(0, 60);
             button1.Name = "button1";
-            button1.Size = new Size(126, 36);
+            button1.Size = new Size(105, 30);
             button1.TabIndex = 0;
             button1.Text = "PRetiroN1";
             button1.UseVisualStyleBackColor = true;
@@ -163,10 +156,9 @@ namespace Proyecto_ATM
             // button3
             // 
             button3.Dock = DockStyle.Top;
-            button3.Location = new Point(0, 36);
-            button3.Margin = new Padding(4);
+            button3.Location = new Point(0, 30);
             button3.Name = "button3";
-            button3.Size = new Size(126, 36);
+            button3.Size = new Size(105, 30);
             button3.TabIndex = 1;
             button3.Text = "PDespedida";
             button3.UseVisualStyleBackColor = true;
@@ -176,9 +168,8 @@ namespace Proyecto_ATM
             // 
             button2.Dock = DockStyle.Top;
             button2.Location = new Point(0, 0);
-            button2.Margin = new Padding(4);
             button2.Name = "button2";
-            button2.Size = new Size(126, 36);
+            button2.Size = new Size(105, 30);
             button2.TabIndex = 0;
             button2.Text = "PBienvenida";
             button2.UseVisualStyleBackColor = true;
@@ -201,11 +192,11 @@ namespace Proyecto_ATM
             panel2.Controls.Add(pantallaBienvenida);
             panel2.Controls.Add(pantallaIngresoTarjeta);
             panel2.Controls.Add(pantallaIngresoPin);
+            panel2.Controls.Add(pantallaMovimientosTecnico);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(126, 0);
-            panel2.Margin = new Padding(4);
+            panel2.Location = new Point(105, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1302, 960);
+            panel2.Size = new Size(1085, 800);
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
             // 
@@ -213,8 +204,9 @@ namespace Proyecto_ATM
             // 
             pantallaEstadoActual.Dock = DockStyle.Fill;
             pantallaEstadoActual.Location = new Point(0, 0);
+            pantallaEstadoActual.Margin = new Padding(2, 2, 2, 2);
             pantallaEstadoActual.Name = "pantallaEstadoActual";
-            pantallaEstadoActual.Size = new Size(1302, 960);
+            pantallaEstadoActual.Size = new Size(1085, 800);
             pantallaEstadoActual.TabIndex = 8;
             // 
             // pantallaTomeSuDinero
@@ -222,18 +214,18 @@ namespace Proyecto_ATM
             pantallaTomeSuDinero.BackColor = Color.FromArgb(238, 39, 55);
             pantallaTomeSuDinero.Dock = DockStyle.Fill;
             pantallaTomeSuDinero.Location = new Point(0, 0);
-            pantallaTomeSuDinero.Margin = new Padding(4, 3, 4, 3);
+            pantallaTomeSuDinero.Margin = new Padding(3, 2, 3, 2);
             pantallaTomeSuDinero.Name = "pantallaTomeSuDinero";
-            pantallaTomeSuDinero.Size = new Size(1302, 960);
+            pantallaTomeSuDinero.Size = new Size(1085, 800);
             pantallaTomeSuDinero.TabIndex = 8;
             // 
             // pantallaSaldo
             // 
             pantallaSaldo.Dock = DockStyle.Fill;
             pantallaSaldo.Location = new Point(0, 0);
-            pantallaSaldo.Margin = new Padding(5);
+            pantallaSaldo.Margin = new Padding(4, 4, 4, 4);
             pantallaSaldo.Name = "pantallaSaldo";
-            pantallaSaldo.Size = new Size(1302, 960);
+            pantallaSaldo.Size = new Size(1085, 800);
             pantallaSaldo.TabIndex = 6;
             pantallaSaldo.Load += pantallaSaldo_Load;
             // 
@@ -242,9 +234,9 @@ namespace Proyecto_ATM
             pantallaRetiroNormalP2.BackColor = Color.FromArgb(238, 39, 55);
             pantallaRetiroNormalP2.Dock = DockStyle.Fill;
             pantallaRetiroNormalP2.Location = new Point(0, 0);
-            pantallaRetiroNormalP2.Margin = new Padding(5);
+            pantallaRetiroNormalP2.Margin = new Padding(4, 4, 4, 4);
             pantallaRetiroNormalP2.Name = "pantallaRetiroNormalP2";
-            pantallaRetiroNormalP2.Size = new Size(1302, 960);
+            pantallaRetiroNormalP2.Size = new Size(1085, 800);
             pantallaRetiroNormalP2.TabIndex = 5;
             // 
             // pantallaRetiroNormalP1
@@ -252,9 +244,9 @@ namespace Proyecto_ATM
             pantallaRetiroNormalP1.BackColor = Color.FromArgb(238, 39, 55);
             pantallaRetiroNormalP1.Dock = DockStyle.Fill;
             pantallaRetiroNormalP1.Location = new Point(0, 0);
-            pantallaRetiroNormalP1.Margin = new Padding(6);
+            pantallaRetiroNormalP1.Margin = new Padding(5, 5, 5, 5);
             pantallaRetiroNormalP1.Name = "pantallaRetiroNormalP1";
-            pantallaRetiroNormalP1.Size = new Size(1302, 960);
+            pantallaRetiroNormalP1.Size = new Size(1085, 800);
             pantallaRetiroNormalP1.TabIndex = 4;
             // 
             // pantallaRetiroSinTarjetaP2
@@ -262,9 +254,9 @@ namespace Proyecto_ATM
             pantallaRetiroSinTarjetaP2.BackColor = Color.FromArgb(238, 39, 55);
             pantallaRetiroSinTarjetaP2.Dock = DockStyle.Fill;
             pantallaRetiroSinTarjetaP2.Location = new Point(0, 0);
-            pantallaRetiroSinTarjetaP2.Margin = new Padding(5);
+            pantallaRetiroSinTarjetaP2.Margin = new Padding(4, 4, 4, 4);
             pantallaRetiroSinTarjetaP2.Name = "pantallaRetiroSinTarjetaP2";
-            pantallaRetiroSinTarjetaP2.Size = new Size(1302, 960);
+            pantallaRetiroSinTarjetaP2.Size = new Size(1085, 800);
             pantallaRetiroSinTarjetaP2.TabIndex = 5;
             // 
             // pantallaRetiroSinTarjetaP1
@@ -272,9 +264,9 @@ namespace Proyecto_ATM
             pantallaRetiroSinTarjetaP1.BackColor = Color.FromArgb(238, 39, 55);
             pantallaRetiroSinTarjetaP1.Dock = DockStyle.Fill;
             pantallaRetiroSinTarjetaP1.Location = new Point(0, 0);
-            pantallaRetiroSinTarjetaP1.Margin = new Padding(5);
+            pantallaRetiroSinTarjetaP1.Margin = new Padding(4, 4, 4, 4);
             pantallaRetiroSinTarjetaP1.Name = "pantallaRetiroSinTarjetaP1";
-            pantallaRetiroSinTarjetaP1.Size = new Size(1302, 960);
+            pantallaRetiroSinTarjetaP1.Size = new Size(1085, 800);
             pantallaRetiroSinTarjetaP1.TabIndex = 4;
             // 
             // pantallaMenuRetiro
@@ -282,9 +274,9 @@ namespace Proyecto_ATM
             pantallaMenuRetiro.BackColor = Color.FromArgb(238, 39, 55);
             pantallaMenuRetiro.Dock = DockStyle.Fill;
             pantallaMenuRetiro.Location = new Point(0, 0);
-            pantallaMenuRetiro.Margin = new Padding(5);
+            pantallaMenuRetiro.Margin = new Padding(4, 4, 4, 4);
             pantallaMenuRetiro.Name = "pantallaMenuRetiro";
-            pantallaMenuRetiro.Size = new Size(1302, 960);
+            pantallaMenuRetiro.Size = new Size(1085, 800);
             pantallaMenuRetiro.TabIndex = 3;
             // 
             // pantallaMenuTecnico
@@ -292,9 +284,9 @@ namespace Proyecto_ATM
             pantallaMenuTecnico.BackColor = Color.FromArgb(238, 39, 55);
             pantallaMenuTecnico.Dock = DockStyle.Fill;
             pantallaMenuTecnico.Location = new Point(0, 0);
-            pantallaMenuTecnico.Margin = new Padding(5);
+            pantallaMenuTecnico.Margin = new Padding(4, 4, 4, 4);
             pantallaMenuTecnico.Name = "pantallaMenuTecnico";
-            pantallaMenuTecnico.Size = new Size(1302, 960);
+            pantallaMenuTecnico.Size = new Size(1085, 800);
             pantallaMenuTecnico.TabIndex = 2;
             // 
             // pantallaMenuConsulta
@@ -302,9 +294,9 @@ namespace Proyecto_ATM
             pantallaMenuConsulta.BackColor = Color.FromArgb(238, 39, 55);
             pantallaMenuConsulta.Dock = DockStyle.Fill;
             pantallaMenuConsulta.Location = new Point(0, 0);
-            pantallaMenuConsulta.Margin = new Padding(5);
+            pantallaMenuConsulta.Margin = new Padding(4, 4, 4, 4);
             pantallaMenuConsulta.Name = "pantallaMenuConsulta";
-            pantallaMenuConsulta.Size = new Size(1302, 960);
+            pantallaMenuConsulta.Size = new Size(1085, 800);
             pantallaMenuConsulta.TabIndex = 3;
             // 
             // pantallaMenuAgente
@@ -312,9 +304,9 @@ namespace Proyecto_ATM
             pantallaMenuAgente.BackColor = Color.FromArgb(238, 39, 55);
             pantallaMenuAgente.Dock = DockStyle.Fill;
             pantallaMenuAgente.Location = new Point(0, 0);
-            pantallaMenuAgente.Margin = new Padding(5);
+            pantallaMenuAgente.Margin = new Padding(4, 4, 4, 4);
             pantallaMenuAgente.Name = "pantallaMenuAgente";
-            pantallaMenuAgente.Size = new Size(1302, 960);
+            pantallaMenuAgente.Size = new Size(1085, 800);
             pantallaMenuAgente.TabIndex = 2;
             // 
             // pantallaDespedida
@@ -323,10 +315,10 @@ namespace Proyecto_ATM
             pantallaDespedida.Dock = DockStyle.Fill;
             pantallaDespedida.ForeColor = SystemColors.ControlText;
             pantallaDespedida.Location = new Point(0, 0);
-            pantallaDespedida.Margin = new Padding(5);
-            pantallaDespedida.MinimumSize = new Size(1280, 960);
+            pantallaDespedida.Margin = new Padding(4, 4, 4, 4);
+            pantallaDespedida.MinimumSize = new Size(1067, 800);
             pantallaDespedida.Name = "pantallaDespedida";
-            pantallaDespedida.Size = new Size(1302, 960);
+            pantallaDespedida.Size = new Size(1085, 800);
             pantallaDespedida.TabIndex = 1;
             // 
             // pantallaBienvenida
@@ -334,9 +326,9 @@ namespace Proyecto_ATM
             pantallaBienvenida.BackColor = Color.FromArgb(238, 39, 55);
             pantallaBienvenida.Dock = DockStyle.Fill;
             pantallaBienvenida.Location = new Point(0, 0);
-            pantallaBienvenida.Margin = new Padding(5);
+            pantallaBienvenida.Margin = new Padding(4, 4, 4, 4);
             pantallaBienvenida.Name = "pantallaBienvenida";
-            pantallaBienvenida.Size = new Size(1302, 960);
+            pantallaBienvenida.Size = new Size(1085, 800);
             pantallaBienvenida.TabIndex = 0;
             // 
             // pantallaIngresoTarjeta
@@ -344,9 +336,9 @@ namespace Proyecto_ATM
             pantallaIngresoTarjeta.BackColor = SystemColors.Control;
             pantallaIngresoTarjeta.Dock = DockStyle.Fill;
             pantallaIngresoTarjeta.Location = new Point(0, 0);
-            pantallaIngresoTarjeta.Margin = new Padding(5);
+            pantallaIngresoTarjeta.Margin = new Padding(4, 4, 4, 4);
             pantallaIngresoTarjeta.Name = "pantallaIngresoTarjeta";
-            pantallaIngresoTarjeta.Size = new Size(1302, 960);
+            pantallaIngresoTarjeta.Size = new Size(1085, 800);
             pantallaIngresoTarjeta.TabIndex = 0;
             pantallaIngresoTarjeta.usuario = null;
             // 
@@ -354,20 +346,29 @@ namespace Proyecto_ATM
             // 
             pantallaIngresoPin.Dock = DockStyle.Fill;
             pantallaIngresoPin.Location = new Point(0, 0);
-            pantallaIngresoPin.Margin = new Padding(5);
+            pantallaIngresoPin.Margin = new Padding(4, 4, 4, 4);
             pantallaIngresoPin.Name = "pantallaIngresoPin";
-            pantallaIngresoPin.Size = new Size(1302, 960);
+            pantallaIngresoPin.Size = new Size(1085, 800);
             pantallaIngresoPin.TabIndex = 1;
             pantallaIngresoPin.Usuario = null;
+            //pantallaMovimientosTecnico
+            pantallaMovimientosTecnico.BackColor = SystemColors.Control;
+            pantallaMovimientosTecnico.Dock = DockStyle.Fill;
+            pantallaMovimientosTecnico.Location = new Point(0, 0);
+            pantallaMovimientosTecnico.Margin = new Padding(4, 4, 4, 4);
+            pantallaMovimientosTecnico.Name = "pantallaMovimientosTecnico";
+            pantallaMovimientosTecnico.Size = new Size(1085, 800);
+            pantallaMovimientosTecnico.TabIndex = 0;
+         
+
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            ClientSize = new Size(1428, 960);
+            ClientSize = new Size(1190, 800);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Margin = new Padding(4);
             Name = "Form1";
             RightToLeftLayout = true;
             StartPosition = FormStartPosition.CenterScreen;
@@ -404,6 +405,8 @@ namespace Proyecto_ATM
         //Retiro sin Tarjeta
         private PantallaRetiroSinTarjetaP1 pantallaRetiroSinTarjetaP1;
         private PantallaRetiroSinTarjetaP2 pantallaRetiroSinTarjetaP2;
+        //Movimientos
+        private PantallaMovimientosTecnico pantallaMovimientosTecnico;
 
         private Button button7;
         private Button button8;
@@ -411,5 +414,6 @@ namespace Proyecto_ATM
         private PantallaSaldo pantallaSaldo;
         private PantallaTomeSuDinero pantallaTomeSuDinero;
         private TecnicoEstadoActual pantallaEstadoActual;
+        
     }
 }

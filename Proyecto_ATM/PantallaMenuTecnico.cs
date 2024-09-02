@@ -39,6 +39,7 @@ namespace Proyecto_ATM
             {
                 this.redMovimientos_MenuTecnico(this, e);
             }
+
             else
             {
                 Console.WriteLine("Error al cambiar panel Menu de Tecnico -> Movimientos\n");

@@ -60,7 +60,7 @@ namespace Proyecto_ATM
 
             //menu de Tecnico
             pantallaMenuTecnico.salirMenuTecnico += new EventHandler(switch_to_bienvenida);
-           // pantallaMenuTecnico.redMovimientos_MenuTecnico += new EventHandler();
+            pantallaMenuTecnico.redMovimientos_MenuTecnico += new EventHandler(switch_to_movimientos);
             pantallaMenuTecnico.redEstadoAct_MenuTecnico += new EventHandler(switch_to_EstadoActual);
 
             //menu de Agente
@@ -95,6 +95,11 @@ namespace Proyecto_ATM
             pantallaRetiroNormalP1.retiroExitoso += new EventHandler(switch_to_tome_dinero);
             pantallaIngresoPin.AcctorPinIncorrect += new EventHandler(switch_to_bienvenida);
 
+            //Pantalla Movimiento
+            pantallaMovimientosTecnico.regresar += new EventHandler(switch_to_menu_tecnico);
+
+
+            //Codgigo necesario par alo modals, las notificaicones que se muestran
             usuario = new Usuario();
             pantallaIngresoPin.Usuario = usuario;
             pantallaIngresoTarjeta.usuario = usuario;
@@ -147,6 +152,9 @@ namespace Proyecto_ATM
             pantallaSaldo.Hide();
             pantallaTomeSuDinero.Hide();
             pantallaEstadoActual.Hide();
+            pantallaMenuTecnico.Hide();
+            pantallaMovimientosTecnico.Hide();
+        
         }
 
         //Transiciones
@@ -176,6 +184,14 @@ namespace Proyecto_ATM
             hide_all();
             pantallaIngresoTarjeta.Show();
             pantallaIngresoTarjeta.BringToFront();
+
+        }
+
+        public void switch_to_movimientos(object sender, EventArgs e) {
+            hide_all();
+            pantallaMovimientosTecnico.Show();
+            pantallaMovimientosTecnico.BringToFront();
+          
 
         }
         public void switch_to_ingreso_pin(object sender, EventArgs e)
@@ -235,6 +251,8 @@ namespace Proyecto_ATM
             hide_all();
             pantallaMenuTecnico.Show();
             pantallaMenuTecnico.BringToFront();
+           
+
         }
 
         private void switch_to_menu_consulta(object sender, EventArgs e)
