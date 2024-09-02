@@ -49,6 +49,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 49.8000031F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(230, 92);
@@ -59,6 +60,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top;
             label2.AutoSize = true;
             label2.BackColor = SystemColors.Control;
             label2.Font = new Font("Calibri", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -71,6 +73,7 @@
             // 
             // textobox_numero_tarjeta
             // 
+            textobox_numero_tarjeta.Anchor = AnchorStyles.None;
             textobox_numero_tarjeta.Font = new Font("Calibri", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textobox_numero_tarjeta.Location = new Point(292, 313);
             textobox_numero_tarjeta.Name = "textobox_numero_tarjeta";

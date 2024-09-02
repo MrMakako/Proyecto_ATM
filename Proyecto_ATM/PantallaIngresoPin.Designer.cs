@@ -48,6 +48,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top;
             label2.AutoSize = true;
             label2.BackColor = SystemColors.Control;
             label2.Font = new Font("Calibri", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -60,6 +61,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 49.8000031F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(230, 92);
@@ -79,6 +81,7 @@
             // 
             // textbox_pin
             // 
+            textbox_pin.Anchor = AnchorStyles.None;
             textbox_pin.Font = new Font("Calibri", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textbox_pin.Location = new Point(275, 314);
             textbox_pin.Name = "textbox_pin";
@@ -97,7 +100,7 @@
             ingresar_btn.FlatStyle = FlatStyle.Flat;
             ingresar_btn.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ingresar_btn.ForeColor = Color.White;
-            ingresar_btn.Location = new Point(822, 528);
+            ingresar_btn.Location = new Point(816, 544);
             ingresar_btn.Name = "ingresar_btn";
             ingresar_btn.Size = new Size(223, 68);
             ingresar_btn.TabIndex = 9;
@@ -119,7 +122,7 @@
             roundButton2.FlatStyle = FlatStyle.Flat;
             roundButton2.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             roundButton2.ForeColor = Color.White;
-            roundButton2.Location = new Point(822, 550);
+            roundButton2.Location = new Point(816, 557);
             roundButton2.Name = "roundButton2";
             roundButton2.Size = new Size(223, 68);
             roundButton2.TabIndex = 10;

@@ -32,6 +32,7 @@
             roundButton2 = new RoundButton();
             EstadoActBtn = new PictureBox();
             MovimientosBtn = new PictureBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)EstadoActBtn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)MovimientosBtn).BeginInit();
             SuspendLayout();
@@ -101,11 +102,25 @@
             MovimientosBtn.TabStop = false;
             MovimientosBtn.Click += MovimientosBtn_Click;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top;
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(133, 45);
+            label1.Name = "label1";
+            label1.Size = new Size(741, 73);
+            label1.TabIndex = 15;
+            label1.Text = "Bienvenido Tecnico Bancario";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // PantallaMenuTecnico
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(238, 39, 55);
+            Controls.Add(label1);
             Controls.Add(SalirBtn);
             Controls.Add(roundButton2);
             Controls.Add(EstadoActBtn);
@@ -115,6 +130,7 @@
             ((System.ComponentModel.ISupportInitialize)EstadoActBtn).EndInit();
             ((System.ComponentModel.ISupportInitialize)MovimientosBtn).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -123,5 +139,6 @@
         private RoundButton roundButton2;
         private PictureBox EstadoActBtn;
         private PictureBox MovimientosBtn;
+        private Label label1;
     }
 }

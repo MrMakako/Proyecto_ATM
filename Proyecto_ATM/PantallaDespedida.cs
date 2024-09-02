@@ -37,12 +37,6 @@ namespace Proyecto_ATM
                                   .OrderBy(file => file)
                                   .ToArray();
 
-            //Posicionamiento de labels
-            label1.Parent = pictureBox1;
-            label2.Parent = pictureBox1;
-            label2.Location = new Point(90, 205);
-            label1.Location = new Point(96, 255);
-
             //Solo agarra la primera imagen que detecta en orden alfabetico
             pictureBox1.Image = Image.FromFile(imageFiles[0]);
 
