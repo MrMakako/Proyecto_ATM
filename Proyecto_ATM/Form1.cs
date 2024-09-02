@@ -98,7 +98,7 @@ namespace Proyecto_ATM
             parentY = this.Location.Y;
 
             //panel1.Hide();
-
+           
 
         }
 

@@ -167,7 +167,7 @@
             regresar_btn.FlatStyle = FlatStyle.Flat;
             regresar_btn.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             regresar_btn.ForeColor = Color.White;
-            regresar_btn.Location = new Point(83, 533);
+            regresar_btn.Location = new Point(83, 531);
             regresar_btn.Name = "regresar_btn";
             regresar_btn.Size = new Size(223, 68);
             regresar_btn.TabIndex = 11;
