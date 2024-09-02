@@ -56,12 +56,12 @@ namespace Proyecto_ATM
             {
                 // Clear PIN text box
                 textbox_pin.Clear();
-
+                IngresarMenuConsulta(this, e);
                 // Transition based on user role
                 switch (usuario.get_rol())
                 {
                     case "cliente":
-                        IngresarMenuConsulta?.Invoke(this, EventArgs.Empty);
+                        IngresarMenuConsulta(this, e);
                         break;
                     case "agente":
                         IngresarMenuAgente?.Invoke(this, EventArgs.Empty);

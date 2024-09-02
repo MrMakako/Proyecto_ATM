@@ -101,8 +101,8 @@ namespace Proyecto_ATM
 
 
             //REMOVER ESTE CODIG
-            pantallaMovimientosTecnico1.Show();
-            pantallaMovimientosTecnico1.BringToFront();
+           pantallaMovimientosTecnico1.Show();
+           pantallaMovimientosTecnico1.BringToFront();
            //REMOVER ESTE CODIGO
 
         }

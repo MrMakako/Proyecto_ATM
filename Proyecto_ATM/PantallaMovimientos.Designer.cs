@@ -68,17 +68,17 @@
             // 
             tablaMovimientos.CellBorderStyle = TableLayoutPanelCellBorderStyle.OutsetPartial;
             tablaMovimientos.ColumnCount = 5;
-            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 23.484848F));
-            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
+            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 19.9697437F));
+            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 19.9697437F));
+            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 19.9697437F));
+            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 23.44932F));
+            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6414528F));
             tablaMovimientos.ForeColor = Color.Black;
             tablaMovimientos.Location = new Point(299, 131);
             tablaMovimientos.Name = "tablaMovimientos";
             tablaMovimientos.RowCount = 1;
-            tablaMovimientos.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tablaMovimientos.Size = new Size(792, 36);
+            tablaMovimientos.RowStyles.Add(new RowStyle());
+            tablaMovimientos.Size = new Size(792, 45);
             tablaMovimientos.TabIndex = 2;
             tablaMovimientos.Paint += tableLayoutPanel1_Paint;
             // 

@@ -31,7 +31,7 @@ namespace Proyecto_ATM.api
             conector.Open();
             movimientos.Clear();
 
-            using (var cmd = new NpgsqlCommand("select fecha_registro,rma.id_cliente,tipo_retiro,monto_retiro from registro_movimientos_atm rma inner join cliente_cuenta cc on rma.id_cliente =cc.id_cliente \r\n\r\n", conector.conector))
+            using (var cmd = new NpgsqlCommand("select fecha_registro,id_cliente,tipo_retiro,monto_retiro from registro_movimientos_atm", conector.conector))
             {
 
                 // Execute the query
@@ -44,8 +44,8 @@ namespace Proyecto_ATM.api
 
                  
                     string fecha = fecha_hora.Substring(0,9);
-                
-                    string hora= fecha_hora.Substring(9,12);
+                 
+                    string hora =  fecha_hora.Substring(9,10);
                
                     int id_cliente = (int)reader["id_cliente"];
                     string tipo_retiro = (string)reader["tipo_retiro"];

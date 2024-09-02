@@ -43,6 +43,7 @@ namespace Proyecto_ATM
             tecnico.obtener_movimientos();
 
             List<MovimientoModel> movimientos = tecnico.movimientos;
+            MessageBox.Show(movimientos.Count+"");
             for (int i = 0; i < movimientos.Count; i++) {
 
                 tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].fecha }, 0, tablaMovimientos.RowCount - 1);
@@ -51,7 +52,8 @@ namespace Proyecto_ATM
                 tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].tipo_retiro }, 3, tablaMovimientos.RowCount - 1);
                 tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].monto }, 4, tablaMovimientos.RowCount - 1);
                 tablaMovimientos.RowCount = tablaMovimientos.RowCount + 1;
-                tablaMovimientos.RowStyles.Add(new System.Windows.Forms.RowStyle());
+                tablaMovimientos.RowStyles.Add(new System.Windows.Forms.RowStyle(SizeType.AutoSize,30));
+                tablaMovimientos.Size = new System.Drawing.Size(tablaMovimientos.Width,tablaMovimientos.Height+20);
 
             }
 
