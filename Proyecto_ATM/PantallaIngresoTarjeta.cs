@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 namespace Proyecto_ATM
 {
+
+    //HOLA
     public partial class PantallaIngresoTarjeta : UserControl
     {
 
