@@ -89,6 +89,10 @@ namespace Proyecto_ATM
             pantallaRetiroNormalP2.EventoRegresar1 += new EventHandler(switch_to_menu_retiro);
             pantallaRetiroNormalP2.retiroExitoso += new EventHandler(switch_to_tome_dinero);
 
+            //Pantalla Retiro Sin Tarjeta
+            pantallaRetiroSinTarjetaP2.retiroSinTarjetaExitoso += new EventHandler(switch_to_tome_dinero);
+            
+            //
             pantallaTomeSuDinero.timerDinero += new EventHandler(switch_to_despedida);
             pantallaDespedida.despedidaTimeUp += new EventHandler(switch_to_bienvenida);
             pantallaRetiroSinTarjetaP1.EventoRegresar1 += new EventHandler(switch_to_menu_retiro);

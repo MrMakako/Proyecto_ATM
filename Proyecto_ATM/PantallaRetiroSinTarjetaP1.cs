@@ -13,6 +13,7 @@ namespace Proyecto_ATM
     public partial class PantallaRetiroSinTarjetaP1 : UserControl
     {
         public event EventHandler EventoRegresar1;
+        public static string codigo = "";
         public PantallaRetiroSinTarjetaP1()
         {
             InitializeComponent();
@@ -38,7 +39,7 @@ namespace Proyecto_ATM
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-
+            codigo = textBox1.Text;
 
             if (this.cambioPt2 != null)
             {
