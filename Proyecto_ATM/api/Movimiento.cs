@@ -28,6 +28,13 @@ namespace Proyecto_ATM.api
             this.pin = pin;
         }
 
+        public Movimiento()
+        {
+            this.numeroCuenta = string.Empty;
+            this.pin = string.Empty;          
+            this.conector = new Conector();
+        }
+
         public bool retiro(double monto)
         {
             double saldo = ConsultarSaldo(numeroCuenta);
@@ -365,3 +372,4 @@ namespace Proyecto_ATM.api
         public Conector GetConector() { return conector; }
     }
 }
+

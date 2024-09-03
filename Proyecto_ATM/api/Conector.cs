@@ -5,10 +5,10 @@ using System.Data;
 public class Conector
 {
     public readonly NpgsqlConnection conector;
-    private static readonly string password = "password";
+    private static readonly string password = "MissingLure2005";
     private static readonly string port = "5432";
     private static readonly string db = "ATM";
-    private static readonly string username = "atm";
+    private static readonly string username = "postgres";
     private static readonly string host = "localhost";
 
     public Conector()
