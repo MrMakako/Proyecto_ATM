@@ -42,12 +42,11 @@ namespace Proyecto_ATM.api
 
                 while (reader.Read())
                 {
-                    string fecha_hora = (string)reader["fecha_registro"].ToString();
+                    string fecha_hora = reader["fecha_registro"].ToString();
 
-
-                    string fecha = fecha_hora.Substring(0, 9);
-
-                    string hora = fecha_hora.Substring(9, 10);
+                    // Extracting fecha and hora from fecha_hora
+                    string fecha = fecha_hora.Substring(0, fecha_hora.IndexOf(' ')); // Extracts the date part
+                    string hora = fecha_hora.Substring(fecha_hora.IndexOf(' ') + 1);  // Extracts the time part
 
                     int id_cliente = (int)reader["id_cliente"];
                     string tipo_retiro = (string)reader["tipo_retiro"];
