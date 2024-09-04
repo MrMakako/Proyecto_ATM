@@ -91,7 +91,7 @@ namespace Proyecto_ATM
 
             //Pantalla Retiro Sin Tarjeta
             pantallaRetiroSinTarjetaP1.cambioPt2 += new EventHandler(switch_to_RetiroPT2);
-            pantallaRetiroSinTarjetaP2.retiroSinTarjetaExitoso += new EventHandler(switch_to_tome_dinero);
+      //      pantallaRetiroSinTarjetaP2.retiroSinTarjetaExitoso += new EventHandler(switch_to_tome_dinero);
             
             //
             pantallaTomeSuDinero.timerDinero += new EventHandler(switch_to_despedida);
@@ -101,7 +101,7 @@ namespace Proyecto_ATM
             pantallaIngresoPin.AcctorPinIncorrect += new EventHandler(switch_to_bienvenida);
 
             //Pantalla Movimiento
-            pantallaMovimientosTecnico.regresar += new EventHandler(switch_to_menu_tecnico);
+         //   pantallaMovimientosTecnico.regresar += new EventHandler(switch_to_menu_tecnico);
 
 
             //Codgigo necesario par alo modals, las notificaicones que se muestran

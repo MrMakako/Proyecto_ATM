@@ -208,6 +208,7 @@ namespace Proyecto_ATM
             pantallaEstadoActual.Name = "pantallaEstadoActual";
             pantallaEstadoActual.Size = new Size(1085, 800);
             pantallaEstadoActual.TabIndex = 8;
+            pantallaEstadoActual.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaTomeSuDinero
             // 
@@ -218,6 +219,7 @@ namespace Proyecto_ATM
             pantallaTomeSuDinero.Name = "pantallaTomeSuDinero";
             pantallaTomeSuDinero.Size = new Size(1085, 800);
             pantallaTomeSuDinero.TabIndex = 8;
+            pantallaTomeSuDinero.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaSaldo
             // 
@@ -228,6 +230,7 @@ namespace Proyecto_ATM
             pantallaSaldo.Size = new Size(1085, 800);
             pantallaSaldo.TabIndex = 6;
             pantallaSaldo.Load += pantallaSaldo_Load;
+            pantallaSaldo.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaRetiroNormalP2
             // 
@@ -238,6 +241,7 @@ namespace Proyecto_ATM
             pantallaRetiroNormalP2.Name = "pantallaRetiroNormalP2";
             pantallaRetiroNormalP2.Size = new Size(1085, 800);
             pantallaRetiroNormalP2.TabIndex = 5;
+            pantallaRetiroNormalP2.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaRetiroNormalP1
             // 
@@ -248,6 +252,7 @@ namespace Proyecto_ATM
             pantallaRetiroNormalP1.Name = "pantallaRetiroNormalP1";
             pantallaRetiroNormalP1.Size = new Size(1085, 800);
             pantallaRetiroNormalP1.TabIndex = 4;
+            pantallaRetiroNormalP1.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaRetiroSinTarjetaP2
             // 
@@ -258,6 +263,7 @@ namespace Proyecto_ATM
             pantallaRetiroSinTarjetaP2.Name = "pantallaRetiroSinTarjetaP2";
             pantallaRetiroSinTarjetaP2.Size = new Size(1085, 800);
             pantallaRetiroSinTarjetaP2.TabIndex = 5;
+            pantallaRetiroSinTarjetaP2.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaRetiroSinTarjetaP1
             // 
@@ -268,6 +274,7 @@ namespace Proyecto_ATM
             pantallaRetiroSinTarjetaP1.Name = "pantallaRetiroSinTarjetaP1";
             pantallaRetiroSinTarjetaP1.Size = new Size(1085, 800);
             pantallaRetiroSinTarjetaP1.TabIndex = 4;
+            pantallaRetiroSinTarjetaP1.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaMenuRetiro
             // 
@@ -278,6 +285,7 @@ namespace Proyecto_ATM
             pantallaMenuRetiro.Name = "pantallaMenuRetiro";
             pantallaMenuRetiro.Size = new Size(1085, 800);
             pantallaMenuRetiro.TabIndex = 3;
+            pantallaMenuRetiro.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaMenuTecnico
             // 
@@ -288,6 +296,7 @@ namespace Proyecto_ATM
             pantallaMenuTecnico.Name = "pantallaMenuTecnico";
             pantallaMenuTecnico.Size = new Size(1085, 800);
             pantallaMenuTecnico.TabIndex = 2;
+            pantallaMenuTecnico.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaMenuConsulta
             // 
@@ -298,6 +307,7 @@ namespace Proyecto_ATM
             pantallaMenuConsulta.Name = "pantallaMenuConsulta";
             pantallaMenuConsulta.Size = new Size(1085, 800);
             pantallaMenuConsulta.TabIndex = 3;
+            pantallaMenuConsulta.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaMenuAgente
             // 
@@ -308,6 +318,7 @@ namespace Proyecto_ATM
             pantallaMenuAgente.Name = "pantallaMenuAgente";
             pantallaMenuAgente.Size = new Size(1085, 800);
             pantallaMenuAgente.TabIndex = 2;
+            pantallaMenuAgente.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaDespedida
             // 
@@ -320,6 +331,7 @@ namespace Proyecto_ATM
             pantallaDespedida.Name = "pantallaDespedida";
             pantallaDespedida.Size = new Size(1085, 800);
             pantallaDespedida.TabIndex = 1;
+            pantallaDespedida.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaBienvenida
             // 
@@ -330,6 +342,7 @@ namespace Proyecto_ATM
             pantallaBienvenida.Name = "pantallaBienvenida";
             pantallaBienvenida.Size = new Size(1085, 800);
             pantallaBienvenida.TabIndex = 0;
+            pantallaDespedida.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaIngresoTarjeta
             // 
@@ -341,6 +354,7 @@ namespace Proyecto_ATM
             pantallaIngresoTarjeta.Size = new Size(1085, 800);
             pantallaIngresoTarjeta.TabIndex = 0;
             pantallaIngresoTarjeta.usuario = null;
+            pantallaIngresoTarjeta.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaIngresoPin
             // 
@@ -351,6 +365,7 @@ namespace Proyecto_ATM
             pantallaIngresoPin.Size = new Size(1085, 800);
             pantallaIngresoPin.TabIndex = 1;
             pantallaIngresoPin.Usuario = null;
+            pantallaIngresoPin.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             //pantallaMovimientosTecnico
             pantallaMovimientosTecnico.BackColor = SystemColors.Control;
             pantallaMovimientosTecnico.Dock = DockStyle.Fill;
@@ -359,7 +374,8 @@ namespace Proyecto_ATM
             pantallaMovimientosTecnico.Name = "pantallaMovimientosTecnico";
             pantallaMovimientosTecnico.Size = new Size(1085, 800);
             pantallaMovimientosTecnico.TabIndex = 0;
-         
+            pantallaMovimientosTecnico.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+
 
             // 
             // Form1
