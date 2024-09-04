@@ -342,7 +342,7 @@ namespace Proyecto_ATM
             pantallaBienvenida.Name = "pantallaBienvenida";
             pantallaBienvenida.Size = new Size(1085, 800);
             pantallaBienvenida.TabIndex = 0;
-            pantallaDespedida.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            pantallaBienvenida.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             // 
             // pantallaIngresoTarjeta
             // 
