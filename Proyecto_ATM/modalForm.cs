@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,12 +20,20 @@ namespace Proyecto_ATM
         }
         int i;
         int y;
+        public String error;
+
+        public String ERROR
+        {
+            set { this.label1.Text = value; }
+        }
+
+
         private void modalForm_Load(object sender, EventArgs e)
         {
             i = Form1.parentY+550;
             y = Form1.parentY +250;
             this.Location = new Point(Form1.parentX +250, y);
-
+            
         }
         private void label1_Click(object sender, EventArgs e)
         {
