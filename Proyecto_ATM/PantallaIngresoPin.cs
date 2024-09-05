@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Proyecto_ATM
 {
@@ -20,7 +21,7 @@ namespace Proyecto_ATM
         public event EventHandler IngresarMenuTecnico;
         public event EventHandler AcctorPinIncorrect;
         private Conector conector;
-
+        private PopUps pop;
         public PantallaIngresoPin()
         {
             InitializeComponent();
@@ -81,16 +82,37 @@ namespace Proyecto_ATM
             else
             {
                 AcctorPinIncorrect?.Invoke(this, EventArgs.Empty);
-                mostrar_error("Incorrect account number or PIN.");
+                mostrar_error("Numero de Tarjeta o Pin erróneos.");
+                
+                //pop =new PopUps("Numero de Tarjeta o Pin erróneos.",this.FindForm());
+                
             }
         }
 
         private void mostrar_error(string mensaje)
         {
-            // Display the error message
-            MessageBox.Show(mensaje);
+            Form modalBackground = new Form();
+            Form parentForm = this.FindForm();
+            using (modalForm modal = new modalForm())
+            {
+                modalBackground.StartPosition = FormStartPosition.Manual;
+                modalBackground.FormBorderStyle = FormBorderStyle.None;
+                modalBackground.Opacity = 0.5d;
+                modalBackground.BackColor = Color.Black;
+                modalBackground.Size = parentForm.Size;
+                modalBackground.Location = parentForm.Location;
+                modalBackground.ShowInTaskbar = false;
+                modalBackground.Show();
+                modal.Owner = modalBackground;
+                modal.ERROR = mensaje;
+                //parentX = this.Location.X;
+                //parentY = this.Location.Y;
 
-            // Optionally, reset the input fields
+                modal.ShowDialog();
+                modalBackground.Dispose();
+
+            }
+
             textbox_pin.Clear();
         }
 
