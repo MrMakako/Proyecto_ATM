@@ -28,13 +28,6 @@ namespace Proyecto_ATM.api
             this.pin = pin;
         }
 
-        public Movimiento()
-        {
-            this.numeroCuenta = string.Empty;
-            this.pin = string.Empty;          
-            this.conector = new Conector();
-        }
-
         public bool retiro(double monto)
         {
             double saldo = ConsultarSaldo(numeroCuenta);
@@ -132,72 +125,119 @@ namespace Proyecto_ATM.api
                 conector.Close();
             }
         }
-        public bool retiro_sin_tarjeta(string codigo_retiro, int monto_retirar)
+
+        public bool ProcesarRetiroConCodigo(string codigoIngresado, double montoIngresado)
         {
+            Usuario usuario = new Usuario(); 
 
+           
+            if (ValidarCodigoRetiro(codigoIngresado, montoIngresado))
+            {
+                Console.WriteLine("Código válido. Procediendo con el retiro.");
 
+                
+                usuario.set_numero_cuenta(numeroCuenta);
+                usuario.set_pin(pin);
+                
+
+                
+                if (retiro(montoIngresado))
+                {
+                    
+                    MarcarCodigoComoUsado(codigoIngresado);
+                    MessageBox.Show("Retiro realizado exitosamente.");
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Hubo un error al realizar el retiro.");
+                    return false;
+                }
+            }
+            else
+            {
+                
+                MessageBox.Show("Código no válido o el monto excede lo permitido.");
+                return false;
+            }
+        }
+
+        public bool ValidarCodigoRetiro(string codigo, double monto)
+        {
             try
             {
                 conector.Open();
-                bool? estado = false;
-                int? monto_retirar_ev = 0;
-                int? id_cuenta = 0;
-                double? saldo_cuenta = 0;
-                int? id_retiro = 0;
 
-                //primer query revisar si el codigo es valido 
-                using (var cmd = new NpgsqlCommand("select id_cuenta,id, monto_retirar ,estado from codigo_cuentas_retiro  INNER JOIN retiro_sin_tarjeta on retiro_sin_tarjeta.codigo_retiro =id_codigo  WHERE codigo= @codigo_retiro; ", conector.conector))
+                
+                using (var cmd = new NpgsqlCommand("SELECT id_cuenta, monto_a_retirar FROM codigo_cuentas_retiro WHERE codigo = @codigo", conector.ConectorConnection))
                 {
-  
-                    cmd.Parameters.AddWithValue("codigo_retiro", codigo_retiro);
+                    cmd.Parameters.AddWithValue("codigo", codigo);
 
-                    NpgsqlDataReader reader = cmd.ExecuteReader();
-                    while (reader.Read())
+                    using (var reader = cmd.ExecuteReader())
                     {
+                        if (reader.Read())
+                        {
+                            int idCuenta = (int)reader["id_cuenta"];
+                            double montoEnCodigo = (double)reader["monto_a_retirar"];
 
-                        estado = (bool?)reader["estado"];
-                        monto_retirar_ev = (int?)reader["monto_retirar"];
-                        id_cuenta = (int?)reader["id_cuenta"];
-                        id_retiro = (int?)reader["id"];
+                            
+                            if (montoEnCodigo != monto)
+                            {
+                                MessageBox.Show("El monto a retirar no coincide con el monto asociado al código.");
+                                return false;
+                            }
 
-
+                            
+                            Usuario usuario = GlobalState.Usuario;
+                            if (usuario.get_id() == idCuenta)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                MessageBox.Show("El código de retiro no está asociado a la cuenta del usuario.");
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Código de retiro no válido.");
+                            return false;
+                        }
                     }
-                    reader.Close();
-
-
-                    //Si el codigo es valido
-                    if ((bool)estado && monto_retirar == monto_retirar_ev)
-                    {
-                        cmd.CommandText = "UPDATE cuentas SET saldo_cuenta=saldo_cuenta - @monto_retirar WHERE id_cuenta=(@id_cuenta);";
-                        cmd.Parameters.AddWithValue("id_cuenta", id_cuenta);
-                        cmd.Parameters.AddWithValue("monto_retirar", monto_retirar);
-                        cmd.ExecuteNonQuery();
-
-                        cmd.CommandText = "UPDATE retiro_sin_tarjeta SET estado=false WHERE id=@id_retiro ;";
-
-                        cmd.Parameters.AddWithValue("id_retiro", id_retiro);
-                        cmd.ExecuteNonQuery();
-
-                    }
-
-
                 }
-
-                conector.Close();
-                return true;
-
             }
-
-
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show(e.Message);
-
+                MessageBox.Show("Error al validar el código de retiro: " + ex.Message);
+                return false;
             }
-            conector.Close();
-            return false;
+            finally
+            {
+                conector.Close();
+            }
+        }
 
-
+        public void MarcarCodigoComoUsado(string codigo)
+        {
+            try
+            {
+                conector.Open();
+                using (var cmd = new NpgsqlCommand("DELETE FROM codigo_cuentas_retiro WHERE codigo = @codigo", conector.conector))
+                {
+                    cmd.Parameters.AddWithValue("codigo", codigo);
+                    cmd.ExecuteNonQuery();
+                }
+                Console.WriteLine("Código marcado como usado o eliminado.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al marcar el código como usado: " + ex.Message);
+            }
+            finally
+            {
+                conector.Close();
+            }
         }
 
         private void LogWithdrawal(double monto, int idCliente)
@@ -227,7 +267,6 @@ namespace Proyecto_ATM.api
             }
         }
 
-        // Method to retrieve current bill quantities from the database
         private Dictionary<int, int> GetBillQuantitiesFromDatabase()
         {
             var billQuantities = new Dictionary<int, int>();
@@ -323,7 +362,6 @@ namespace Proyecto_ATM.api
             }
         }
 
-        // Helper method to format the dispensed bills for display
         private string FormatDispensedBills(Dictionary<int, int> bills)
         {
             StringBuilder sb = new StringBuilder();
@@ -366,7 +404,6 @@ namespace Proyecto_ATM.api
 
             return saldo;
         }
-
 
         public string GetNumeroCuenta() { return numeroCuenta; }
         public Conector GetConector() { return conector; }
