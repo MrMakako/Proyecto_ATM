@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto_ATM.api;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,9 +15,11 @@ namespace Proyecto_ATM
     {
         public event EventHandler EventoRegresar1;
         public static string codigo = "";
+        private Conector conector;
         public PantallaRetiroSinTarjetaP1()
         {
             InitializeComponent();
+            conector = new Conector();
         }
 
         public event EventHandler cambioPt2;
@@ -41,18 +44,27 @@ namespace Proyecto_ATM
         {
             codigo = textBox1.Text;
 
-            if (this.cambioPt2 != null)
+            Usuario usuario = new Usuario();
+            if (usuario.ObtenerCuentaDesdeCodigo(codigo, conector)) 
             {
+                GlobalState.Usuario = usuario;
 
-                this.cambioPt2(this, e);
-
+                if (this.cambioPt2 != null)
+                {
+                    this.cambioPt2(this, e);
+                }
+                else
+                {
+                    Console.WriteLine("Error");
+                }
             }
             else
             {
-                Console.WriteLine("Error");
-            }
 
+                MessageBox.Show("Código no válido.");
+            }
         }
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {

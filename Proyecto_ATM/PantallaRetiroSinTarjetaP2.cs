@@ -17,19 +17,34 @@ namespace Proyecto_ATM
         Movimiento movi;
         string codigo = "";
         public event EventHandler retiroSinTarjetaExitoso;
+        private Conector conector;
 
 
         public PantallaRetiroSinTarjetaP2()
         {
             InitializeComponent();
-            movi = new Movimiento();
+            conector = new Conector();
+            
         }
 
         private void ingresar_btn_Click(object sender, EventArgs e)
         {
             codigo = PantallaRetiroSinTarjetaP1.codigo;
-            int monto = int.Parse(textBox1.Text);
-            if(movi.retiro_sin_tarjeta(codigo, monto))
+            double monto = int.Parse(textBox1.Text);
+
+            if (GlobalState.Usuario == null)
+            {
+                MessageBox.Show("Error: Usuario no ha sido inicializado.");
+                return;
+            }
+
+            Usuario usuario = GlobalState.Usuario;
+
+            Movimiento movimiento = new Movimiento(usuario.get_numero_cuenta(), usuario.get_pin(), conector);
+
+            bool exito = movimiento.ProcesarRetiroConCodigo(codigo, monto);
+
+            if (exito)
             {
                 if (retiroSinTarjetaExitoso != null)
                 {
@@ -37,17 +52,14 @@ namespace Proyecto_ATM
                 }
                 else
                 {
-                    Console.WriteLine("Error al cambiar de pantalla");
+                    MessageBox.Show("NO FUNCA.");
                 }
             }
             else
             {
-                
+                MessageBox.Show("Código o monto incorrecto.");
             }
-            
-
-            
-
         }
+
     }
 }
