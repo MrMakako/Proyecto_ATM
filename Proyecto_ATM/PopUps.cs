@@ -17,7 +17,7 @@ namespace Proyecto_ATM
             parent = Parent;
         }
 
-        private void mostrar_error()
+        public void mostrar_error()
         {
             
             Form modalBackground = new Form();
@@ -34,8 +34,8 @@ namespace Proyecto_ATM
                 modalBackground.Show();
                 modal.Owner = modalBackground;
                 modal.error = ErrorMessage;
-                //parentX = this.Location.X;
-                //parentY = this.Location.Y;
+                //int parentX = parent.Location.X;
+                //int parentY = parent.Location.Y;
 
                 modal.ShowDialog();
                 modalBackground.Dispose();
@@ -43,6 +43,8 @@ namespace Proyecto_ATM
             }
 
         }
-    }
+    
+
+        }
 
 }
