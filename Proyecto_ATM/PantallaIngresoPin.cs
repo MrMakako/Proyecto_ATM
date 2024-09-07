@@ -85,8 +85,6 @@ namespace Proyecto_ATM
                 AcctorPinIncorrect?.Invoke(this, EventArgs.Empty);
                 mostrar_error("Numero de Tarjeta o Pin erróneos.");
                 
-                
-
             }
         }
 

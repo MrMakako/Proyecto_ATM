@@ -161,6 +161,7 @@ namespace Proyecto_ATM.api
                     
                     MarcarCodigoComoUsado(codigoIngresado);
                     mostrar_error("Retiro realizado exitosamente.",Parent);
+                    //ANA
                     //MessageBox.Show("Aqui va retiro exitoso");
                     return true;
                 }
@@ -174,12 +175,12 @@ namespace Proyecto_ATM.api
             else
             {
 
-                mostrar_error("Código no válido o el monto excede lo permitido.", Parent);
+                //mostrar_error("Código no válido o el monto excede lo permitido.", Parent);
                 return false;
             }
         }
 
-        public bool ValidarCodigoRetiro(string codigo, double monto)//Confused about yo-ANA
+        public bool ValidarCodigoRetiro(string codigo, double monto)
         {
             try
             {
@@ -200,7 +201,7 @@ namespace Proyecto_ATM.api
                             
                             if (montoEnCodigo != monto)
                             {
-                                MessageBox.Show("El monto a retirar no coincide con el monto asociado al código.");
+                                //MessageBox.Show("El monto a retirar no coincide con el monto asociado al código.");
                                 return false;
                             }
 
@@ -212,13 +213,13 @@ namespace Proyecto_ATM.api
                             }
                             else
                             {
-                                MessageBox.Show("El código de retiro no está asociado a la cuenta del usuario.");
+                                //MessageBox.Show("El código de retiro no está asociado a la cuenta del usuario.");
                                 return false;
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Código de retiro no válido.");
+                            //MessageBox.Show("Código de retiro no válido.");
                             return false;
                         }
                     }
@@ -226,7 +227,7 @@ namespace Proyecto_ATM.api
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al validar el código de retiro: " + ex.Message);
+                MessageBox.Show("Error al validar el código de retiro: \n" + ex.Message);
                 return false;
             }
             finally

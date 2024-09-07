@@ -17,6 +17,9 @@ namespace Proyecto_ATM
         Movimiento movi;
         string codigo = "";
         public event EventHandler retiroSinTarjetaExitoso;
+        public event EventHandler AcctorPinIncorrect;
+        public event EventHandler retiroSinTarjetaRegresar;
+
         private Conector conector;
         private PopUps popUp;
 
@@ -32,10 +35,12 @@ namespace Proyecto_ATM
         {
             codigo = PantallaRetiroSinTarjetaP1.codigo;
             double monto = int.Parse(textBox1.Text);
+            
 
             if (GlobalState.Usuario == null)
             {
-                MessageBox.Show("Error: Usuario no ha sido inicializado.");
+                mostrar_error("Codigo o Monto erróneos.");
+                
                 return;
             }
 
@@ -58,7 +63,9 @@ namespace Proyecto_ATM
             }
             else
             {
-                mostrar_error("Monto incorrecto.");
+                AcctorPinIncorrect?.Invoke(this, EventArgs.Empty);
+                mostrar_error("Codigo o Monto erróneos.");
+                
             }
         }
         private void mostrar_error(string mensaje)
@@ -66,11 +73,20 @@ namespace Proyecto_ATM
             popUp = new PopUps();
             Console.WriteLine(mensaje);
             popUp.mostrar_error(mensaje, this.FindForm());
+            textBox1.Clear();
         }
 
         private void RegresarBtn_Click(object sender, EventArgs e)
         {
-
+            if (this.retiroSinTarjetaRegresar != null)
+            {
+                textBox1.Clear();
+                this.retiroSinTarjetaRegresar(this, e);
+            }
+            else
+            {
+                Console.WriteLine("Error al cambiar panel pantalla de retiro sin tarjeta p2 ->retiro sin tarjeta p2\n");
+            }
         }
     }
 }

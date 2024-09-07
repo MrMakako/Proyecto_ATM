@@ -48,20 +48,20 @@ namespace Proyecto_ATM
             if (usuario.ObtenerCuentaDesdeCodigo(codigo, conector)) 
             {
                 GlobalState.Usuario = usuario;
-
-                if (this.cambioPt2 != null)
-                {
-                    this.cambioPt2(this, e);
-                }
-                else
-                {
-                    Console.WriteLine("Error");
-                }
             }
             else
             {
+                //MessageBox.Show("Código no válido.");
+            }
 
-                MessageBox.Show("Código no válido.");
+            if (this.cambioPt2 != null)
+            {
+             
+                this.cambioPt2(this, e);
+            }
+            else
+            {
+                Console.WriteLine("Error");
             }
         }
 
@@ -71,7 +71,7 @@ namespace Proyecto_ATM
 
             if (this.cambioMenuRetiro != null)
             {
-
+                textBox1.Clear();
                 this.cambioMenuRetiro(this, e);
 
             }
