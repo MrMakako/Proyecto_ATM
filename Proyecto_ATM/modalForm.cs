@@ -14,18 +14,15 @@ namespace Proyecto_ATM
 {
     public partial class modalForm : Form
     {
-        public modalForm()
+        public modalForm(String Value)
         {
             InitializeComponent();
+            error = Value;
         }
         int i;
         int y;
         public String error;
 
-        public String ERROR
-        {
-            set { this.label1.Text = value; }
-        }
 
 
         private void modalForm_Load(object sender, EventArgs e)
@@ -33,6 +30,7 @@ namespace Proyecto_ATM
             i = Form1.parentY+550;
             y = Form1.parentY +250;
             this.Location = new Point(Form1.parentX +250, y);
+            label1.Text = error;
             
         }
         private void label1_Click(object sender, EventArgs e)

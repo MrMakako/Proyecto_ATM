@@ -66,7 +66,7 @@ namespace Proyecto_ATM
 
 
 
-        private void mostrar_error() {
+        /*private void mostrar_error() {
             //El error se muestra en formade Modal
             Form modalBackground = new Form();
             Form parentForm = this.FindForm();
@@ -92,7 +92,7 @@ namespace Proyecto_ATM
 
             }
 
-        }
+        }*/
 
         private void Reset(object sender, EventArgs e) {
 

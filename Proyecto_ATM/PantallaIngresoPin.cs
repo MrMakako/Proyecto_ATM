@@ -92,8 +92,8 @@ namespace Proyecto_ATM
 
         private void mostrar_error(string mensaje)
         {
-            popUp = new PopUps(mensaje, this.FindForm());
-            popUp.mostrar_error();
+            popUp = new PopUps();
+            popUp.mostrar_error(mensaje, this.FindForm());
             textbox_pin.Clear();
         }
 

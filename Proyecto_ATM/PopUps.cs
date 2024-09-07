@@ -9,20 +9,17 @@ namespace Proyecto_ATM
 {
     internal class PopUps
     {
-        String ErrorMessage;
-        Form parent;
-        public PopUps(String Error, Form Parent)
+        
+        public PopUps()
         {
-            ErrorMessage = Error;
-            parent = Parent;
         }
 
-        public void mostrar_error()
+        public void mostrar_error(String Error, Form Parent)
         {
             
             Form modalBackground = new Form();
-            Form parentForm = parent;
-            using (modalForm modal = new modalForm())
+            Form parentForm = Parent;
+            using (modalForm modal = new modalForm(Error))
             {
                 modalBackground.StartPosition = FormStartPosition.Manual;
                 modalBackground.FormBorderStyle = FormBorderStyle.None;
@@ -33,7 +30,7 @@ namespace Proyecto_ATM
                 modalBackground.ShowInTaskbar = false;
                 modalBackground.Show();
                 modal.Owner = modalBackground;
-                modal.error = ErrorMessage;
+                modal.error = Error;
                 //int parentX = parent.Location.X;
                 //int parentY = parent.Location.Y;
 

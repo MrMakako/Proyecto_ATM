@@ -34,7 +34,7 @@ namespace Proyecto_ATM.api
 
             if (saldo < monto)
             {
-                MessageBox.Show("No hay suficiente saldo en la cuenta.");
+                //MessageBox.Show("No hay suficiente saldo en la cuenta.");
                 return false;
             }
 

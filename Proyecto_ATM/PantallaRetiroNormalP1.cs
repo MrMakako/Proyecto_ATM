@@ -18,6 +18,7 @@ namespace Proyecto_ATM
 
         private Conector conector;
         public event EventHandler retiroExitoso;
+        private PopUps popUp;
         public PantallaRetiroNormalP1()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace Proyecto_ATM
         public event EventHandler EventoRegresar;
         public event EventHandler EventoMonto;
         public event EventHandler EventoMontoPersonalizado;
+
 
 
         private void roundButton5_Click(object sender, EventArgs e) // BotonRegresar 
@@ -125,8 +127,16 @@ namespace Proyecto_ATM
             }
             else
             {
-                MessageBox.Show("No hay suficiente saldo en la cuenta.");
+                mostrar_error("No hay suficiente saldo en la cuenta.");
+                
             }
+        }
+
+        private void mostrar_error(string mensaje)
+        {
+            popUp = new PopUps();
+            Console.WriteLine(mensaje);
+            popUp.mostrar_error(mensaje, this.FindForm());            
         }
 
         private void label1_Click(object sender, EventArgs e)
