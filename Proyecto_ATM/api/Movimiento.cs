@@ -122,12 +122,12 @@ namespace Proyecto_ATM.api
 
                 // Inform the user of the successful withdrawal and display the dispensed bills
                 
-                /*Me woa a matar aqui*/
+                /*Me woa a matar aqui ANA*/
                 //mostrar_error("Retiro exitoso. Se han dispensado los siguientes billetes:",Parent);
                 //mostrar_error(FormatDispensedBills(billsToDispense),Parent);
-                MessageBox.Show("Retiro exitoso. Se han dispensado los siguientes billetes:\n" + FormatDispensedBills(billsToDispense));
+                //MessageBox.Show("Retiro exitoso. Se han dispensado los siguientes billetes:\n" + FormatDispensedBills(billsToDispense));
 
-                return true;
+                
             }
             catch (Exception e)
             {
@@ -139,6 +139,10 @@ namespace Proyecto_ATM.api
             {
                 conector.Close();
             }
+
+            mostrar_error("Retiro exitoso. Se han dispensado\n los siguientes billetes:",Parent);
+            mostrar_error(FormatDispensedBills(billsToDispense),Parent);
+            return true;
         }
 
         public bool ProcesarRetiroConCodigo(string codigoIngresado, double montoIngresado,Form Parent)
@@ -160,9 +164,6 @@ namespace Proyecto_ATM.api
                 {
                     
                     MarcarCodigoComoUsado(codigoIngresado);
-                    mostrar_error("Retiro realizado exitosamente.",Parent);
-                    //ANA
-                    //MessageBox.Show("Aqui va retiro exitoso");
                     return true;
                 }
                 else
