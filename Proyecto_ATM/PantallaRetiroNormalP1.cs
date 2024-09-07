@@ -112,7 +112,7 @@ namespace Proyecto_ATM
 
             Movimiento movimiento = new Movimiento(usuario.get_numero_cuenta(), usuario.get_pin(), conector);
 
-            bool exito = movimiento.retiro(monto);
+            bool exito = movimiento.retiro(monto,null);//aqui
 
             if (exito)
             {
@@ -127,8 +127,9 @@ namespace Proyecto_ATM
             }
             else
             {
-                mostrar_error("No hay suficiente saldo en la cuenta.");
-                
+                mostrar_error("Saldo insuficiente para realizar retiro.");
+
+
             }
         }
 

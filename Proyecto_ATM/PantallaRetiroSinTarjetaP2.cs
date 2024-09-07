@@ -18,13 +18,14 @@ namespace Proyecto_ATM
         string codigo = "";
         public event EventHandler retiroSinTarjetaExitoso;
         private Conector conector;
+        private PopUps popUp;
 
 
         public PantallaRetiroSinTarjetaP2()
         {
             InitializeComponent();
             conector = new Conector();
-            
+
         }
 
         private void ingresar_btn_Click(object sender, EventArgs e)
@@ -42,7 +43,7 @@ namespace Proyecto_ATM
 
             Movimiento movimiento = new Movimiento(usuario.get_numero_cuenta(), usuario.get_pin(), conector);
 
-            bool exito = movimiento.ProcesarRetiroConCodigo(codigo, monto);
+            bool exito = movimiento.ProcesarRetiroConCodigo(codigo, monto, this.FindForm());
 
             if (exito)
             {
@@ -57,9 +58,19 @@ namespace Proyecto_ATM
             }
             else
             {
-                MessageBox.Show("Código o monto incorrecto.");
+                mostrar_error("Monto incorrecto.");
             }
         }
+        private void mostrar_error(string mensaje)
+        {
+            popUp = new PopUps();
+            Console.WriteLine(mensaje);
+            popUp.mostrar_error(mensaje, this.FindForm());
+        }
 
+        private void RegresarBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
