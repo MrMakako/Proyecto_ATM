@@ -39,6 +39,9 @@ namespace Proyecto_ATM
             pantallaRetiroSinTarjetaP1.Hide();
             pantallaRetiroSinTarjetaP2.Hide();
 
+            //tecnico
+            pantallaMovimientosTecnico.Hide();
+
             //Tome su Dinero
             pantallaTomeSuDinero.Hide();
 

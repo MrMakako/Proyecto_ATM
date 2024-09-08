@@ -324,10 +324,8 @@ namespace Proyecto_ATM
             // 
             pantallaDespedida.BackColor = Color.FromArgb(238, 39, 55);
             pantallaDespedida.Dock = DockStyle.Fill;
-            pantallaDespedida.ForeColor = SystemColors.ControlText;
             pantallaDespedida.Location = new Point(0, 0);
             pantallaDespedida.Margin = new Padding(4, 4, 4, 4);
-            pantallaDespedida.MinimumSize = new Size(1067, 800);
             pantallaDespedida.Name = "pantallaDespedida";
             pantallaDespedida.Size = new Size(1085, 800);
             pantallaDespedida.TabIndex = 1;
