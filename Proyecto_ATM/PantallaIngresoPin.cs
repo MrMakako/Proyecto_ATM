@@ -20,15 +20,17 @@ namespace Proyecto_ATM
         public event EventHandler IngresarMenuAgente;
         public event EventHandler IngresarMenuTecnico;
         public event EventHandler AcctorPinIncorrect;
+        public event EventHandler RegresarIngresoTarjeta;
         private Conector conector;
         private PopUps popUp;
+        private int intentos;
         public PantallaIngresoPin()
         {
             InitializeComponent();
             conector = new Conector();
 
         }
-
+        
         private void PantallaIngresoPin_Load(object sender, EventArgs e)
         {
             try
@@ -82,8 +84,20 @@ namespace Proyecto_ATM
             }
             else
             {
-                AcctorPinIncorrect?.Invoke(this, EventArgs.Empty);
+
+                intentos++;
+                
                 mostrar_error("Numero de Tarjeta o Pin erróneos.");
+                if (intentos == 5)
+                {
+                    //Al ser  5 intentos me evnia a la pantalla de Bienvenida
+                    AcctorPinIncorrect?.Invoke(this, EventArgs.Empty);
+
+                }
+                else {
+                    //Si los intentos son menores  5 me regresa a la pantalla de Ingreso de Tarjeta
+                    RegresarIngresoTarjeta?.Invoke(this, EventArgs.Empty); 
+                }
                 
             }
         }

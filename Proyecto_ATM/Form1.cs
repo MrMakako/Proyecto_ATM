@@ -101,6 +101,8 @@ namespace Proyecto_ATM
             pantallaRetiroSinTarjetaP1.EventoRegresar1 += new EventHandler(switch_to_menu_retiro);
             pantallaRetiroNormalP1.retiroExitoso += new EventHandler(switch_to_tome_dinero);
             pantallaIngresoPin.AcctorPinIncorrect += new EventHandler(switch_to_bienvenida);
+            pantallaIngresoPin.RegresarIngresoTarjeta += new EventHandler(switch_to_ingreso_tarjeta);
+
 
             //Pantalla Movimiento
          //   pantallaMovimientosTecnico.regresar += new EventHandler(switch_to_menu_tecnico);
