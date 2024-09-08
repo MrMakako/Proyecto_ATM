@@ -29,8 +29,9 @@ namespace Proyecto_ATM
         {
             i = Form1.parentY+550;
             y = Form1.parentY +250;
-            this.Location = new Point(Form1.parentX +250, y);
+            this.Location = new Point(Form1.parentX +300, y);
             label1.Text = error;
+          
             
         }
         private void label1_Click(object sender, EventArgs e)
@@ -50,7 +51,7 @@ namespace Proyecto_ATM
             }
 
             y +=1;
-            this.Location = new Point(Form1.parentX + 250,y);
+            this.Location = new Point(Form1.parentX + 300,y);
 
             if (y >= i) {
                 modalEffect_Timer.Stop();

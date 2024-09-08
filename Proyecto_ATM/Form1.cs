@@ -105,7 +105,7 @@ namespace Proyecto_ATM
 
 
             //Pantalla Movimiento
-         //   pantallaMovimientosTecnico.regresar += new EventHandler(switch_to_menu_tecnico);
+            pantallaMovimientosTecnico.regresar += new EventHandler(switch_to_menu_tecnico);
 
 
             //Codgigo necesario par alo modals, las notificaicones que se muestran
@@ -115,7 +115,7 @@ namespace Proyecto_ATM
             parentX = this.Location.X;
             parentY = this.Location.Y;
 
-            //panel1.Hide();
+            panel1.Hide();
 
 
         }

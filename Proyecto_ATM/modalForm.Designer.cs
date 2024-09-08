@@ -37,14 +37,15 @@
             // 
             // label1
             // 
-            label1.AutoSize = true;
+            label1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label1.Font = new Font("Calibri", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(204, 24, 38);
-            label1.Location = new Point(22, 72);
+            label1.Location = new Point(26, 54);
             label1.Name = "label1";
-            label1.Size = new Size(426, 35);
+            label1.Size = new Size(339, 27);
             label1.TabIndex = 0;
             label1.Text = "Este número de tarjeta no es valido";
+            label1.TextAlign = ContentAlignment.TopCenter;
             label1.Click += label1_Click;
             // 
             // ok_btn
@@ -59,9 +60,10 @@
             ok_btn.FlatStyle = FlatStyle.Flat;
             ok_btn.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ok_btn.ForeColor = Color.White;
-            ok_btn.Location = new Point(126, 149);
+            ok_btn.Location = new Point(110, 112);
+            ok_btn.Margin = new Padding(3, 2, 3, 2);
             ok_btn.Name = "ok_btn";
-            ok_btn.Size = new Size(223, 68);
+            ok_btn.Size = new Size(195, 51);
             ok_btn.TabIndex = 9;
             ok_btn.Text = "Ok";
             ok_btn.TextColor = Color.White;
@@ -81,9 +83,10 @@
             roundButton2.FlatStyle = FlatStyle.Flat;
             roundButton2.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             roundButton2.ForeColor = Color.White;
-            roundButton2.Location = new Point(126, 162);
+            roundButton2.Location = new Point(110, 122);
+            roundButton2.Margin = new Padding(3, 2, 3, 2);
             roundButton2.Name = "roundButton2";
-            roundButton2.Size = new Size(223, 68);
+            roundButton2.Size = new Size(195, 51);
             roundButton2.TabIndex = 10;
             roundButton2.TextColor = Color.White;
             roundButton2.UseVisualStyleBackColor = false;
@@ -96,19 +99,19 @@
             // 
             // modalForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(462, 263);
+            ClientSize = new Size(404, 197);
             Controls.Add(ok_btn);
             Controls.Add(roundButton2);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "modalForm";
             Text = "modalFormcs";
             Load += modalForm_Load;
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
