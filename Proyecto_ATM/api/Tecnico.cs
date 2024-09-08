@@ -33,7 +33,7 @@ namespace Proyecto_ATM.api
             conector.Open();
             movimientos.Clear();
 
-            using (var cmd = new NpgsqlCommand("select fecha_registro,id_cliente,tipo_retiro,monto_retiro from registro_movimientos_atm", conector.conector))
+            using (var cmd = new NpgsqlCommand("select fecha_registro,id_cliente,tipo_retiro,monto_retiro from registro_movimientos_atm rma order by fecha_registro desc;", conector.conector))
             {
 
                 // Execute the query
@@ -51,13 +51,13 @@ namespace Proyecto_ATM.api
                     int id_cliente = (int)reader["id_cliente"];
                     string tipo_retiro = (string)reader["tipo_retiro"];
                     double monto = (double)reader["monto_retiro"];
-
+                    
                     movimientos.Add(new MovimientoModel(id_cliente, fecha, hora, monto + "", tipo_retiro));
-
+                    
 
                 }
             }
-
+            
             conector.Close();
 
 

@@ -46,33 +46,8 @@ namespace Proyecto_ATM
 
         private void PantallaMovimientosTecnico_Load(object sender, EventArgs e)
         {
-            tecnico = new Tecnico();
+     
 
-            tecnico.obtener_movimientos();
-            ClearTableLayoutPanelRows(tablaMovimientos);
-            tablaMovimientos.RowCount = 0;
-
-            List<MovimientoModel> movimientos = tecnico.movimientos;
-
-            for (int i = 0; i < movimientos.Count; i++)
-            {
-
-                tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].fecha }, 0, tablaMovimientos.RowCount - 1);
-                tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].hora }, 1, tablaMovimientos.RowCount - 1);
-                tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].id_cliente + "" }, 2, tablaMovimientos.RowCount - 1);
-                tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].tipo_retiro }, 3, tablaMovimientos.RowCount - 1);
-                tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].monto }, 4, tablaMovimientos.RowCount - 1);
-                tablaMovimientos.RowCount = tablaMovimientos.RowCount + 1;
-                tablaMovimientos.RowStyles.Add(new System.Windows.Forms.RowStyle(SizeType.AutoSize, 30));
-                tablaMovimientos.Size = new System.Drawing.Size(tablaMovimientos.Width, tablaMovimientos.Height + 28);
-
-            }
-
-
-
-            /*
-           
-            */
         }
 
         private void PantallaMovimientosTecnico_Validating(object sender, CancelEventArgs e)
@@ -88,46 +63,62 @@ namespace Proyecto_ATM
 
         }
 
-        private void refrescar_btn_Click(object sender, EventArgs e)
+        public void refrescar(object sender, EventArgs e)
         {
             tecnico = new Tecnico();
 
             tecnico.obtener_movimientos();
-            tablaMovimientos.Hide();
-            ClearTableLayoutPanelRows(tablaMovimientos);
+            panel3.Hide();
+            ClearTableLayoutPanel(tablaMovimientos);
         
 
             List<MovimientoModel> movimientos = tecnico.movimientos;
+        
 
             for (int i = 0; i < movimientos.Count; i++)
             {
 
+                tablaMovimientos.RowCount = tablaMovimientos.RowCount + 1;
                 tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].fecha }, 0, tablaMovimientos.RowCount - 1);
                 tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].hora }, 1, tablaMovimientos.RowCount - 1);
                 tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].id_cliente + "" }, 2, tablaMovimientos.RowCount - 1);
                 tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].tipo_retiro }, 3, tablaMovimientos.RowCount - 1);
                 tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].monto }, 4, tablaMovimientos.RowCount - 1);
-                tablaMovimientos.RowCount = tablaMovimientos.RowCount + 1;
                 tablaMovimientos.RowStyles.Add(new System.Windows.Forms.RowStyle(SizeType.AutoSize, 30));
                 tablaMovimientos.Size = new System.Drawing.Size(tablaMovimientos.Width, tablaMovimientos.Height + 28);
 
             }
-
-            tablaMovimientos.Show();
+            panel3.Show();
+           
         }
-        public static void ClearTableLayoutPanelRows(TableLayoutPanel panel)
+        private void ClearTableLayoutPanel(TableLayoutPanel tableLayoutPanel)
         {
-            // Remove all controls from the TableLayoutPanel
-            panel.Controls.Clear();
+            // Check if the tableLayoutPanel is not null
+           
+            if (tableLayoutPanel == null)
+            {
+                throw new ArgumentNullException(nameof(tableLayoutPanel));
+            }
 
-            // Clear the row styles
-           panel.RowStyles.Clear();
+            // Iterate through the controls in reverse order to avoid issues with collection modification
+            foreach (Control control in tableLayoutPanel.Controls.Cast<Control>().ToList())
+            {
+                // Remove the control from the TableLayoutPanel
+                tableLayoutPanel.Controls.Remove(control);
 
-            // Set the row count to 0
-            panel.RowCount = 0;
+                // Dispose of the control to free resources
+                control.Dispose();
+            }
 
-            panel.Size = new System.Drawing.Size(792, 0);
+            // Optionally, reset RowCount and ColumnCount if you want to completely clear the TableLayoutPanel
+            tableLayoutPanel.RowCount = 0;
+            tableLayoutPanel.ColumnCount = 0;
+
+            // Optionally, clear any row styles if needed
+            tableLayoutPanel.RowStyles.Clear();
+            tableLayoutPanel.ColumnStyles.Clear();
         }
+
     }
- 
+
 }

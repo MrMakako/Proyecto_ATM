@@ -198,6 +198,7 @@ namespace Proyecto_ATM
 
         public void switch_to_movimientos(object sender, EventArgs e) {
             hide_all();
+            pantallaMovimientosTecnico.refrescar(sender, e);
             pantallaMovimientosTecnico.Show();
             pantallaMovimientosTecnico.BringToFront();
           
