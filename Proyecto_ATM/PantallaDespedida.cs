@@ -29,7 +29,7 @@ namespace Proyecto_ATM
         private void PantallaDespedida_Load(object sender, EventArgs e)
         {
             //Agarrar el arreglo de las imagenes para solo agarrarse la primera
-          /*  imageFiles = Directory.GetFiles(imageFolderPath, "*.*", SearchOption.TopDirectoryOnly)
+           imageFiles = Directory.GetFiles(imageFolderPath, "*.*", SearchOption.TopDirectoryOnly)
                                   .Where(file => file.ToLower().EndsWith("jpg") ||
                                                  file.ToLower().EndsWith("png") ||
                                                  file.ToLower().EndsWith("bmp") ||
@@ -38,7 +38,7 @@ namespace Proyecto_ATM
                                   .ToArray();
 
             //Solo agarra la primera imagen que detecta en orden alfabetico
-            pictureBox1.Image = Image.FromFile(imageFiles[0]);*/
+            pictureBox1.Image = Image.FromFile(imageFiles[0]);
 
             Relojito.Start();
         }
