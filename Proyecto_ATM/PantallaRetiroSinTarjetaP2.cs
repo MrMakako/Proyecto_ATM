@@ -17,6 +17,7 @@ namespace Proyecto_ATM
         Movimiento movi;
         string codigo = "";
         public event EventHandler retiroSinTarjetaExitoso;
+        public event EventHandler retiroSinTarjetaFallido;
         private Conector conector;
 
 
@@ -57,6 +58,10 @@ namespace Proyecto_ATM
             }
             else
             {
+                if(retiroSinTarjetaFallido != null)
+                {
+                    retiroSinTarjetaFallido(this, EventArgs.Empty);
+                }
                 MessageBox.Show("Código o monto incorrecto.");
             }
         }
