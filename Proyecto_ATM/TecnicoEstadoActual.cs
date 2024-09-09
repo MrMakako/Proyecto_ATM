@@ -24,12 +24,16 @@ namespace Proyecto_ATM
         public event EventHandler regresarMenuTecnico;
         public event EventHandler salirPantallaBienvenida;
 
-        public void LoadInfo() { 
+        public void LoadInfo()
+        {
             saldo.LoadData();
             this.Valor100.Text = saldo.cant100.ToString();
             this.Valor200.Text = saldo.cant200.ToString();
             this.Valor500.Text = saldo.cant500.ToString();
             this.ValorTotal.Text = saldo.saldoTotal.ToString() + " Lempiras";
+            this.Total100.Text = (saldo.cant100*100).ToString();  
+            this.Total200.Text = (saldo.cant200*200).ToString();
+            this.Total500.Text = (saldo.cant500*500).ToString();
 
         }
         private void label1_Click(object sender, EventArgs e)
@@ -76,6 +80,11 @@ namespace Proyecto_ATM
             {
                 Console.WriteLine("Error");
             }
+
+        }
+
+        private void TotalLabel_Click(object sender, EventArgs e)
+        {
 
         }
     }
