@@ -37,7 +37,7 @@ namespace Proyecto_ATM.api
             popUp.mostrar_error(mensaje, Parent);
         }
 
-        public bool retiro(double monto, Form Parent)
+        public bool retiro(double monto, Form Parent, String TipoRetiro)
         {
             double saldo = ConsultarSaldo(numeroCuenta);
 
@@ -118,7 +118,7 @@ namespace Proyecto_ATM.api
                 UpdateBillQuantitiesInDatabase(billsToDispense);
 
                 // Log the withdrawal in registro_movimientos_atm
-                LogWithdrawal(monto, GlobalState.Usuario.get_id()); // Adjust as needed
+                LogWithdrawal(monto, GlobalState.Usuario.get_id(), TipoRetiro); // Adjust as needed
 
                 // Inform the user of the successful withdrawal and display the dispensed bills
                 
@@ -157,10 +157,11 @@ namespace Proyecto_ATM.api
                 
                 usuario.set_numero_cuenta(numeroCuenta);
                 usuario.set_pin(pin);
-                
 
-                
-                if (retiro(montoIngresado,Parent))
+                bool exito = retiro(montoIngresado, Parent, "Retiro Sin Tarjeta");
+
+
+                if (exito)
                 {
                     
                     MarcarCodigoComoUsado(codigoIngresado);
@@ -259,7 +260,7 @@ namespace Proyecto_ATM.api
             }
         }
 
-        private void LogWithdrawal(double monto, int idCliente)
+        private void LogWithdrawal(double monto, int idCliente, String TipoRetiro)
         {
             try
             {
@@ -268,7 +269,7 @@ namespace Proyecto_ATM.api
                 using (var cmd = new NpgsqlCommand("INSERT INTO registro_movimientos_atm (fecha_registro, tipo_retiro, monto_retiro, id_cliente) VALUES (@fecha_registro, @tipo_retiro, @monto_retiro, @id_cliente)", conector.ConectorConnection))
                 {
                     cmd.Parameters.AddWithValue("fecha_registro", DateTime.Now);
-                    cmd.Parameters.AddWithValue("tipo_retiro", "retiro"); // Adjust as needed
+                    cmd.Parameters.AddWithValue("tipo_retiro", TipoRetiro); // Adjust as needed
                     cmd.Parameters.AddWithValue("monto_retiro", monto);
                     cmd.Parameters.AddWithValue("id_cliente", idCliente);
 
@@ -386,7 +387,8 @@ namespace Proyecto_ATM.api
             StringBuilder sb = new StringBuilder();
             foreach (var bill in bills)
             {
-                sb.AppendLine($"{bill.Value} x ${bill.Key} billetes");
+                string billete = bill.Value == 1 ? "billete" : "billetes";
+                sb.AppendLine($"{bill.Value} {billete} de {bill.Key} lempiras");
             }
             return sb.ToString();
         }

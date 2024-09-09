@@ -70,7 +70,6 @@ namespace Proyecto_ATM
             tecnico.obtener_movimientos();
             panel3.Hide();
             ClearTableLayoutPanel(tablaMovimientos);
-        
 
             List<MovimientoModel> movimientos = tecnico.movimientos;
         
@@ -79,11 +78,11 @@ namespace Proyecto_ATM
             {
 
                 tablaMovimientos.RowCount = tablaMovimientos.RowCount + 1;
-                tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].fecha }, 0, tablaMovimientos.RowCount - 1);
-                tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].hora }, 1, tablaMovimientos.RowCount - 1);
-                tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].id_cliente + "" }, 2, tablaMovimientos.RowCount - 1);
-                tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].tipo_retiro }, 3, tablaMovimientos.RowCount - 1);
-                tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].monto }, 4, tablaMovimientos.RowCount - 1);
+                tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].fecha, AutoSize = true }, 0, tablaMovimientos.RowCount - 1);
+                tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].hora, AutoSize = true }, 1, tablaMovimientos.RowCount - 1);
+                tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].nombre + "", AutoSize = true }, 2, tablaMovimientos.RowCount - 1);
+                tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].tipo_retiro, AutoSize = true }, 3, tablaMovimientos.RowCount - 1);
+                tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].monto + "Lempiras", AutoSize = true }, 4, tablaMovimientos.RowCount - 1);
                 tablaMovimientos.RowStyles.Add(new System.Windows.Forms.RowStyle(SizeType.AutoSize, 30));
                 tablaMovimientos.Size = new System.Drawing.Size(tablaMovimientos.Width, tablaMovimientos.Height + 28);
 
@@ -116,7 +115,7 @@ namespace Proyecto_ATM
 
             // Optionally, clear any row styles if needed
             tableLayoutPanel.RowStyles.Clear();
-            tableLayoutPanel.ColumnStyles.Clear();
+            //tableLayoutPanel.ColumnStyles.Clear();
         }
 
     }

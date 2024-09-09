@@ -14,6 +14,8 @@ namespace Proyecto_ATM.api
         public string monto { get; set; }
         public string tipo_retiro { get; set; }
 
+        public string nombre { get; set; }
+
 
         public MovimientoModel()
         {
@@ -23,10 +25,10 @@ namespace Proyecto_ATM.api
             fecha = "";
             monto = "";
             tipo_retiro = "";
-
+            nombre= "";
 
         }
-        public MovimientoModel(int id_cliente, string fecha, string hora, string monto, string tipo_retiro)
+        public MovimientoModel(int id_cliente, string fecha, string hora, string monto, string tipo_retiro, string nombre)
         {
 
             this.id_cliente = id_cliente;
@@ -34,7 +36,7 @@ namespace Proyecto_ATM.api
             this.fecha = fecha;
             this.monto = monto;
             this.tipo_retiro = tipo_retiro;
-
+            this.nombre = nombre;
 
         }
 

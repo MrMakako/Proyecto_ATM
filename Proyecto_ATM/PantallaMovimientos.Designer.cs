@@ -72,20 +72,20 @@
             // 
             tablaMovimientos.CellBorderStyle = TableLayoutPanelCellBorderStyle.OutsetPartial;
             tablaMovimientos.ColumnCount = 5;
-            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20.144928F));
-            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 19.565218F));
-            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 19.9697437F));
-            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 23.44932F));
-            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6414528F));
+            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20.08705F));
+            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 19.9916973F));
+            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 19.9916973F));
+            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 23.38194F));
+            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.5476131F));
             tablaMovimientos.Dock = DockStyle.Top;
-            tablaMovimientos.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            tablaMovimientos.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tablaMovimientos.ForeColor = Color.Black;
             tablaMovimientos.Location = new Point(0, 0);
             tablaMovimientos.Margin = new Padding(3, 2, 3, 2);
             tablaMovimientos.Name = "tablaMovimientos";
             tablaMovimientos.RowCount = 1;
             tablaMovimientos.RowStyles.Add(new RowStyle());
-            tablaMovimientos.Size = new Size(711, 19);
+            tablaMovimientos.Size = new Size(710, 44);
             tablaMovimientos.TabIndex = 2;
             tablaMovimientos.Paint += tableLayoutPanel1_Paint;
             // 
@@ -251,7 +251,7 @@
             panel3.Controls.Add(tablaMovimientos);
             panel3.Location = new Point(167, 104);
             panel3.Name = "panel3";
-            panel3.Size = new Size(711, 293);
+            panel3.Size = new Size(710, 237);
             panel3.TabIndex = 16;
             // 
             // PantallaMovimientosTecnico
