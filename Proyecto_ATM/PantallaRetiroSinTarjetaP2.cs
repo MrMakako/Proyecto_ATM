@@ -17,9 +17,7 @@ namespace Proyecto_ATM
         Movimiento movi;
         string codigo = "";
         public event EventHandler retiroSinTarjetaExitoso;
-        public event EventHandler AcctorPinIncorrect;
-        public event EventHandler retiroSinTarjetaRegresar;
-
+        public event EventHandler retiroSinTarjetaFallido;
         private Conector conector;
         private PopUps popUp;
 
@@ -63,9 +61,12 @@ namespace Proyecto_ATM
             }
             else
             {
-                AcctorPinIncorrect?.Invoke(this, EventArgs.Empty);
-                mostrar_error("Codigo o Monto erróneos.");
-                
+                if(retiroSinTarjetaFallido != null)
+                {
+                    retiroSinTarjetaFallido(this, EventArgs.Empty);
+                    mostrar_error("Codigo o Monto erróneos.");
+                }
+                MessageBox.Show("Código o monto incorrecto.");
             }
         }
         private void mostrar_error(string mensaje)
