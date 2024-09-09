@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.Design;
 using System.Xml.Linq;
 
 namespace Proyecto_ATM.api
@@ -16,6 +17,7 @@ namespace Proyecto_ATM.api
         private string numeroCuenta;
         private Conector conector;
         private string pin;
+        private PopUps popUp;
 
         public Movimiento(string numeroCuenta, string pin, Conector conector)
         {
@@ -28,13 +30,20 @@ namespace Proyecto_ATM.api
             this.pin = pin;
         }
 
-        public bool retiro(double monto)
+        private void mostrar_error(string mensaje, Form Parent)
+        {
+            popUp = new PopUps();
+            Console.WriteLine(mensaje);
+            popUp.mostrar_error(mensaje, Parent);
+        }
+
+        public bool retiro(double monto, Form Parent)
         {
             double saldo = ConsultarSaldo(numeroCuenta);
 
             if (saldo < monto)
             {
-                MessageBox.Show("No hay suficiente saldo en la cuenta.");
+                //MessageBox.Show("No hay suficiente saldo en la cuenta.");
                 return false;
             }
 
@@ -48,7 +57,7 @@ namespace Proyecto_ATM.api
             // Bill dispensing logic
             if (remainingAmount % 100 != 0)
             {
-                MessageBox.Show("El monto debe ser múltiplo de 100.");
+                //mostrar_error("El monto debe ser múltiplo de 100.",Parent);
                 return false;
             }
 
@@ -83,7 +92,8 @@ namespace Proyecto_ATM.api
 
             if (remainingAmount > 0)
             {
-                MessageBox.Show("No se puede dispensar la cantidad solicitada. Intente con un monto diferente.");
+                mostrar_error("No se puede dispensar la cantidad solicitada.",Parent);
+                //MessageBox.Show();
                 return false;
             }
 
@@ -111,22 +121,31 @@ namespace Proyecto_ATM.api
                 LogWithdrawal(monto, GlobalState.Usuario.get_id()); // Adjust as needed
 
                 // Inform the user of the successful withdrawal and display the dispensed bills
-                MessageBox.Show("Retiro exitoso. Se han dispensado los siguientes billetes:\n" + FormatDispensedBills(billsToDispense));
+                
+                /*Me woa a matar aqui ANA*/
+                //mostrar_error("Retiro exitoso. Se han dispensado los siguientes billetes:",Parent);
+                //mostrar_error(FormatDispensedBills(billsToDispense),Parent);
+                //MessageBox.Show("Retiro exitoso. Se han dispensado los siguientes billetes:\n" + FormatDispensedBills(billsToDispense));
 
-                return true;
+                
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error al realizar el retiro: " + e.Message);
+                mostrar_error("Error al realizar el retiro", Parent);
+                //MessageBox.Show("Error al realizar el retiro: " + e.Message);
                 return false;
             }
             finally
             {
                 conector.Close();
             }
+
+            mostrar_error("Retiro exitoso. Se han dispensado\n los siguientes billetes:",Parent);
+            mostrar_error(FormatDispensedBills(billsToDispense),Parent);
+            return true;
         }
 
-        public bool ProcesarRetiroConCodigo(string codigoIngresado, double montoIngresado)
+        public bool ProcesarRetiroConCodigo(string codigoIngresado, double montoIngresado,Form Parent)
         {
             Usuario usuario = new Usuario(); 
 
@@ -141,23 +160,23 @@ namespace Proyecto_ATM.api
                 
 
                 
-                if (retiro(montoIngresado))
+                if (retiro(montoIngresado,Parent))
                 {
                     
                     MarcarCodigoComoUsado(codigoIngresado);
-                    MessageBox.Show("Retiro realizado exitosamente.");
                     return true;
                 }
                 else
                 {
-                    MessageBox.Show("Hubo un error al realizar el retiro.");
+                    mostrar_error("Hubo un error al realizar el retiro.", Parent);
+                    //MessageBox.Show("Hubo un error al realizar el retiro.");
                     return false;
                 }
             }
             else
             {
-                
-                MessageBox.Show("Código no válido o el monto excede lo permitido.");
+
+                //mostrar_error("Código no válido o el monto excede lo permitido.", Parent);
                 return false;
             }
         }
@@ -183,7 +202,7 @@ namespace Proyecto_ATM.api
                             
                             if (montoEnCodigo != monto)
                             {
-                                MessageBox.Show("El monto a retirar no coincide con el monto asociado al código.");
+                                //MessageBox.Show("El monto a retirar no coincide con el monto asociado al código.");
                                 return false;
                             }
 
@@ -195,13 +214,13 @@ namespace Proyecto_ATM.api
                             }
                             else
                             {
-                                MessageBox.Show("El código de retiro no está asociado a la cuenta del usuario.");
+                                //MessageBox.Show("El código de retiro no está asociado a la cuenta del usuario.");
                                 return false;
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Código de retiro no válido.");
+                            //MessageBox.Show("Código de retiro no válido.");
                             return false;
                         }
                     }
@@ -209,7 +228,7 @@ namespace Proyecto_ATM.api
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al validar el código de retiro: " + ex.Message);
+                MessageBox.Show("Error al validar el código de retiro: \n" + ex.Message);
                 return false;
             }
             finally
@@ -259,7 +278,7 @@ namespace Proyecto_ATM.api
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al registrar el movimiento: " + ex.Message);
+                Console.WriteLine("Error al registrar el movimiento: " + ex.Message);
             }
             finally
             {
@@ -292,7 +311,7 @@ namespace Proyecto_ATM.api
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al obtener las cantidades de billetes: " + ex.Message);
+                Console.WriteLine("Error al obtener las cantidades de billetes: " + ex.Message);
             }
             finally
             {
@@ -354,7 +373,7 @@ namespace Proyecto_ATM.api
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al actualizar las cantidades de billetes: " + ex.Message);
+                Console.WriteLine("Error al actualizar las cantidades de billetes: " + ex.Message);
             }
             finally
             {
@@ -395,7 +414,7 @@ namespace Proyecto_ATM.api
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error al consultar el saldo: " + e.Message);
+                Console.WriteLine("Error al consultar el saldo: " + e.Message);
             }
             finally
             {

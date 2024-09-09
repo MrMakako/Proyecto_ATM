@@ -77,6 +77,7 @@
             RegresarBtn.Text = "Regresar";
             RegresarBtn.TextColor = Color.White;
             RegresarBtn.UseVisualStyleBackColor = false;
+            RegresarBtn.Click += RegresarBtn_Click;
             // 
             // roundButton3
             // 

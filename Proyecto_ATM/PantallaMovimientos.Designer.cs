@@ -42,10 +42,10 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
-            refrescar_btn = new RoundButton();
-            roundButton3 = new RoundButton();
+            panel3 = new Panel();
             tableLayoutPanel2.SuspendLayout();
             tabControl1.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -53,34 +53,39 @@
             panel1.BackColor = Color.FromArgb(238, 39, 55);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(83, 800);
+            panel1.Size = new Size(73, 600);
             panel1.TabIndex = 0;
             // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(204, 24, 38);
             panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(83, 675);
+            panel2.Location = new Point(73, 506);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1002, 125);
+            panel2.Size = new Size(876, 94);
             panel2.TabIndex = 1;
             // 
             // tablaMovimientos
             // 
             tablaMovimientos.CellBorderStyle = TableLayoutPanelCellBorderStyle.OutsetPartial;
             tablaMovimientos.ColumnCount = 5;
-            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 19.9697437F));
-            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 19.9697437F));
+            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20.144928F));
+            tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 19.565218F));
             tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 19.9697437F));
             tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 23.44932F));
             tablaMovimientos.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6414528F));
+            tablaMovimientos.Dock = DockStyle.Top;
+            tablaMovimientos.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tablaMovimientos.ForeColor = Color.Black;
-            tablaMovimientos.Location = new Point(191, 137);
+            tablaMovimientos.Location = new Point(0, 0);
+            tablaMovimientos.Margin = new Padding(3, 2, 3, 2);
             tablaMovimientos.Name = "tablaMovimientos";
             tablaMovimientos.RowCount = 1;
             tablaMovimientos.RowStyles.Add(new RowStyle());
-            tablaMovimientos.Size = new Size(792, 45);
+            tablaMovimientos.Size = new Size(711, 19);
             tablaMovimientos.TabIndex = 2;
             tablaMovimientos.Paint += tableLayoutPanel1_Paint;
             // 
@@ -100,11 +105,12 @@
             tableLayoutPanel2.Controls.Add(label4, 3, 0);
             tableLayoutPanel2.Controls.Add(label5, 4, 0);
             tableLayoutPanel2.ForeColor = Color.White;
-            tableLayoutPanel2.Location = new Point(191, 73);
+            tableLayoutPanel2.Location = new Point(167, 55);
+            tableLayoutPanel2.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(792, 58);
+            tableLayoutPanel2.Size = new Size(693, 44);
             tableLayoutPanel2.TabIndex = 3;
             tableLayoutPanel2.Paint += tableLayoutPanel2_Paint;
             // 
@@ -113,9 +119,9 @@
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            label1.Location = new Point(37, 11);
+            label1.Location = new Point(37, 8);
             label1.Name = "label1";
-            label1.Size = new Size(83, 35);
+            label1.Size = new Size(65, 27);
             label1.TabIndex = 0;
             label1.Text = "Fecha";
             // 
@@ -124,9 +130,9 @@
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            label2.Location = new Point(200, 11);
+            label2.Location = new Point(179, 8);
             label2.Name = "label2";
-            label2.Size = new Size(71, 35);
+            label2.Size = new Size(57, 27);
             label2.TabIndex = 1;
             label2.Text = "Hora";
             // 
@@ -135,9 +141,9 @@
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            label3.Location = new Point(344, 11);
+            label3.Location = new Point(307, 8);
             label3.Name = "label3";
-            label3.Size = new Size(97, 35);
+            label3.Size = new Size(76, 27);
             label3.TabIndex = 2;
             label3.Text = "Cliente";
             // 
@@ -146,9 +152,9 @@
             label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
             label4.Font = new Font("Calibri", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(475, 11);
+            label4.Location = new Point(425, 8);
             label4.Name = "label4";
-            label4.Size = new Size(178, 35);
+            label4.Size = new Size(141, 27);
             label4.TabIndex = 3;
             label4.Text = "Tipo de Retiro";
             // 
@@ -157,9 +163,9 @@
             label5.Anchor = AnchorStyles.None;
             label5.AutoSize = true;
             label5.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            label5.Location = new Point(677, 11);
+            label5.Location = new Point(597, 8);
             label5.Name = "label5";
-            label5.Size = new Size(94, 35);
+            label5.Size = new Size(75, 27);
             label5.TabIndex = 4;
             label5.Text = "Monto";
             // 
@@ -175,9 +181,10 @@
             regresar_btn.FlatStyle = FlatStyle.Flat;
             regresar_btn.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             regresar_btn.ForeColor = Color.White;
-            regresar_btn.Location = new Point(83, 551);
+            regresar_btn.Location = new Point(73, 413);
+            regresar_btn.Margin = new Padding(3, 2, 3, 2);
             regresar_btn.Name = "regresar_btn";
-            regresar_btn.Size = new Size(223, 68);
+            regresar_btn.Size = new Size(195, 51);
             regresar_btn.TabIndex = 11;
             regresar_btn.Text = "Regresar";
             regresar_btn.TextColor = Color.White;
@@ -197,9 +204,10 @@
             roundButton2.FlatStyle = FlatStyle.Flat;
             roundButton2.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             roundButton2.ForeColor = Color.White;
-            roundButton2.Location = new Point(83, 566);
+            roundButton2.Location = new Point(73, 424);
+            roundButton2.Margin = new Padding(3, 2, 3, 2);
             roundButton2.Name = "roundButton2";
-            roundButton2.Size = new Size(223, 68);
+            roundButton2.Size = new Size(195, 51);
             roundButton2.TabIndex = 12;
             roundButton2.TextColor = Color.White;
             roundButton2.UseVisualStyleBackColor = false;
@@ -208,17 +216,19 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
-            tabControl1.Location = new Point(474, 231);
+            tabControl1.Location = new Point(415, 173);
+            tabControl1.Margin = new Padding(3, 2, 3, 2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(8, 8);
+            tabControl1.Size = new Size(7, 6);
             tabControl1.TabIndex = 13;
             // 
             // tabPage1
             // 
-            tabPage1.Location = new Point(4, 29);
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Margin = new Padding(3, 2, 3, 2);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
+            tabPage1.Padding = new Padding(3, 2, 3, 2);
             tabPage1.Size = new Size(0, 0);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "tabPage1";
@@ -226,76 +236,45 @@
             // 
             // tabPage2
             // 
-            tabPage2.Location = new Point(4, 29);
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Margin = new Padding(3, 2, 3, 2);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
+            tabPage2.Padding = new Padding(3, 2, 3, 2);
             tabPage2.Size = new Size(0, 0);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "tabPage2";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // refrescar_btn
+            // panel3
             // 
-            refrescar_btn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            refrescar_btn.BackColor = Color.FromArgb(204, 24, 38);
-            refrescar_btn.BackgroundColor = Color.FromArgb(204, 24, 38);
-            refrescar_btn.BorderColor = Color.FromArgb(204, 24, 38);
-            refrescar_btn.BorderRadius = 10;
-            refrescar_btn.BorderSize = 1;
-            refrescar_btn.FlatAppearance.BorderSize = 0;
-            refrescar_btn.FlatStyle = FlatStyle.Flat;
-            refrescar_btn.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            refrescar_btn.ForeColor = Color.White;
-            refrescar_btn.Location = new Point(862, 551);
-            refrescar_btn.Name = "refrescar_btn";
-            refrescar_btn.Size = new Size(223, 68);
-            refrescar_btn.TabIndex = 14;
-            refrescar_btn.Text = "recargar";
-            refrescar_btn.TextColor = Color.White;
-            refrescar_btn.UseVisualStyleBackColor = false;
-            refrescar_btn.Click += refrescar_btn_Click;
-            // 
-            // roundButton3
-            // 
-            roundButton3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            roundButton3.BackColor = Color.FromArgb(143, 14, 24);
-            roundButton3.BackgroundColor = Color.FromArgb(143, 14, 24);
-            roundButton3.BorderColor = Color.PaleVioletRed;
-            roundButton3.BorderRadius = 10;
-            roundButton3.BorderSize = 0;
-            roundButton3.Enabled = false;
-            roundButton3.FlatAppearance.BorderSize = 0;
-            roundButton3.FlatStyle = FlatStyle.Flat;
-            roundButton3.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            roundButton3.ForeColor = Color.White;
-            roundButton3.Location = new Point(862, 566);
-            roundButton3.Name = "roundButton3";
-            roundButton3.Size = new Size(223, 68);
-            roundButton3.TabIndex = 15;
-            roundButton3.TextColor = Color.White;
-            roundButton3.UseVisualStyleBackColor = false;
+            panel3.AutoScroll = true;
+            panel3.Controls.Add(tablaMovimientos);
+            panel3.Location = new Point(167, 104);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(711, 293);
+            panel3.TabIndex = 16;
             // 
             // PantallaMovimientosTecnico
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(refrescar_btn);
-            Controls.Add(roundButton3);
+            Controls.Add(panel3);
             Controls.Add(tabControl1);
             Controls.Add(regresar_btn);
             Controls.Add(roundButton2);
             Controls.Add(tableLayoutPanel2);
-            Controls.Add(tablaMovimientos);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "PantallaMovimientosTecnico";
-            Size = new Size(1085, 800);
+            Size = new Size(949, 600);
             Load += PantallaMovimientosTecnico_Load;
             VisibleChanged += PantallaMovimientosTecnico_VisibleChanged;
             Validating += PantallaMovimientosTecnico_Validating;
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             tabControl1.ResumeLayout(false);
+            panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -315,7 +294,6 @@
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private RoundButton refrescar_btn;
-        private RoundButton roundButton3;
+        private Panel panel3;
     }
 }

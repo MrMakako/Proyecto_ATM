@@ -95,16 +95,20 @@ namespace Proyecto_ATM
             //Pantalla Retiro Sin Tarjeta
             pantallaRetiroSinTarjetaP1.cambioPt2 += new EventHandler(switch_to_RetiroPT2);
             pantallaRetiroSinTarjetaP2.retiroSinTarjetaExitoso += new EventHandler(switch_to_tome_dinero);
-            
+            pantallaRetiroSinTarjetaP2.retiroSinTarjetaRegresar += new EventHandler(switch_to_retiro_sin_tarjeta);
+            pantallaRetiroSinTarjetaP2.AcctorPinIncorrect += new EventHandler(switch_to_bienvenida);
+
             //
             pantallaTomeSuDinero.timerDinero += new EventHandler(switch_to_despedida);
             pantallaDespedida.despedidaTimeUp += new EventHandler(switch_to_bienvenida);
             pantallaRetiroSinTarjetaP1.EventoRegresar1 += new EventHandler(switch_to_menu_retiro);
             pantallaRetiroNormalP1.retiroExitoso += new EventHandler(switch_to_tome_dinero);
             pantallaIngresoPin.AcctorPinIncorrect += new EventHandler(switch_to_bienvenida);
+            pantallaIngresoPin.RegresarIngresoTarjeta += new EventHandler(switch_to_ingreso_tarjeta);
+
 
             //Pantalla Movimiento
-         //   pantallaMovimientosTecnico.regresar += new EventHandler(switch_to_menu_tecnico);
+            pantallaMovimientosTecnico.regresar += new EventHandler(switch_to_menu_tecnico);
 
 
             //Codgigo necesario par alo modals, las notificaicones que se muestran
@@ -114,7 +118,7 @@ namespace Proyecto_ATM
             parentX = this.Location.X;
             parentY = this.Location.Y;
 
-            //panel1.Hide();
+            panel1.Hide();
 
 
         }
@@ -197,6 +201,7 @@ namespace Proyecto_ATM
 
         public void switch_to_movimientos(object sender, EventArgs e) {
             hide_all();
+            pantallaMovimientosTecnico.refrescar(sender, e);
             pantallaMovimientosTecnico.Show();
             pantallaMovimientosTecnico.BringToFront();
           

@@ -17,6 +17,7 @@ namespace Proyecto_ATM
         public event EventHandler EventoRegresar1;
         public event EventHandler retiroExitoso;
         private Conector conector;
+        private PopUps popUp;
 
         public PantallaRetiroNormalP2()
         {
@@ -56,7 +57,7 @@ namespace Proyecto_ATM
 
                     Movimiento movimiento = new Movimiento(usuario.get_numero_cuenta(), usuario.get_pin(), conector);
 
-                    bool exito = movimiento.retiro(monto);
+                    bool exito = movimiento.retiro(monto, this.FindForm());
 
                     if (exito)
                     {
@@ -71,18 +72,26 @@ namespace Proyecto_ATM
                     }
                     else
                     {
-                        MessageBox.Show("No hay suficiente saldo en la cuenta.");
+                        mostrar_error("Saldo insuficiente para realizar retiro.");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Ingrese un monto válido. Debe ser múltiplo de 100 y no exceder 5000.");
+
+                    mostrar_error("Ingrese un monto válido. Debe ser \nmúltiplo de 100 y no exceder 5000.");
                 }
             }
             else
             {
-                MessageBox.Show("Ingrese un monto válido.");
+                mostrar_error("Ingrese un monto válido.");
             }
+        }
+
+        private void mostrar_error(string mensaje)
+        {
+            popUp = new PopUps();
+            Console.WriteLine(mensaje);
+            popUp.mostrar_error(mensaje, this.FindForm());
         }
 
         static bool isValidAmount(int amount)
