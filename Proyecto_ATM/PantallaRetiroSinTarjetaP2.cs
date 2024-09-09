@@ -69,6 +69,8 @@ namespace Proyecto_ATM
                 }
                 MessageBox.Show("Código o monto incorrecto.");
             }
+
+            textBox1.Clear();
         }
         private void mostrar_error(string mensaje)
         {
@@ -86,7 +88,9 @@ namespace Proyecto_ATM
                 textBox1.Clear();
             }
 
-           
+          
+
+
         }
     }
 }

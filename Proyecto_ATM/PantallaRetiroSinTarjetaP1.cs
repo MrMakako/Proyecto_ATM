@@ -45,7 +45,7 @@ namespace Proyecto_ATM
             codigo = textBox1.Text;
 
             Usuario usuario = new Usuario();
-            if (usuario.ObtenerCuentaDesdeCodigo(codigo, conector)) 
+            if (usuario.ObtenerCuentaDesdeCodigo(codigo, conector))
             {
                 GlobalState.Usuario = usuario;
             }
@@ -56,13 +56,16 @@ namespace Proyecto_ATM
 
             if (this.cambioPt2 != null)
             {
-             
+
                 this.cambioPt2(this, e);
             }
             else
             {
                 Console.WriteLine("Error");
             }
+
+            textBox1.Text = "";
+            textBox1.Refresh();
         }
 
 
@@ -80,6 +83,14 @@ namespace Proyecto_ATM
                 Console.WriteLine("Error");
             }
 
+            textBox1.Text = "";
+            textBox1.Refresh();
+        }
+
+        private void PantallaRetiroSinTarjetaP1_VisibleChanged(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            textBox1.Refresh();
         }
     }
 }
