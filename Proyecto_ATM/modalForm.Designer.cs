@@ -38,6 +38,7 @@
             // label1
             // 
             label1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
             label1.Font = new Font("Calibri", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(204, 24, 38);
             label1.Location = new Point(26, 54);
@@ -112,6 +113,7 @@
             Text = "modalFormcs";
             Load += modalForm_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
