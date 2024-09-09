@@ -18,6 +18,7 @@ namespace Proyecto_ATM
         string codigo = "";
         public event EventHandler retiroSinTarjetaExitoso;
         public event EventHandler retiroSinTarjetaFallido;
+        public event EventHandler regresarP2;
         private Conector conector;
         private PopUps popUp;
 
@@ -63,7 +64,7 @@ namespace Proyecto_ATM
             {
                 if(retiroSinTarjetaFallido != null)
                 {
-                    retiroSinTarjetaFallido(this, EventArgs.Empty);
+                  
                     mostrar_error("Codigo o Monto erróneos.");
                 }
                 MessageBox.Show("Código o monto incorrecto.");
@@ -75,19 +76,17 @@ namespace Proyecto_ATM
             Console.WriteLine(mensaje);
             popUp.mostrar_error(mensaje, this.FindForm());
             textBox1.Clear();
+            retiroSinTarjetaFallido(this, EventArgs.Empty);
         }
 
         private void RegresarBtn_Click(object sender, EventArgs e)
         {
-            if (this.retiroSinTarjetaRegresar != null)
-            {
+            if (regresarP2 != null) {
+                regresarP2(this, e);
                 textBox1.Clear();
-                this.retiroSinTarjetaRegresar(this, e);
             }
-            else
-            {
-                Console.WriteLine("Error al cambiar panel pantalla de retiro sin tarjeta p2 ->retiro sin tarjeta p2\n");
-            }
+
+           
         }
     }
 }
