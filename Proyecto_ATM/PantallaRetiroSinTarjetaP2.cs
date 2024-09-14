@@ -57,7 +57,7 @@ namespace Proyecto_ATM
                 }
                 else
                 {
-                    MessageBox.Show("NO FUNCA.");
+                   //MessageBox.Show("NO FUNCA.");
                 }
             }
             else
@@ -67,7 +67,7 @@ namespace Proyecto_ATM
                   
                     mostrar_error("Codigo o Monto erróneos.");
                 }
-                MessageBox.Show("Código o monto incorrecto.");
+                //MessageBox.Show("Código o monto incorrecto.");
             }
 
             textBox1.Clear();

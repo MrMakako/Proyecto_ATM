@@ -82,7 +82,7 @@ namespace Proyecto_ATM
                 tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].hora, AutoSize = true }, 1, tablaMovimientos.RowCount - 1);
                 tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].nombre + "", AutoSize = true }, 2, tablaMovimientos.RowCount - 1);
                 tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].tipo_retiro, AutoSize = true }, 3, tablaMovimientos.RowCount - 1);
-                tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].monto + "Lempiras", AutoSize = true }, 4, tablaMovimientos.RowCount - 1);
+                tablaMovimientos.Controls.Add(new Label() { Text = "L. " + movimientos[i].monto, AutoSize = true }, 4, tablaMovimientos.RowCount - 1);
                 tablaMovimientos.RowStyles.Add(new System.Windows.Forms.RowStyle(SizeType.AutoSize, 30));
                 tablaMovimientos.Size = new System.Drawing.Size(tablaMovimientos.Width, tablaMovimientos.Height + 28);
 
