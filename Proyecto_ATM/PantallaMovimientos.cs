@@ -20,6 +20,7 @@ namespace Proyecto_ATM
         }
         private Tecnico tecnico;
         public EventHandler regresar;
+        public EventHandler Historialbilletes;
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -40,8 +41,18 @@ namespace Proyecto_ATM
             {
                 Console.WriteLine("Error al cambiar panel Menu de Tecnico -> Bienvenida\n");
             }
+        }
 
-
+        private void mas_btn_click(object sender, EventArgs e)
+        {
+            if (this.Historialbilletes != null)
+            {
+                this.Historialbilletes(this, e);
+            }
+            else
+            {
+                Console.WriteLine("Error al cambiar panel Menu de Tecnico -> Bienvenida\n");
+            }
         }
 
         private void PantallaMovimientosTecnico_Load(object sender, EventArgs e)

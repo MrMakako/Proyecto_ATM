@@ -44,6 +44,7 @@ namespace Proyecto_ATM
 
             //Tome su Dinero
             pantallaTomeSuDinero.Hide();
+            pantallaHistorialRetiro.Hide();
 
             //PantallSaldo
             pantallaSaldo.cambiarEspera += new EventHandler(switch_to_menu_consulta);
@@ -109,6 +110,10 @@ namespace Proyecto_ATM
 
             //Pantalla Movimiento
             pantallaMovimientosTecnico.regresar += new EventHandler(switch_to_menu_tecnico);
+            pantallaMovimientosTecnico.Historialbilletes += new EventHandler(switch_to_HistorialRetiro);
+
+            //Pantalla Historial Billetes de Retiro
+            pantallaHistorialRetiro.regresarDePantallaEstadoRetiro += new EventHandler(switch_to_movimientos);
 
 
             //Codgigo necesario par alo modals, las notificaicones que se muestran
@@ -303,6 +308,14 @@ namespace Proyecto_ATM
             pantallaRetiroSinTarjetaP2.BringToFront();
 
         }
+
+        private void switch_to_HistorialRetiro(object sender, EventArgs e)
+        {
+            hide_all();
+            pantallaHistorialRetiro.Show();
+            pantallaHistorialRetiro.BringToFront();
+        }
+
         //Botones 
         private void button3_Click(object sender, EventArgs e)
         {
