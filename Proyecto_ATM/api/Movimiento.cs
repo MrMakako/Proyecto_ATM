@@ -43,7 +43,7 @@ namespace Proyecto_ATM.api
 
             if (saldo < monto)
             {
-                //MessageBox.Show("No hay suficiente saldo en la cuenta.");
+                // MessageBox.Show("No hay suficiente saldo en la cuenta.");
                 return false;
             }
 
@@ -57,7 +57,7 @@ namespace Proyecto_ATM.api
             // Bill dispensing logic
             if (remainingAmount % 100 != 0)
             {
-                //mostrar_error("El monto debe ser múltiplo de 100.",Parent);
+                // mostrar_error("El monto debe ser múltiplo de 100.", Parent);
                 return false;
             }
 
@@ -92,8 +92,8 @@ namespace Proyecto_ATM.api
 
             if (remainingAmount > 0)
             {
-                mostrar_error("No se puede dispensar la cantidad solicitada.",Parent);
-                //MessageBox.Show();
+                mostrar_error("No se puede dispensar la cantidad solicitada.", Parent);
+                // MessageBox.Show();
                 return false;
             }
 
@@ -117,22 +117,21 @@ namespace Proyecto_ATM.api
                 // Update the bills in the saldo_atm table
                 UpdateBillQuantitiesInDatabase(billsToDispense);
 
+                // Update the withdrawn bills in historial_retiros_atm
+                UpdateWithdrawnBillsInDatabase(billsToDispense);
+
                 // Log the withdrawal in registro_movimientos_atm
                 LogWithdrawal(monto, GlobalState.Usuario.get_id(), TipoRetiro); // Adjust as needed
 
                 // Inform the user of the successful withdrawal and display the dispensed bills
-                
-                /*Me woa a matar aqui ANA*/
-                //mostrar_error("Retiro exitoso. Se han dispensado los siguientes billetes:",Parent);
-                //mostrar_error(FormatDispensedBills(billsToDispense),Parent);
-                //MessageBox.Show("Retiro exitoso. Se han dispensado los siguientes billetes:\n" + FormatDispensedBills(billsToDispense));
-
-                
+                // mostrar_error("Retiro exitoso. Se han dispensado los siguientes billetes:", Parent);
+                // mostrar_error(FormatDispensedBills(billsToDispense), Parent);
+                // MessageBox.Show("Retiro exitoso. Se han dispensado los siguientes billetes:\n" + FormatDispensedBills(billsToDispense));
             }
             catch (Exception e)
             {
                 mostrar_error("Error al realizar el retiro", Parent);
-                //MessageBox.Show("Error al realizar el retiro: " + e.Message);
+                // MessageBox.Show("Error al realizar el retiro: " + e.Message);
                 return false;
             }
             finally
@@ -140,10 +139,9 @@ namespace Proyecto_ATM.api
                 conector.Close();
             }
 
-            mostrar_error("Retiro exitoso. Se han dispensado\n los siguientes billetes:",Parent);
-            mostrar_error(FormatDispensedBills(billsToDispense),Parent);
             return true;
         }
+
 
         public bool ProcesarRetiroConCodigo(string codigoIngresado, double montoIngresado,Form Parent)
         {
@@ -324,14 +322,14 @@ namespace Proyecto_ATM.api
 
         private void UpdateBillQuantitiesInDatabase(Dictionary<int, int> billsToDispense)
         {
-            // Retrieve the current bill quantities and total from the database
-            double currentTotal = 0;
             var currentQuantities = new Dictionary<int, int>();
+            double currentTotal = 0;
 
             try
             {
                 conector.Open();
 
+                // Retrieve current bill quantities and total
                 using (var cmd = new NpgsqlCommand("SELECT cantidad_billetes_100, cantidad_billetes_200, cant500_atm, saldo_total_atm FROM saldo_atm WHERE id_saldo = @id_saldo", conector.ConectorConnection))
                 {
                     cmd.Parameters.AddWithValue("id_saldo", 1); // Adjust id_saldo as needed
@@ -348,15 +346,21 @@ namespace Proyecto_ATM.api
                     }
                 }
 
-                // Update the quantities based on the bills dispensed
+                // Update quantities based on bills dispensed
                 if (billsToDispense.ContainsKey(100))
+                {
                     currentQuantities[100] -= billsToDispense[100];
+                }
                 if (billsToDispense.ContainsKey(200))
+                {
                     currentQuantities[200] -= billsToDispense[200];
+                }
                 if (billsToDispense.ContainsKey(500))
+                {
                     currentQuantities[500] -= billsToDispense[500];
+                }
 
-                // Calculate the new total
+                // Calculate the new total in the ATM
                 double newTotal = (currentQuantities[100] * 100) + (currentQuantities[200] * 200) + (currentQuantities[500] * 500);
 
                 // Update the database with the new quantities and total
@@ -368,13 +372,67 @@ namespace Proyecto_ATM.api
                     cmd.Parameters.AddWithValue("nuevo_total", newTotal);
                     cmd.Parameters.AddWithValue("id_saldo", 1); // Adjust id_saldo as needed
 
-                    // Execute the query
                     cmd.ExecuteNonQuery();
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error al actualizar las cantidades de billetes: " + ex.Message);
+            }
+            finally
+            {
+                conector.Close();
+            }
+        }
+
+        private void UpdateWithdrawnBillsInDatabase(Dictionary<int, int> billsToDispense)
+        {
+            var withdrawnQuantities = new Dictionary<int, int> { { 100, 0 }, { 200, 0 }, { 500, 0 } };
+
+            try
+            {
+                conector.Open();
+
+                // Retrieve existing quantities from historial_retiros_atm
+                using (var cmdSelect = new NpgsqlCommand("SELECT cantidad_billetes_100, cantidad_billetes_200, cant500_atm, monto_total_retirado FROM historial_retiros_atm WHERE id_retiro = @id_retiro", conector.ConectorConnection))
+                {
+                    cmdSelect.Parameters.AddWithValue("id_retiro", 1); // Adjust id_retiro as needed
+
+                    using (var reader = cmdSelect.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            withdrawnQuantities[100] = reader.GetInt32(0);
+                            withdrawnQuantities[200] = reader.GetInt32(1);
+                            withdrawnQuantities[500] = reader.GetInt32(2);
+                            double previousMontoTotalRetirado = reader.GetDouble(3);
+
+                            // Add new withdrawn amounts to existing ones
+                            withdrawnQuantities[100] += billsToDispense.GetValueOrDefault(100, 0);
+                            withdrawnQuantities[200] += billsToDispense.GetValueOrDefault(200, 0);
+                            withdrawnQuantities[500] += billsToDispense.GetValueOrDefault(500, 0);
+
+                            // Calculate the new total amount withdrawn
+                            double newMontoTotalRetirado = (withdrawnQuantities[100] * 100) + (withdrawnQuantities[200] * 200) + (withdrawnQuantities[500] * 500);
+
+                            // Update the withdrawn bill quantities in historial_retiros_atm
+                            using (var cmdUpdate = new NpgsqlCommand("UPDATE historial_retiros_atm SET cantidad_billetes_100 = @cantidad_100_retirados, cantidad_billetes_200 = @cantidad_200_retirados, cant500_atm = @cantidad_500_retirados, monto_total_retirado = @monto_total_retirado WHERE id_retiro = @id_retiro", conector.ConectorConnection))
+                            {
+                                cmdUpdate.Parameters.AddWithValue("cantidad_100_retirados", withdrawnQuantities[100]);
+                                cmdUpdate.Parameters.AddWithValue("cantidad_200_retirados", withdrawnQuantities[200]);
+                                cmdUpdate.Parameters.AddWithValue("cantidad_500_retirados", withdrawnQuantities[500]);
+                                cmdUpdate.Parameters.AddWithValue("monto_total_retirado", newMontoTotalRetirado);
+                                cmdUpdate.Parameters.AddWithValue("id_retiro", 1); // Adjust id_retiro as needed
+
+                                cmdUpdate.ExecuteNonQuery();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al actualizar los billetes dispensados: " + ex.Message);
             }
             finally
             {
