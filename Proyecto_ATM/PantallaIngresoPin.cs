@@ -63,7 +63,7 @@ namespace Proyecto_ATM
                 textbox_pin.Clear();
 
                 Movimiento movimiento = new Movimiento(usuario.get_numero_cuenta(), usuario.get_pin(), conector);
-                PantallaSaldo.label2.Text = "L. " + movimiento.ConsultarSaldo(usuario.get_numero_cuenta()).ToString("N", CultureInfo.InvariantCulture);
+                PantallaSaldo.label2.Text = "L. " + movimiento.ConsultarSaldo(usuario.get_numero_cuenta()).ToString("N0", CultureInfo.InvariantCulture);
 
                 // Transition based on user role
                 

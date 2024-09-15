@@ -32,10 +32,10 @@ namespace Proyecto_ATM
             this.Valor200.Text = saldo.cant200.ToString();
             this.Valor500.Text = saldo.cant500.ToString();
             //this.ValorTotal.Text = saldo.saldoTotal.ToString() + " Lempiras";
-            this.ValorTotal.Text = " L. " + saldo.saldoTotal.ToString("N", CultureInfo.InvariantCulture);
-            this.Total100.Text = (saldo.cant100*100).ToString();  
-            this.Total200.Text = (saldo.cant200*200).ToString();
-            this.Total500.Text = (saldo.cant500*500).ToString();
+            this.ValorTotal.Text = " L. " + saldo.saldoTotal.ToString("N0", CultureInfo.InvariantCulture);
+            this.Total100.Text = (saldo.cant100*100).ToString("N0", CultureInfo.InvariantCulture);  
+            this.Total200.Text = (saldo.cant200*200).ToString("N0", CultureInfo.InvariantCulture);
+            this.Total500.Text = (saldo.cant500*500).ToString("N0", CultureInfo.InvariantCulture);
 
         }
         private void label1_Click(object sender, EventArgs e)

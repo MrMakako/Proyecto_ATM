@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -72,17 +73,19 @@ namespace Proyecto_ATM
             ClearTableLayoutPanel(tablaMovimientos);
 
             List<MovimientoModel> movimientos = tecnico.movimientos;
-        
+
+            decimal monto = 0;
 
             for (int i = 0; i < movimientos.Count; i++)
             {
+                monto = decimal.Parse(movimientos[i].monto);
 
                 tablaMovimientos.RowCount = tablaMovimientos.RowCount + 1;
                 tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].fecha, AutoSize = true }, 0, tablaMovimientos.RowCount - 1);
                 tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].hora, AutoSize = true }, 1, tablaMovimientos.RowCount - 1);
                 tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].nombre + "", AutoSize = true }, 2, tablaMovimientos.RowCount - 1);
                 tablaMovimientos.Controls.Add(new Label() { Text = movimientos[i].tipo_retiro, AutoSize = true }, 3, tablaMovimientos.RowCount - 1);
-                tablaMovimientos.Controls.Add(new Label() { Text = "L. " + movimientos[i].monto, AutoSize = true }, 4, tablaMovimientos.RowCount - 1);
+                tablaMovimientos.Controls.Add(new Label() { Text = "L. " + monto.ToString("N0", CultureInfo.InvariantCulture), AutoSize = true }, 4, tablaMovimientos.RowCount - 1);
                 tablaMovimientos.RowStyles.Add(new System.Windows.Forms.RowStyle(SizeType.AutoSize, 30));
                 tablaMovimientos.Size = new System.Drawing.Size(tablaMovimientos.Width, tablaMovimientos.Height + 28);
 
