@@ -53,9 +53,9 @@ namespace Proyecto_ATM
             cantidad_billetes_500.Text = cant_billetes_500+"";
             cantidad_billetes_100.Text = cant_billetes_100+"";
             cantidad_billetes_200.Text = cant_billetes_200 + "";
-            total_billetes_500.Text = (cant_billetes_500 * 500) + "";
-            total_billetes_100.Text = (cant_billetes_100 * 100) + "";
-            total_billetes_200.Text = (cant_billetes_200 * 200) +"";
+            total_billetes_500.Text = "L."+(cant_billetes_500 * 500);
+            total_billetes_100.Text = "L." + (cant_billetes_100 * 100);
+            total_billetes_200.Text = "L." + (cant_billetes_200 * 200);
 
 
 
