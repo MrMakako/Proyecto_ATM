@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Formats.Tar;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -40,8 +41,33 @@ namespace Proyecto_ATM
             }
 
         }
-    
+
+        public void mostrar_billetes_dispensados(int billetes_100,int billetes_200,int billetes_500, Form Parent)
+        {
+
+  
+            Form parentForm = Parent;
+            using (ModalRetiro modal = new ModalRetiro(billetes_100,billetes_200,billetes_500))
+            {
+                modal.StartPosition = FormStartPosition.Manual;
+                modal.FormBorderStyle = FormBorderStyle.None;
+
+                modal.Size = parentForm.Size;
+                modal.Location = parentForm.Location;
+
+                
+
+                //int parentX = parent.Location.X;
+                //int parentY = parent.Location.Y;
+
+                modal.ShowDialog();
+ 
+
+            }
 
         }
+
+
+    }
 
 }
