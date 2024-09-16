@@ -46,7 +46,7 @@ namespace Proyecto_ATM.api
             if (billsToDispense.ContainsKey(200))
                 bills_200 = billsToDispense[200];
             if (billsToDispense.ContainsKey(500))
-                bills_500-= billsToDispense[500];
+                bills_500 = billsToDispense[500];
             popUp = new PopUps();
 
             popUp.mostrar_billetes_dispensados(bills_100,bills_200,bills_500, Parent);
