@@ -55,6 +55,7 @@ namespace Proyecto_ATM
             pantallaIngresoTarjeta = new PantallaIngresoTarjeta();
             pantallaIngresoPin = new PantallaIngresoPin();
             pantallaMovimientosTecnico = new PantallaMovimientosTecnico();
+            pantallaHistorialRetiro = new TecnicoEstadoRetiro();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -193,6 +194,7 @@ namespace Proyecto_ATM
             panel2.Controls.Add(pantallaIngresoTarjeta);
             panel2.Controls.Add(pantallaIngresoPin);
             panel2.Controls.Add(pantallaMovimientosTecnico);
+            panel2.Controls.Add(pantallaHistorialRetiro);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(105, 0);
             panel2.Name = "panel2";
@@ -373,7 +375,17 @@ namespace Proyecto_ATM
             pantallaMovimientosTecnico.Size = new Size(1085, 800);
             pantallaMovimientosTecnico.TabIndex = 0;
             pantallaMovimientosTecnico.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-
+            //
+            // pantalla historial billetes
+            //
+            pantallaHistorialRetiro.BackColor = SystemColors.Control;
+            pantallaHistorialRetiro.Dock = DockStyle.Fill;
+            pantallaHistorialRetiro.Location = new Point(0, 0);
+            pantallaHistorialRetiro.Margin = new Padding(4, 4, 4, 4);
+            pantallaHistorialRetiro.Name = "pantallaMovimientosTecnico";
+            pantallaHistorialRetiro.Size = new Size(1085, 800);
+            pantallaHistorialRetiro.TabIndex = 0;
+            pantallaHistorialRetiro.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 
             // 
             // Form1
@@ -422,12 +434,15 @@ namespace Proyecto_ATM
         //Movimientos
         private PantallaMovimientosTecnico pantallaMovimientosTecnico;
 
+        
+
         private Button button7;
         private Button button8;
         private Button button9;
         private PantallaSaldo pantallaSaldo;
         private PantallaTomeSuDinero pantallaTomeSuDinero;
         private TecnicoEstadoActual pantallaEstadoActual;
-        
+        private TecnicoEstadoRetiro pantallaHistorialRetiro;
+
     }
 }

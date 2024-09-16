@@ -3,10 +3,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
 using System.Xml.Linq;
@@ -62,96 +64,87 @@ namespace Proyecto_ATM.api
 
             if (saldo < monto)
             {
-                //MessageBox.Show("No hay suficiente saldo en la cuenta.");
+                // Not enough balance
                 return false;
             }
 
-            // Initialize bill quantities
             Dictionary<int, int> billQuantities = GetBillQuantitiesFromDatabase();
-
-            // Dictionary to hold the bills to be dispensed
             Dictionary<int, int> billsToDispense = new Dictionary<int, int>();
             int remainingAmount = (int)monto;
 
-            // Bill dispensing logic
             if (remainingAmount % 100 != 0)
             {
-                //mostrar_error("El monto debe ser múltiplo de 100.",Parent);
+                // Amount must be a multiple of 100
                 return false;
             }
 
             foreach (var denomination in billQuantities.Keys.OrderByDescending(d => d))
             {
+                if (remainingAmount == 0) break;
+
                 int billsNeeded = remainingAmount / denomination;
                 int billsAvailable = billQuantities[denomination];
+                int billsToGive = Math.Min(billsNeeded, billsAvailable);
 
-                if (billsNeeded > 0)
+                if (billsToGive > 0)
                 {
-                    if (billsNeeded <= billsAvailable)
-                    {
-                        // Use as many as available
-                        billsToDispense[denomination] = billsNeeded;
-                        remainingAmount -= billsNeeded * denomination;
-                        billQuantities[denomination] -= billsNeeded;
-                    }
-                    else
-                    {
-                        // Use all available bills
-                        billsToDispense[denomination] = billsAvailable;
-                        remainingAmount -= billsAvailable * denomination;
-                        billQuantities[denomination] = 0;
-                    }
-                }
-
-                if (remainingAmount == 0)
-                {
-                    break;
+                    billsToDispense[denomination] = billsToGive;
+                    remainingAmount -= billsToGive * denomination;
                 }
             }
 
             if (remainingAmount > 0)
             {
-                mostrar_error("No se puede dispensar la cantidad solicitada.",Parent);
-                //MessageBox.Show();
+                // Not enough bills to complete the transaction
                 return false;
             }
 
-            // Update the account balance and bill quantities in the database
+            NpgsqlTransaction transaction = null;
+
             try
             {
+                // Start a new transaction
                 conector.Open();
+                transaction = conector.ConectorConnection.BeginTransaction();
 
-                // Update the account balance
-                using (var cmd = new NpgsqlCommand("UPDATE cuentas SET saldo_cuenta = @saldo_restante WHERE no_cuenta = @numero_cuenta", conector.ConectorConnection))
+                // Update the saldo (balance) in the database
+                using (var cmdSaldo = new NpgsqlCommand("UPDATE cuentas SET saldo_cuenta = saldo_cuenta - @monto WHERE no_cuenta = @numero_cuenta", conector.ConectorConnection))
                 {
-                    double saldoRestante = saldo - monto;
-
-                    cmd.Parameters.AddWithValue("saldo_restante", saldoRestante);
-                    cmd.Parameters.AddWithValue("numero_cuenta", numeroCuenta);
-
-                    // Execute the query
-                    cmd.ExecuteNonQuery();
+                    cmdSaldo.Parameters.AddWithValue("monto", monto);
+                    cmdSaldo.Parameters.AddWithValue("numero_cuenta", numeroCuenta);
+                    cmdSaldo.Transaction = transaction;
+                    cmdSaldo.ExecuteNonQuery();
                 }
 
+                // Update the withdrawn bills in the database
+                UpdateWithdrawnBillsInDatabase(billsToDispense, transaction);
+
                 // Update the bills in the saldo_atm table
-                UpdateBillQuantitiesInDatabase(billsToDispense);
+                UpdateBillQuantitiesInDatabase(billsToDispense, transaction);
 
-                // Log the withdrawal in registro_movimientos_atm
-                LogWithdrawal(monto, GlobalState.Usuario.get_id(), TipoRetiro); // Adjust as needed
+                //Registro en historial
+                LogWithdrawal(monto, GlobalState.Usuario.get_id(), TipoRetiro, transaction);
 
-                // Inform the user of the successful withdrawal and display the dispensed bills
-                
-                /*Me woa a matar aqui ANA*/
-                //mostrar_error("Retiro exitoso. Se han dispensado los siguientes billetes:",Parent);
-                //mostrar_error(FormatDispensedBills(billsToDispense),Parent);
-                //MessageBox.Show("Retiro exitoso. Se han dispensado los siguientes billetes:\n" + FormatDispensedBills(billsToDispense));
-
-                
+                // Commit the transaction if everything is successful
+                transaction.Commit();
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                mostrar_error("Error al realizar el retiro", Parent);
-                //MessageBox.Show("Error al realizar el retiro: " + e.Message);
+                Console.WriteLine("Error during withdrawal: " + ex.Message);
+
+                // Rollback the transaction if something goes wrong
+                if (transaction != null)
+                {
+                    try
+                    {
+                        transaction.Rollback();
+                    }
+                    catch (Exception rollbackEx)
+                    {
+                        Console.WriteLine("Error during transaction rollback: " + rollbackEx.Message);
+                    }
+                }
+
                 return false;
             }
             finally
@@ -279,13 +272,11 @@ namespace Proyecto_ATM.api
             }
         }
 
-        private void LogWithdrawal(double monto, int idCliente, String TipoRetiro)
+        private void LogWithdrawal(double monto, int idCliente, String TipoRetiro, NpgsqlTransaction transaction)
         {
             try
             {
-                conector.Open();
-
-                using (var cmd = new NpgsqlCommand("INSERT INTO registro_movimientos_atm (fecha_registro, tipo_retiro, monto_retiro, id_cliente) VALUES (@fecha_registro, @tipo_retiro, @monto_retiro, @id_cliente)", conector.ConectorConnection))
+                using (var cmd = new NpgsqlCommand("INSERT INTO registro_movimientos_atm (fecha_registro, tipo_retiro, monto_retiro, id_cliente) VALUES (@fecha_registro, @tipo_retiro, @monto_retiro, @id_cliente)", conector.ConectorConnection, transaction))
                 {
                     cmd.Parameters.AddWithValue("fecha_registro", DateTime.Now);
                     cmd.Parameters.AddWithValue("tipo_retiro", TipoRetiro); // Adjust as needed
@@ -299,12 +290,10 @@ namespace Proyecto_ATM.api
             catch (Exception ex)
             {
                 Console.WriteLine("Error al registrar el movimiento: " + ex.Message);
-            }
-            finally
-            {
-                conector.Close();
+                throw; // Rethrow the exception to ensure transaction rollback
             }
         }
+
 
         private Dictionary<int, int> GetBillQuantitiesFromDatabase()
         {
@@ -341,17 +330,15 @@ namespace Proyecto_ATM.api
             return billQuantities;
         }
 
-        private void UpdateBillQuantitiesInDatabase(Dictionary<int, int> billsToDispense)
+        private void UpdateBillQuantitiesInDatabase(Dictionary<int, int> billsToDispense, NpgsqlTransaction transaction)
         {
-            // Retrieve the current bill quantities and total from the database
-            double currentTotal = 0;
             var currentQuantities = new Dictionary<int, int>();
+            double currentTotal = 0;
 
             try
             {
-                conector.Open();
-
-                using (var cmd = new NpgsqlCommand("SELECT cantidad_billetes_100, cantidad_billetes_200, cant500_atm, saldo_total_atm FROM saldo_atm WHERE id_saldo = @id_saldo", conector.ConectorConnection))
+                // Retrieve current bill quantities and total
+                using (var cmd = new NpgsqlCommand("SELECT cantidad_billetes_100, cantidad_billetes_200, cant500_atm, saldo_total_atm FROM saldo_atm WHERE id_saldo = @id_saldo", transaction.Connection, transaction))
                 {
                     cmd.Parameters.AddWithValue("id_saldo", 1); // Adjust id_saldo as needed
 
@@ -364,40 +351,104 @@ namespace Proyecto_ATM.api
                             currentQuantities[500] = reader.GetInt32(2);
                             currentTotal = reader.GetDouble(3);
                         }
+                        else
+                        {
+                            // Handle case where no data is returned (optional)
+                            throw new InvalidOperationException("No data found for the specified id_saldo.");
+                        }
                     }
                 }
 
-                // Update the quantities based on the bills dispensed
+                // Update quantities based on bills dispensed
                 if (billsToDispense.ContainsKey(100))
+                {
                     currentQuantities[100] -= billsToDispense[100];
+                }
                 if (billsToDispense.ContainsKey(200))
+                {
                     currentQuantities[200] -= billsToDispense[200];
+                }
                 if (billsToDispense.ContainsKey(500))
+                {
                     currentQuantities[500] -= billsToDispense[500];
+                }
 
-                // Calculate the new total
+                // Calculate the new total in the ATM
                 double newTotal = (currentQuantities[100] * 100) + (currentQuantities[200] * 200) + (currentQuantities[500] * 500);
 
                 // Update the database with the new quantities and total
-                using (var cmd = new NpgsqlCommand("UPDATE saldo_atm SET cantidad_billetes_100 = @cantidad_100, cantidad_billetes_200 = @cantidad_200, cant500_atm = @cantidad_500, saldo_total_atm = @nuevo_total WHERE id_saldo = @id_saldo", conector.ConectorConnection))
+                using (var cmd = new NpgsqlCommand("UPDATE saldo_atm SET cantidad_billetes_100 = @cantidad_100, cantidad_billetes_200 = @cantidad_200, cant500_atm = @cantidad_500, saldo_total_atm = @nuevo_total WHERE id_saldo = @id_saldo", transaction.Connection, transaction))
                 {
-                    cmd.Parameters.AddWithValue("cantidad_100", currentQuantities[100]);
-                    cmd.Parameters.AddWithValue("cantidad_200", currentQuantities[200]);
-                    cmd.Parameters.AddWithValue("cantidad_500", currentQuantities[500]);
+                    cmd.Parameters.AddWithValue("cantidad_100", currentQuantities.ContainsKey(100) ? currentQuantities[100] : 0);
+                    cmd.Parameters.AddWithValue("cantidad_200", currentQuantities.ContainsKey(200) ? currentQuantities[200] : 0);
+                    cmd.Parameters.AddWithValue("cantidad_500", currentQuantities.ContainsKey(500) ? currentQuantities[500] : 0);
                     cmd.Parameters.AddWithValue("nuevo_total", newTotal);
                     cmd.Parameters.AddWithValue("id_saldo", 1); // Adjust id_saldo as needed
 
-                    // Execute the query
                     cmd.ExecuteNonQuery();
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error al actualizar las cantidades de billetes: " + ex.Message);
+                // Optionally, you might want to roll back the transaction here if needed
+                throw; // Rethrow the exception to allow for transaction rollback
             }
-            finally
+        }
+
+
+        private void UpdateWithdrawnBillsInDatabase(Dictionary<int, int> billsToDispense, NpgsqlTransaction transaction)
+        {
+            var withdrawnQuantities = new Dictionary<int, int> { { 100, 0 }, { 200, 0 }, { 500, 0 } };
+
+            try
             {
-                conector.Close();
+                // Retrieve existing quantities from historial_retiros_atm
+                using (var cmdSelect = new NpgsqlCommand("SELECT cantidad_billetes_100, cantidad_billetes_200, cant500_atm, monto_total_retirado FROM historial_retiros_atm WHERE id_retiro = @id_retiro", conector.ConectorConnection))
+                {
+                    cmdSelect.Parameters.AddWithValue("id_retiro", 1); // Adjust id_retiro as needed
+                    cmdSelect.Transaction = transaction;
+
+                    using (var reader = cmdSelect.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            withdrawnQuantities[100] = reader.GetInt32(0);
+                            withdrawnQuantities[200] = reader.GetInt32(1);
+                            withdrawnQuantities[500] = reader.GetInt32(2);
+
+                            // Add new withdrawn amounts to existing ones
+                            withdrawnQuantities[100] += billsToDispense.GetValueOrDefault(100, 0);
+                            withdrawnQuantities[200] += billsToDispense.GetValueOrDefault(200, 0);
+                            withdrawnQuantities[500] += billsToDispense.GetValueOrDefault(500, 0);
+
+                            // Calculate the new total amount withdrawn
+                            double newMontoTotalRetirado = (withdrawnQuantities[100] * 100) + (withdrawnQuantities[200] * 200) + (withdrawnQuantities[500] * 500);
+
+                            // Make sure the reader is closed before proceeding to update
+                            reader.Close();
+
+                            // Update the withdrawn bill quantities in historial_retiros_atm
+                            using (var cmdUpdate = new NpgsqlCommand("UPDATE historial_retiros_atm SET cantidad_billetes_100 = @cantidad_100_retirados, cantidad_billetes_200 = @cantidad_200_retirados, cant500_atm = @cantidad_500_retirados, monto_total_retirado = @monto_total_retirado WHERE id_retiro = @id_retiro", conector.ConectorConnection))
+                            {
+                                cmdUpdate.Parameters.AddWithValue("cantidad_100_retirados", withdrawnQuantities[100]);
+                                cmdUpdate.Parameters.AddWithValue("cantidad_200_retirados", withdrawnQuantities[200]);
+                                cmdUpdate.Parameters.AddWithValue("cantidad_500_retirados", withdrawnQuantities[500]);
+                                cmdUpdate.Parameters.AddWithValue("monto_total_retirado", newMontoTotalRetirado);
+                                cmdUpdate.Parameters.AddWithValue("id_retiro", 1); // Adjust id_retiro as needed
+                                cmdUpdate.Transaction = transaction;
+
+                                // Execute the update query
+                                cmdUpdate.ExecuteNonQuery();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al actualizar los billetes dispensados: " + ex.Message);
+                throw;  // Propagate the exception to trigger a rollback
             }
         }
 

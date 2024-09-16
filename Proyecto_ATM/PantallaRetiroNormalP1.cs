@@ -128,8 +128,6 @@ namespace Proyecto_ATM
             else
             {
                 mostrar_error("Saldo insuficiente para realizar retiro.");
-
-
             }
         }
 

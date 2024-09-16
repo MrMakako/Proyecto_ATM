@@ -17,7 +17,7 @@ namespace Proyecto_ATM
         public TecnicoEstadoActual()
         {
             InitializeComponent();
-            LoadInfo();
+            
 
         }
 
@@ -37,6 +37,11 @@ namespace Proyecto_ATM
             this.Total200.Text = (saldo.cant200*200).ToString("N0", CultureInfo.InvariantCulture);
             this.Total500.Text = (saldo.cant500*500).ToString("N0", CultureInfo.InvariantCulture);
 
+        }
+
+        private void TecnicoEStadoActual_Load(object sender, EventArgs e)
+        {
+            LoadInfo();
         }
         private void label1_Click(object sender, EventArgs e)
         {

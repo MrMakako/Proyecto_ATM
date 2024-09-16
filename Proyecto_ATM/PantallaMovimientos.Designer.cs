@@ -38,6 +38,8 @@
             label4 = new Label();
             label5 = new Label();
             regresar_btn = new RoundButton();
+            historial_btn = new RoundButton();
+            roundButton3    = new RoundButton();
             roundButton2 = new RoundButton();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
@@ -212,6 +214,49 @@
             roundButton2.TextColor = Color.White;
             roundButton2.UseVisualStyleBackColor = false;
             // 
+            // Historial Billetes
+            // 
+            historial_btn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            historial_btn.BackColor = Color.FromArgb(204, 24, 38);
+            historial_btn.BackgroundColor = Color.FromArgb(204, 24, 38);
+            historial_btn.BorderColor = Color.FromArgb(204, 24, 38);
+            historial_btn.BorderRadius = 10;
+            historial_btn.BorderSize = 1;
+            historial_btn.FlatAppearance.BorderSize = 0;
+            historial_btn.FlatStyle = FlatStyle.Flat;
+            historial_btn.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            historial_btn.ForeColor = Color.White;
+            historial_btn.Location = new Point(701, 370);
+            historial_btn.Margin = new Padding(3, 2, 3, 2);
+            historial_btn.Name = "historial_btn";
+            historial_btn.Size = new Size(195, 51);
+            historial_btn.TabIndex = 15;
+            historial_btn.Text = "Mas";
+            historial_btn.TextColor = Color.White;
+            historial_btn.UseVisualStyleBackColor = false;
+            historial_btn.Click += mas_btn_click;
+            // 
+            // roundButton3
+            // 
+            roundButton3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            roundButton3.BackColor = Color.FromArgb(143, 14, 24);
+            roundButton3.BackgroundColor = Color.FromArgb(143, 14, 24);
+            roundButton3.BorderColor = Color.PaleVioletRed;
+            roundButton3.BorderRadius = 10;
+            roundButton3.BorderSize = 0;
+            roundButton3.Enabled = false;
+            roundButton3.FlatAppearance.BorderSize = 0;
+            roundButton3.FlatStyle = FlatStyle.Flat;
+            roundButton3.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            roundButton3.ForeColor = Color.White;
+            roundButton3.Location = new Point(701, 376);
+            roundButton3.Margin = new Padding(3, 2, 3, 2);
+            roundButton3.Name = "roundButton3";
+            roundButton3.Size = new Size(195, 51);
+            roundButton3.TabIndex = 16;
+            roundButton3.TextColor = Color.White;
+            roundButton3.UseVisualStyleBackColor = false;
+            // 
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage1);
@@ -265,6 +310,8 @@
             Controls.Add(tableLayoutPanel2);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Controls.Add(historial_btn);
+            Controls.Add(roundButton3);
             Margin = new Padding(3, 2, 3, 2);
             Name = "PantallaMovimientosTecnico";
             Size = new Size(949, 600);
@@ -295,5 +342,7 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private Panel panel3;
+        private RoundButton historial_btn;
+        private RoundButton roundButton3;
     }
 }
