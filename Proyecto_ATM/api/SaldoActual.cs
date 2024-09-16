@@ -23,7 +23,8 @@ namespace Proyecto_ATM.api
         public SaldoActual()
         {
             conector = new Conector();
-            LoadData();
+            //LoadData();
+            //LoadWithdrawalData();
         }
 
 

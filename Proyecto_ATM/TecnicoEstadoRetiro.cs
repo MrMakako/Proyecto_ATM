@@ -16,7 +16,7 @@ namespace Proyecto_ATM
         public TecnicoEstadoRetiro()
         {
             InitializeComponent();
-            LoadInfo();
+            
 
         }
 
@@ -35,6 +35,12 @@ namespace Proyecto_ATM
             //this.Total500.Text = (montoRetirado.cant500Retirados * 500).ToString();
 
         }
+
+        private void TecnicoEstadoRetiro_Load(object sender, EventArgs e)
+        {
+            LoadInfo();
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
 

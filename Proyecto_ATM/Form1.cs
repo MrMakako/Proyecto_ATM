@@ -314,6 +314,7 @@ namespace Proyecto_ATM
             hide_all();
             pantallaHistorialRetiro.Show();
             pantallaHistorialRetiro.BringToFront();
+            pantallaHistorialRetiro.LoadInfo();
         }
 
         //Botones 
