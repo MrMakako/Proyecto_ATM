@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Forms.Design;
 using System.Xml.Linq;
 
@@ -36,7 +37,25 @@ namespace Proyecto_ATM.api
             Console.WriteLine(mensaje);
             popUp.mostrar_error(mensaje, Parent);
         }
+        private void mostrar_modal(Form Parent, Dictionary<int, int> billsToDispense) {
+            int bills_100=0;
+            int bills_200=0;
+            int bills_500=0;
+            if (billsToDispense.ContainsKey(100))
+                bills_100 = billsToDispense[100];
+            if (billsToDispense.ContainsKey(200))
+                bills_200 = billsToDispense[200];
+            if (billsToDispense.ContainsKey(500))
+                bills_500-= billsToDispense[500];
+            popUp = new PopUps();
 
+            popUp.mostrar_billetes_dispensados(bills_100,bills_200,bills_500, Parent);
+
+           
+
+
+
+        }
         public bool retiro(double monto, Form Parent, String TipoRetiro)
         {
             double saldo = ConsultarSaldo(numeroCuenta);
@@ -140,8 +159,8 @@ namespace Proyecto_ATM.api
                 conector.Close();
             }
 
-            mostrar_error("Retiro exitoso. Se han dispensado\n los siguientes billetes:",Parent);
-            mostrar_error(FormatDispensedBills(billsToDispense),Parent);
+            //mostrar_error("Retiro exitoso. Se han dispensado\n los siguientes billetes:",Parent);
+            mostrar_modal(Parent,billsToDispense);
             return true;
         }
 
